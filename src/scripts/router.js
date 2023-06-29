@@ -5,10 +5,10 @@ import Display from './../pages/Display.vue'; //리스트
 import About from './../pages/About.vue';
 
 const routes = [
-	{ path: '/', component: Home },
-	{ path: '/category', component: Category },
-	{ path: '/display', component: Display },
-	{ path: '/about', component: About }
+	{ path: '/vue-2023/', component: Home },
+	{ path: '/vue-2023/category', component: Category },
+	{ path: '/vue-2023/display', component: Display },
+	{ path: '/vue-2023/about', component: About }
 ];
 
 const router = createRouter({
