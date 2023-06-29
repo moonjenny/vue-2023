@@ -7,9 +7,9 @@ export default {
         {
           link: "#none1",
           images: [
-            "/vue-2023/src/assets/images/main/thumb-01.png",
-            "/vue-2023/src/assets/images/main/thumb-02.png",
-            "/vue-2023/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -23,8 +23,8 @@ export default {
         {
           link: "#none",
           images: [
-            "/vue-2023/src/assets/images/main/thumb-02.png",
-            "/vue-2023/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
           ],
           alt: '클래식 크롭 테일러드',
           colors: ["black", "gray"],
@@ -38,9 +38,9 @@ export default {
         {
           link: "#none",
           images: [
-            "/vue-2023/src/assets/images/main/thumb-01.png",
-            "/vue-2023/src/assets/images/main/thumb-02.png",
-            "/vue-2023/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -54,9 +54,9 @@ export default {
         {
           link: "#none",
           images: [
-            "/vue-2023/src/assets/images/main/thumb-01.png",
-            "/vue-2023/src/assets/images/main/thumb-02.png",
-            "/vue-2023/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],

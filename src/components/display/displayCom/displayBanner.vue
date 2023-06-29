@@ -27,7 +27,7 @@
         items: [
           {
             link: "#none",
-            image: "/vue-2023/src/assets/images/display/display-slide.png",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "KENNETH LADY",
             text: "IN CLASSIC",
@@ -35,7 +35,7 @@
           },
           {
             link: "#none",
-            image: "/vue-2023/src/assets/images/display/display-slide.png",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.",
             text: "두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다.",
@@ -43,7 +43,7 @@
           },
           {
             link: "#none",
-            image: "/vue-2023/src/assets/images/display/display-slide.png",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "KENNETH LADY",
             text: "IN CLASSIC",

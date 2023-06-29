@@ -8,21 +8,21 @@ export default {
       items: [
         {
           link: "#none1",
-          image: "/vue-2023/src/assets/images/main/week-01.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/week-01.png",
           alt: '클래식룩',
           title: "클래식룩",
           text: "클래식룩을 추천드립니다. 클래식룩을 추천드립니다. 클래식룩을 추천드립니다. 클래식룩을 추천드립니다."
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/main/week-01.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/week-01.png",
           alt: '클래식룩',
           title: "클래식룩",
           text: "클래식룩을 추천드립니다. 두줄 이상이면 말줄임처리 됩니다. 두줄 이상이면 말줄임처리 됩니다. 두줄 이상이면 말줄임처리 됩니다. 두줄 이상이면 말줄임처리 됩니다."
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/main/week-01.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/week-01.png",
           alt: '클래식룩',
           title: "클래식룩",
           text: "클래식룩을 추천드립니다."

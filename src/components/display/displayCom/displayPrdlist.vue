@@ -5,7 +5,7 @@ export default {
       lists: [
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-01.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -16,7 +16,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-02.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -27,7 +27,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-03.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-03.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -38,7 +38,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-04.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -49,7 +49,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-05.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -60,7 +60,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-06.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-06.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -71,7 +71,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-07.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -82,7 +82,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-08.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -93,7 +93,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-09.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-09.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
@@ -104,7 +104,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/vue-2023/src/assets/images/temp/thumb-10.png",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
