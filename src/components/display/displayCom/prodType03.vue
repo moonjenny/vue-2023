@@ -6,28 +6,28 @@ export default {
       items: [
         {
           link: "#none1",
-          image: "/src/assets/images/main/thumb-01.png",
+          image: "/vue-2023/src/assets/images/main/thumb-01.png",
 					alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
           link: "#none",
-          image: "/src/assets/images/main/thumb-02.png",
+          image: "/vue-2023/src/assets/images/main/thumb-02.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
           link: "#none",
-          image: "/src/assets/images/main/thumb-01.png",
+          image: "/vue-2023/src/assets/images/main/thumb-01.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
           link: "#none",
-          image: "/src/assets/images/main/thumb-02.png",
+          image: "/vue-2023/src/assets/images/main/thumb-02.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"

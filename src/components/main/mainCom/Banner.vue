@@ -5,7 +5,7 @@ export default {
       items: [
         {
           link: "#none",
-          image: "/src/assets/images/main/main-banner.png",
+          image: "/vue-2023/src/assets/images/main/main-banner.png",
           alt: '신규회원 가입 혜택',
         }
       ]

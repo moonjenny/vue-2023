@@ -17,10 +17,10 @@ export default {
     return {
       title: 'all',
       categories: [
-        { name: "의류", route: "/display" },
-        { name: "가방", route: "/display" },
-        { name: "악세사리", route: "/display" },
-        { name: "골프/에슬레저", route: "/display" },
+        { name: "의류", route: "/vue-2023/display" },
+        { name: "가방", route: "/vue-2023/display" },
+        { name: "악세사리", route: "/vue-2023/display" },
+        { name: "골프/에슬레저", route: "/vue-2023/display" },
       ],
       isActive: false
     }

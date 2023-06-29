@@ -6,27 +6,27 @@
         lists: [
           {
             link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            image: "/vue-2023/src/assets/images/display/brand-01.png",
             alt: "이미지 설명1"
           },
           {
             link: "#none",
-            image: "/src/assets/images/display/brand-02.png",
+            image: "/vue-2023/src/assets/images/display/brand-02.png",
             alt: "이미지 설명2"
           },
           {
             link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            image: "/vue-2023/src/assets/images/display/brand-01.png",
             alt: "이미지 설명3"
           },
           {
             link: "#none",
-            image: "/src/assets/images/display/brand-02.png",
+            image: "/vue-2023/src/assets/images/display/brand-02.png",
             alt: "이미지 설명4"
           },
           {
             link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            image: "/vue-2023/src/assets/images/display/brand-01.png",
             alt: "이미지 설명5"
           }
         ],

@@ -6,32 +6,32 @@ export default {
         {
           link: "#none1",
           text: '#모피', 
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-01.png'
         },
         {
           link: "#none",
           text: '#데님',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-02.png'
         },
         {
           link: "#none",
           text: '#모피2',
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-01.png'
         },
         {
           link: "#none",
           text: '#데님2',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-02.png'
         },
         {
           link: "#none",
           text: '#모피3',
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-01.png'
         },
         {
           link: "#none",
           text: '#데님3',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: '/vue-2023/src/assets/images/main/hashtag-02.png'
         },
       ],
     };

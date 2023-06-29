@@ -16,13 +16,13 @@ export default {
         },
         {
           id: 3,
-          link: '/',
+          link: '/vue-2023/',
           iconClass: 'f-home',
           title: '홈'
         },
         {
           id: 4,
-          link: '/mypage',
+          link: '/vue-2023/mypage',
           iconClass: 'f-my',
           title: '마이페이지'
         }

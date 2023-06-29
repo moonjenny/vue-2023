@@ -8,7 +8,7 @@ export default {
       boxs: [
         {
           link: "#none1",
-          image: "/src/assets/images/main/news-01.png",
+          image: "/vue-2023/src/assets/images/main/news-01.png",
           alt: 'Mind Mapping',
           code: "NUVO10",
           title: "Mind Mapping",
@@ -16,7 +16,7 @@ export default {
         },
         {
           link: "#none",
-          image: "/src/assets/images/main/news-02.png",
+          image: "/vue-2023/src/assets/images/main/news-02.png",
           alt: '클래식 크롭 테일러드 자켓',
           code: "LINE",
           title: "OUR TIME",
