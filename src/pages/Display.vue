@@ -1,7 +1,7 @@
 <script setup>
 //공통 헤더
 import displayTags from '/src/components/display/displayCom/displayTags.vue'
-import displayBanner from '/src/components/display/displayCom/displayBanner.vue'
+// import displayBanner from '/src/components/display/displayCom/displayBanner.vue'
 import displayBrand from '/src/components/display/displayCom/displayBrand.vue'
 import displayFilter from '/src/components/display/displayCom/displayFilter.vue'
 import displayPrdlist from '/src/components/display/displayCom/displayPrdlist.vue'
@@ -11,7 +11,6 @@ import displayPrdlist from '/src/components/display/displayCom/displayPrdlist.vu
   <!-- container -->
   <div id="container" class="container">
     <displayTags />
-    <displayBanner />
     <displayBrand />
     <displayFilter />
     <displayPrdlist />
