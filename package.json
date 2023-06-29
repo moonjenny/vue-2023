@@ -1,0 +1,25 @@
+{
+  "name": "vue-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 10.154.90.187 --port 5000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "node-sass": "^8.0.0",
+    "sass": "^1.59.3",
+    "sass-loader": "^13.2.0",
+    "swiper": "^8.4.7",
+    "vite": "^4.1.4",
+    "vue-awesome-swiper": "^5.0.1",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.1.0"
+  }
+}
