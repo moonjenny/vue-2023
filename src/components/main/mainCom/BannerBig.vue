@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       bannerLink: "#none",
-      imageSrc: "src/assets/images/main/main-banner-02.png",
+      imageSrc: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/main-banner-02.png",
       imageAlt: "배너 설명",
       bannerTitle: "IN CLASSIC",
       bannerText: "간결한 선, 세련된 컬러, 사려 깊은 디테일로 새롭게 재해석하였습니다."
