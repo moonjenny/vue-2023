@@ -11,7 +11,7 @@ export default {
 <template>
   <header class="header" id="header">
     <h1>
-      <a href="/">
+      <a href="/vue-2023/">
         <span class="logo">{{ logoText }}</span>
       </a>
     </h1>
