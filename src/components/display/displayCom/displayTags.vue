@@ -5,6 +5,7 @@
 	// import swiper module styles
 	import 'swiper/css'
 	import 'swiper/css/pagination'
+  import 'swiper/swiper-bundle.css'
 	// more module style...
 
 	export default {
