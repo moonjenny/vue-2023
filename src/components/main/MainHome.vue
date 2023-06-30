@@ -1,6 +1,6 @@
 <script setup>
   //메인 : 홈
-  //import Kv from './mainCom/Kv.vue'
+  import Kv from './mainCom/Kv.vue'
   import Hashtag from './mainCom/Hashtag.vue'
   import Trend from './mainCom/Trend.vue'
   import Today from './mainCom/Today.vue'
@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <!-- <Kv /> -->
+  <Kv />
   <Hashtag />
   <Trend />
   <Today />
