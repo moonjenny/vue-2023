@@ -2,69 +2,77 @@
   
 </script>
 <script>
-  import SwiperClass, { Pagination } from 'Swiper'
-  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+	import { ref, onMounted } from 'vue';
+	import Swiper from 'swiper';
 
   // import swiper module styles
   import 'swiper/css'
   import 'swiper/css/pagination'
+  import 'swiper/swiper-bundle.css'
   // more module style...
 
   export default {
-    components: {
-      Swiper,
-      SwiperSlide
-    },
-    setup() {
-      return {
-        modules: [Pagination]
-      }
-    },
-    
-    data() {
-      return {
-        items: [
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TWEED COLLECTION",
-            text: "가을무드 가득 트위드"
-          },
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.",
-            text: "두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다."
-          },
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TWEED COLLECTION",
-            text: "가을무드 가득 트위드"
-          }
-        ]
-      }
-    }
-  }
+  setup() {
+		const mainSwiper = ref(null);
+
+    onMounted(() => {
+      mainSwiper.value = new Swiper('.main-slide .swiper-container', {
+        slidesPerView: 'auto',
+        pagination: {
+          el: ".main-slide .swiper-pagination",
+        },
+      });
+    });
+
+    return {
+      mainSwiper,
+      items: [
+        {
+          link: '#none',
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
+          alt: '이미지 설명',
+          title: 'TWEED COLLECTION',
+          text: '가을무드 가득 트위드',
+        },
+        {
+          link: '#none',
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
+          alt: '이미지 설명',
+          title: 'TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.',
+          text: '두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다.',
+        },
+        {
+          link: '#none',
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
+          alt: '이미지 설명',
+          title: 'TWEED COLLECTION',
+          text: '가을무드 가득 트위드',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <template>
   <section class="main-kv">
     <div class="main-slide">
-      <swiper :modules="modules" :pagination="{ clickable: true }">
-        <swiper-slide v-for="(item, index) in items" :key="index">
-          <a :href="item.link">
-            <img :src="item.image" :alt="item.alt" />
-            <span>
-              <em class="slide-title">{{ item.title }}</em>
-              <em class="slide-text">{{ item.text }}</em>
-            </span>
-          </a>
-        </swiper-slide>
-      </swiper>
+
+      <div class="swiper-container">
+        <div class="tabs-list swiper-wrapper">
+          <div class="swiper-slide" v-for="(item, index) in items" :key="index">
+            <a :href="item.link">
+              <img :src="item.image" :alt="item.alt" />
+              <span>
+                <em class="slide-title">{{ item.title }}</em>
+                <em class="slide-text">{{ item.text }}</em>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!-- pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
   </section>
 </template>
