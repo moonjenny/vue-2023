@@ -51,7 +51,14 @@ export default {
 			document.querySelector(".layer-login").scrollTo({
 				top: 0,
 			});
-    }
+	},
+	scrollToTop() {
+      // 페이지의 맨 위로 스크롤 이동
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // 부드러운 스크롤 동작을 위해 'smooth' 옵션 사용
+      });
+    },
   }
 }
 </script>
@@ -92,7 +99,7 @@ export default {
 				<span class="float-chat">1:1채팅하기</span>
 			</button>
 			<button type="button">
-				<span class="float-top">상단으로 이동</span>
+				<span class="float-top" @click="scrollToTop">상단으로 이동</span>
 			</button>
 		</div>
 	</section>

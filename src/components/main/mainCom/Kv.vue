@@ -57,7 +57,6 @@
 <template>
   <section class="main-kv">
     <div class="main-slide">
-
       <div class="swiper-container">
         <div class="tabs-list swiper-wrapper">
           <div class="swiper-slide" v-for="(item, index) in items" :key="index">
@@ -79,6 +78,7 @@
 
 <style lang="scss">
 .main-slide {
+  overflow:hidden;
   .swiper-slide {
     a {
       position: relative;

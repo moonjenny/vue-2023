@@ -118,6 +118,7 @@
 
 .display-slide {
   padding-top: 24px;
+  overflow:hidden;
 
   .swiper-slide {
     a {
