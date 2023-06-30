@@ -2,8 +2,8 @@
   
 </script>
 <script>
-  import SwiperClass, { Pagination } from 'Swiper'
-  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+	import { ref, onMounted } from 'vue';
+	import Swiper from 'swiper';
 
   // import swiper module styles
   import 'swiper/css'
@@ -11,49 +11,83 @@
   // more module style...
 
   export default {
-    components: {
-      Swiper,
-      SwiperSlide
-    },
-    setup() {
-      return {
-        modules: [Pagination]
+  setup() {
+    const activeTab = ref(0);
+		const tabSwiper = ref(null);
+		
+		const tabs = ['전체', '아우터', '원피스', '블라우스', '팬츠', '신발'];
+
+    /* const switchTab = (tabIndex) => {
+      if (tabSwiper.value) {
+        activeTab.value = tabIndex;
+        tabSwiper.value.slideTo(tabIndex - 1);
+      } else {
+        console.error('tabSwiper is null');
       }
-    },
-    
-    data() {
-      return {
-        items: [
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TWEED COLLECTION",
-            text: "가을무드 가득 트위드"
-          },
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.",
-            text: "두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다."
-          },
-          {
-            link: "#none",
-            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
-            alt: '이미지 설명',
-            title: "TWEED COLLECTION",
-            text: "가을무드 가득 트위드"
-          }
-        ]
-      }
+    }; */
+
+    onMounted(() => {
+      tabSwiper.value = new Swiper('.main-slide .swiper-container', {
+        slidesPerView: 'auto',
+      });
+    });
+
+    return {
+      activeTab,
+      tabSwiper,
+      tabs,
+      //switchTab,
+    };
+  },
+  data() {
+    return {
+      items: [
+        {
+          link: "#none",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
+          alt: '이미지 설명',
+          title: "TWEED COLLECTION",
+          text: "가을무드 가득 트위드"
+        },
+        {
+          link: "#none",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
+          alt: '이미지 설명',
+          title: "TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.",
+          text: "두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다."
+        },
+        {
+          link: "#none",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png",
+          alt: '이미지 설명',
+          title: "TWEED COLLECTION",
+          text: "가을무드 가득 트위드"
+        }
+      ]
     }
   }
+};
 </script>
 
 <template>
   <section class="main-kv">
     <div class="main-slide">
+
+      <div class="swiper-container">
+        <div class="tabs-list swiper-wrapper">
+          <div class="swiper-slide" v-for="(item, index) in items" :key="index">
+            <!-- <a href="#none" :class="{ active: activeTab === index }">{{ item }}</a> -->
+            <a :href="item.link">
+              <img :src="item.image" :alt="item.alt" />
+              <span>
+                <em class="slide-title">{{ item.title }}</em>
+                <em class="slide-text">{{ item.text }}</em>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 
       <swiper :modules="modules" :pagination="{ clickable: true }">
         <swiper-slide v-for="(item, index) in items" :key="index">
           <a :href="item.link">
@@ -64,7 +98,7 @@
             </span>
           </a>
         </swiper-slide>
-      </swiper>
+      </swiper> -->
     </div>
   </section>
 </template>
