@@ -23,7 +23,7 @@
     "sass-loader": "^13.2.0",
     "swiper": "^8.4.7",
     "vite": "^4.1.4",
-    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vite-plugin-vuetify": "^3.3.0-alpha.12",
     "vue-cli-plugin-vuetify": "~2.5.8",
     "vue-router": "^4.0.13",
     "vuex": "^4.1.0"
