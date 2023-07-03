@@ -1,6 +1,5 @@
 <script setup>
   //메인 : 홈
-  import Swiper from './mainCom/Swiper.vue'
   import Kv from './mainCom/Kv.vue'
   import Hashtag from './mainCom/Hashtag.vue'
   import Trend from './mainCom/Trend.vue'
@@ -16,7 +15,6 @@
 </script>
 
 <template>
-  <Swiper />
   <Kv />
   <Hashtag />
   <Trend />
