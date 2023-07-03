@@ -19,7 +19,8 @@
       mainSwiper.value = new Swiper('.main-slide .swiper-container', {
         slidesPerView: 'auto',
         pagination: {
-          el: ".main-slide .swiper-pagination",
+          el: ".swiper-pagination",
+          clickable: true,
         },
       });
     });
