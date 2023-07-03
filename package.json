@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host 10.154.90.187 --port 5000",
+    "serve": "vite preview",
     "build": "vite build",
+    "dev": "vite --host 10.154.90.187 --port 5000",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "@mdi/font": "5.9.55",
+    "roboto-fontface": "*",
+    "vue": "^3.2.47",
+    "vuetify": "npm:@vuetify/nightly@next",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
@@ -18,7 +23,8 @@
     "sass-loader": "^13.2.0",
     "swiper": "^8.4.7",
     "vite": "^4.1.4",
-    "vue-awesome-swiper": "^5.0.1",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-vuetify": "~2.5.8",
     "vue-router": "^4.0.13",
     "vuex": "^4.1.0"
   }
