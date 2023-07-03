@@ -2,34 +2,34 @@
   
 </script>
 <script>
-	import { ref, onMounted } from 'vue';
-	import Swiper from 'swiper';
+  // import Swiper core and required modules
+  import SwiperCore, { Pagination, A11y } from 'swiper';
 
-  // import swiper module styles
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
   import 'swiper/css'
   import 'swiper/css/pagination'
   import 'swiper/swiper-bundle.css'
-  // more module style...
+
+  // install Swiper modules
+  SwiperCore.use([Pagination, A11y]);
 
   export default {
-    setup() {
-      const mainSwiper = ref(null);
-      
-      onMounted(() => {
-        mainSwiper.value = new Swiper('.display-slide .swiper-container', {
-          slidesPerView: 'auto',
-          pagination: {
-            el: ".display-slide .swiper-pagination",
-          },
-        });
-      });
-
-      return {
-
-      }
+    components: {
+      Swiper,
+      SwiperSlide,
     },
-    
-    data() {
+    methods: {
+      onSwiper(swiper) {
+        console.log(swiper);
+      },
+      onSlideChange() {
+        console.log('slide change');
+      },
+		},
+    setup() {
       return {
         title: "아우터",
         items: [
@@ -68,28 +68,14 @@
     <div class="title">{{ title }}</div>
 
     <div class="display-slide">
-      <div class="swiper-container">
-        <div class="tabs-list swiper-wrapper">
-          <div class="swiper-slide" v-for="(item, index) in items" :key="index">
-            <a :href="item.link">
-              <img :src="item.image" :alt="item.alt" />
-              <span>
-                <em class="slide-title">{{ item.title }}</em>
-                <em class="slide-text">{{ item.text }}</em>
-                <em class="slide-subtext">{{ item.subtext }}</em>
-              </span>
-            </a>
-          </div>
-        </div>
-        <!-- pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-
-    <!-- 
-    <div class="display-slide">
-      <swiper :modules="modules" :pagination="{ clickable: true }">
-        <swiper-slide v-for="(item, index) in items" :key="index">
+      <swiper
+				:slides-per-view="1"
+				:space-between="0"
+				:pagination="{ clickable: true }"
+				@swiper="onSwiper"
+				@slideChange="onSlideChange"
+			>
+				<swiper-slide v-for="(item, index) in items" :key="index">
           <a :href="item.link">
             <img :src="item.image" :alt="item.alt" />
             <span>
@@ -100,7 +86,7 @@
           </a>
         </swiper-slide>
       </swiper>
-    </div> -->
+    </div>
 
   </section>
 </template>
