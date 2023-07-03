@@ -9,6 +9,9 @@
 	// more module style...
 
 	export default {
+    data: () => ({
+      model: null,
+    }),
   setup() {
     const activeTab = ref(0);
 		const tabSwiper = ref(null);
@@ -42,6 +45,7 @@
 </script>
 
 <template>
+
   <section class="display-tabs">
 		<div class="swiper-container">
 			<ul class="tabs-list swiper-wrapper">
@@ -51,14 +55,30 @@
 			</ul>
 		</div>
 	</section>
+
+  <section class="display-tabs">
+    <v-card>
+      <v-tabs
+        center-active
+      >
+        <v-tab v-for="(item, index) in tabs" :key="index">
+          {{ item }}
+        </v-tab>
+      </v-tabs>
+    </v-card>
+  </section>
+
+
+  
+
 </template>
 
 <style lang="scss">
 
+// swiper.js 이용한 탭메뉴
 .display-tabs {
-  overflow:hidden;
   .swiper-wrapper {
-    padding: 24px 20px;
+    margin: 24px 20px;
   }
 
   .swiper-slide {
@@ -82,6 +102,44 @@
     color: #fff;
     border: 1px solid #333;
     background: #333;
+  }
+}
+
+//Vuetify 이용한 탭메뉴
+.display-tabs {
+  .v-card {
+    margin:24px 0;
+    box-shadow:none;
+    .v-slide-group {
+      .v-slide-group__container {
+        padding:0 12px 0 20px;
+        .v-btn {
+          display: block;
+          padding: 12px 24px;
+          font-size: 14px;
+          color: #111;
+          border: 1px solid #eee;
+          margin-right:8px;
+          min-width:auto;
+          height:auto;
+          border-radius:0;
+          
+          &.v-tab--selected {
+            border: 1px solid #333;
+            background: #333;
+            .v-btn__content {
+              color: #fff;
+              .v-tab__slider {
+                opacity:0;
+              }
+            }
+          }
+          .v-btn__content {
+            color:#111;
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -40,7 +40,6 @@ export default {
     width:198px;
     height:100%;
     a {
-      width:158px;
       height:100%;
       padding:0 20px;
       display:flex;
