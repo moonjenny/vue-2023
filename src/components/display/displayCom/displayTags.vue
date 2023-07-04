@@ -56,6 +56,7 @@
 		</div>
 	</section>
 
+  <!-- Vuetify 이용한 탭메뉴
   <section class="display-tabs">
     <v-card>
       <v-tabs
@@ -66,10 +67,7 @@
         </v-tab>
       </v-tabs>
     </v-card>
-  </section>
-
-
-  
+  </section> -->
 
 </template>
 
@@ -106,6 +104,7 @@
 }
 
 //Vuetify 이용한 탭메뉴
+/* 
 .display-tabs {
   .v-card {
     margin:24px 0;
@@ -141,5 +140,5 @@
       }
     }
   }
-}
+} */
 </style>
