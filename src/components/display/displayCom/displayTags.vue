@@ -75,6 +75,7 @@
 
 // swiper.js 이용한 탭메뉴
 .display-tabs {
+  overflow:hidden;
   .swiper-wrapper {
     margin: 24px 20px;
   }

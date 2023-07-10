@@ -1,7 +1,4 @@
 <script>
-  // import Swiper core and required modules
-  import SwiperCore, { Pagination, A11y } from 'swiper';
-
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -9,9 +6,6 @@
   import 'swiper/css'
   import 'swiper/css/pagination'
   import 'swiper/swiper-bundle.css'
-
-  // install Swiper modules
-  SwiperCore.use([Pagination, A11y]);
 
   // Import Swiper styles
   export default {
@@ -62,19 +56,19 @@
 		<div class="main-slide">
 			<swiper
 				:slides-per-view="1"
-				:space-between="0"
-				:pagination="{ clickable: true }"
+				:pagination="{ clickable: false }"
+        :loop="true"
 				@swiper="onSwiper"
 				@slideChange="onSlideChange"
 			>
 				<swiper-slide v-for="(item, index) in items" :key="index">
-						<a :href="item.link">
-							<img :src="item.image" :alt="item.alt" />
-							<span>
-								<em class="slide-title">{{ item.title }}</em>
-								<em class="slide-text">{{ item.text }}</em>
-							</span>
-						</a>
+          <a :href="item.link">
+            <img :src="item.image" :alt="item.alt" />
+            <span>
+              <em class="slide-title">{{ item.title }}</em>
+              <em class="slide-text">{{ item.text }}</em>
+            </span>
+          </a>
 				</swiper-slide>
 			</swiper>
 		</div>

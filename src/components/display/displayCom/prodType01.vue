@@ -68,24 +68,24 @@ export default {
           active: false
         }
       ],
-      // 컬러칩 활성화 인덱스
-      activeColor: 0,
-      //썸네일 인덱스
-      activeThumbIndex: 0,
+      activeColor: [], // 컬러칩 활성화 인덱스 (배열로 변경)
+      activeThumbIndex: [], // 썸네일 인덱스 (배열로 변경)
     };
   },
   methods: {
-    //좋아요 클릭
     toggleActive(item) {
       item.active = !item.active;
     },
-    //컬러칩 토글
-    toggleActiveColor(index, item) {
-      this.activeColor = index === this.activeColor ? null : index;
-      this.activeThumbIndex = index;
-      this.$refs.thumb.src = item.images[index];
-      console.log(index, liId);
+    toggleActiveColor(index, itemIndex, item) {
+      this.activeColor[itemIndex] = index;
+      this.activeThumbIndex[itemIndex] = index;
+      console.log("li의 index:", itemIndex, index);
     }
+  },
+  mounted() {
+    // 초기에 첫 번째 썸네일 이미지 및 color-chip 활성화
+    this.activeThumbIndex = this.items.map(() => 0);
+    this.activeColor = this.items.map((item, index) => (index === index ? 0 : null));
   }
 };
 </script>
@@ -96,7 +96,7 @@ export default {
       <li v-for="(item, index) in items" :key="index">
         <div class="item">
           <div class="thumb">
-            <img :src="item.images[activeThumbIndex]" :alt="item.alt" ref="thumb" />
+            <img :src="item.images[activeThumbIndex[index]]" :alt="item.alt" ref="thumb" />
           </div>
           <a href="#none" class="btn-like" 
             :class="{ active: item.active }" 
@@ -108,8 +108,8 @@ export default {
             <a href="#none"
               v-for="(color, i) in item.colors"
               :key="color"
-              :class="[{ active: i === activeColor || (i === 0 && !activeColor && item.active) }]"
-              @click="toggleActiveColor(i, item); activeThumbIndex = i; $refs.thumb.src = item.images[activeThumbIndex]"
+              :class="{ active: i === activeColor[index] }"
+              @click="toggleActiveColor(i, index, item)"
             >
               <span :class="'color-' + (color)">{{ color }}</span>
             </a>
