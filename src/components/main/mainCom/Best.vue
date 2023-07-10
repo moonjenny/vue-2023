@@ -19,7 +19,9 @@ export default {
 <template>
   <section class="main-sec main-best">
     <div class="main-title" :title="pageTitle">{{ pageTitle }}</div>
+
     <prodType1 />
+    
     <div class="btn-box">
       <a href="#none" class="btn-all" :title="btnText">{{ btnText }}</a>
     </div>
