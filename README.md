@@ -1,4 +1,4 @@
-# vue-2023
+![image](https://github.com/moonjenny/vue-2023/assets/40196122/d2bf8476-af5a-4013-a929-670f26f98a40)# vue-2023
 
 안녕하세요. vue3를 이용하여 간단한 페이지 만드는 중입니다.
 <hr>
@@ -9,3 +9,8 @@
 
 <div> vue3, 깃허브 Actions 을 이용</div>
 <div> 보안상의 이유로 커밋하기 어려워 직접 업로드 하여, 히스토리가 지저분합니다.</div>
+
+<div>*토큰</div>
+<div style="font-size:0";>
+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
+</div>
