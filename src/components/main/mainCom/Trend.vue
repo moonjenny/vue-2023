@@ -7,19 +7,19 @@ export default {
 
       items: [
         {
-          link: "#none1",
+          link: "javascript:;",
           title: "SOMEDAY",
           description: "이번 시즌 린은 특별한 날의 순간을 스케치하였습니다.",
           imageSrc: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/trending-01.png"
         },
         {
-          link: "#none",
+          link: "javascript:;",
           title: "title",
           description: "이번 시즌 린은 특별한 날의 순간을 스케치하였습니다. 세줄 이상이면 말줄임처리 됩니다. 세줄 이상이면 말줄임처리 됩니다. 세줄 이상이면 말줄임처리 됩니다. 세줄 이상이면 말줄임처리 됩니다.",
           imageSrc: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/trending-01.png"
         },
         {
-          link: "#none",
+          link: "javascript:;",
           title: "SOMEDAY",
           description: "이번 시즌 린은 특별한 날의 순간을 스케치하였습니다.",
           imageSrc: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/trending-01.png"

@@ -18,7 +18,7 @@
     <prodType1 />
 
     <div class="btn-box">
-      <a href="#none" class="btn-all" :title="btnText">{{ btnText }}</a>
+      <a href="javascript:;" class="btn-all" :title="btnText">{{ btnText }}</a>
     </div>
   </section>
 </template>

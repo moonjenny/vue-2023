@@ -6,7 +6,7 @@ export default {
       //상품리스트 
       /* items: [
         {
-          link: "#none1",
+          link: "javascript:;",
           image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/style-01.png",
           alt: '이번 시즌 린은 특별한 날의 순간을 스케치하였습니다.',
           title: "SOMEDAY",

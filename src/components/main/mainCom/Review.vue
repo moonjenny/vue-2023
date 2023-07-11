@@ -7,7 +7,7 @@ export default {
       
       reviews: [
         {
-          link: "#none",
+          link: "javascript:;",
           image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/review-01.png",
           alt: '리뷰',
           width: "width:50%",
@@ -20,7 +20,7 @@ export default {
           prodprice: "219,000원"
         },
         {
-          link: "#none",
+          link: "javascript:;",
           image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/review-01.png",
           alt: '리뷰',
           width: "width:25%",
@@ -33,7 +33,7 @@ export default {
           prodprice: "219,000원"
         },
         {
-          link: "#none",
+          link: "javascript:;",
           image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/review-01.png",
           alt: '리뷰',
           width: "width:50%",

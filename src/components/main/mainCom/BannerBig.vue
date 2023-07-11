@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      bannerLink: "#none",
+      bannerLink: "javascript:;",
       imageSrc: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/main-banner-02.png",
       imageAlt: "배너 설명",
       bannerTitle: "IN CLASSIC",

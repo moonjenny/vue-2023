@@ -43,7 +43,7 @@ export default {
   <div class="main-tags">
     <ul ref="prodList">
       <li v-for="(tag, index) in tags" :key="index" :class="{ active: index === activeIndex }">
-        <a href="#none" @click.prevent="selectTag(index)">{{ tag }}</a>
+        <a href="javascript:;" @click.prevent="selectTag(index)">{{ tag }}</a>
       </li>
     </ul>
   </div>

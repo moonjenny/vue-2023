@@ -1,13 +1,13 @@
 <template>
   <div class="my-point">
     <div class="point-total">
-      <a href="#none">
+      <a href="javascript:;">
         <strong>{{ numberWithCommas(point) }}</strong>
         <span>보유 적립금</span>
       </a>
     </div>
     <div class="point-total">
-      <a href="#none">
+      <a href="javascript:;">
           <strong>{{ numberWithCommas(expoint) }}</strong>
           <span>당월 소멸예정 적립금</span>
       </a>

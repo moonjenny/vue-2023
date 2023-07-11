@@ -50,7 +50,7 @@
 		<div class="swiper-container">
 			<ul class="tabs-list swiper-wrapper">
 				<li v-for="(item, index) in tabs" :key="index" class="tabs-item swiper-slide" @click="switchTab(index)">
-          <a href="#none" :class="{ active: activeTab === index }">{{ item }}</a>
+          <a href="javascript:;" :class="{ active: activeTab === index }">{{ item }}</a>
         </li>
 			</ul>
 		</div>

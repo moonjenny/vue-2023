@@ -25,21 +25,21 @@
 			return {
 				items: [
 					{
-						link: '#none',
+						link: 'javascript:;',
 						image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
 						alt: '이미지 설명',
 						title: 'TWEED COLLECTION',
 						text: '가을무드 가득 트위드',
 					},
 					{
-						link: '#none',
+						link: 'javascript:;',
 						image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
 						alt: '이미지 설명',
 						title: 'TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.',
 						text: '두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다.',
 					},
 					{
-						link: '#none',
+						link: 'javascript:;',
 						image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/KV.png',
 						alt: '이미지 설명',
 						title: 'TWEED COLLECTION',

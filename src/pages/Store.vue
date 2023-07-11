@@ -1,7 +1,7 @@
 <template>
-  <section class="about">
+  <section class="store">
     <!-- 페이지 내용 -->
-    <h1>About</h1>
+    <h1>Store</h1>
     <p>This is a new page.</p>
   </section>
 </template>

@@ -5,12 +5,12 @@ import LayerCate from '../layer/LayerCategory.vue'
 <script>
 export default {
   data() {
-	console.log("이름 : " + this.$store.state.name);
+  console.log("이름 : " + this.$store.state.name);
     return {
       navs: [
         {
           id: 2,
-          link: '#none',
+          link: '/vue-2023/like/',
           iconClass: 'f-like',
           title: '좋아요'
         },
@@ -33,10 +33,10 @@ export default {
   methods: {
     goToLink(link) {
       this.$router.push(link);
-			console.log(link);
-			
-			//최상단 이동
-			window.scrollTo({
+      console.log(link);
+
+      //최상단 이동
+      window.scrollTo({
         top: 0,
       });
     },
@@ -45,22 +45,22 @@ export default {
       document.querySelector(".layer-wrap").classList.add("active");
 
       // body에서 .active 클래스 제거
-			document.body.classList.add("active");
-			
-			//레이어 항상 top으로 이동하기
-			document.querySelector(".layer-login").scrollTo({
+      document.body.classList.add("active");
+
+      //레이어 항상 top으로 이동하기
+      document.querySelector(".layer-login").scrollTo({
 				top: 0,
 			});
-	},
-	scrollToTop() {
-      // 페이지의 맨 위로 스크롤 이동
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth', // 부드러운 스크롤 동작을 위해 'smooth' 옵션 사용
-      });
     },
+    scrollToTop() {
+        // 페이지의 맨 위로 스크롤 이동
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // 부드러운 스크롤 동작을 위해 'smooth' 옵션 사용
+        });
+      },
+    }
   }
-}
 </script>
 <template>
 	<section class="actionbar">
@@ -73,7 +73,11 @@ export default {
         :key="nav.id" 
         class="nav-item"
       >
-				<button type="button" @click="goToLink(nav.link)">
+				<button 
+          type="button" 
+          @click="goToLink(nav.link)"
+          :class="{ 'active': nav.link === '/vue-2023/like/' && hasLike, 'f-like': nav.link === '/vue-2023/like/' }"
+        >
           <span :class="nav.iconClass">{{ nav.title }}</span>
         </button>
 			</li>
@@ -150,6 +154,9 @@ body.active {
 			}
 			.f-like {
 				background: url(@/assets/images/common/action-like.svg) center center no-repeat;
+        &.active {
+          background: url(@/assets/images/common/action-like-active.svg) center center no-repeat;
+        }
 			}
 			.f-home {
 				background: url(@/assets/images/common/action-home.svg) center center no-repeat;

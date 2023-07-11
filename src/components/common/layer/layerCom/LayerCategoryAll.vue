@@ -6,7 +6,7 @@
         <li v-for="(item, index) in categories" :key="index">
           <span class="category-parent" :class="{ open: isOpen[index] }" @click="toggle(index)">{{ item.name }}</span>
           <div class="depth1">
-            <a href="#none" v-for="link in item.links" :key="link">{{ link }}</a>
+            <a href="" v-for="link in item.links" :key="link">{{ link }}</a>
           </div>
         </li>
       </ul>

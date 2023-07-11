@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="category">
     <button @click="showPopup = true">Show Popup</button>
     <transition name="popup">
       <div v-if="showPopup" class="popup">
@@ -8,7 +8,7 @@
         <button @click="showPopup = false">Close</button>
       </div>
     </transition>
-  </div>
+  </section>
 </template>
 
 <script>

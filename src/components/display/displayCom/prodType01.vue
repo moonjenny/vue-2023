@@ -5,11 +5,11 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "#none1",
+          link: "",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
-            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -21,7 +21,7 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
@@ -36,11 +36,11 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
-            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -52,11 +52,11 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
-            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -98,21 +98,21 @@ export default {
           <div class="thumb">
             <img :src="item.images[activeThumbIndex[index]]" :alt="item.alt" ref="thumb" />
           </div>
-          <a href="#none" class="btn-like" 
+          <button class="btn-like" 
             :class="{ active: item.active }" 
             @click="toggleActive(item)"
           >
             좋아요
-          </a>
+          </button>
           <div class="color-chip">
-            <a href="#none"
+            <button type="button"
               v-for="(color, i) in item.colors"
               :key="color"
               :class="{ active: i === activeColor[index] }"
               @click="toggleActiveColor(i, index, item)"
             >
               <span :class="'color-' + (color)">{{ color }}</span>
-            </a>
+            </button>
           </div>
           <div class="info">
             <a :href="item.link">
@@ -191,7 +191,7 @@ export default {
     display: -webkit-box;
     display: -ms-flexbox;
 
-    a {
+    button {
       display: block;
       margin-right: 8px;
       width: 24px;
@@ -201,7 +201,7 @@ export default {
 
       span {
         display: block;
-        margin: 4px;
+        margin: 3px;
         width: 16px;
         height: 16px;
         font-size: 0;
