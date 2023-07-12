@@ -1,8 +1,8 @@
 <template>
   <div class="my-footer">
     <ul>
-        <li><a href="/vue-2023/notice">공지사항</a></li>
-        <li><a href="/vue-2023/store">매장안내</a></li>
+        <li><a href="/vue-2023/notice/">공지사항</a></li>
+        <li><a href="/vue-2023/store/">매장안내</a></li>
         <li><a href="javascript:;">로그아웃</a></li>
     </ul>
   </div>
