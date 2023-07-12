@@ -22,7 +22,7 @@ export default {
         },
         {
           id: 4,
-          link: '/vue-2023/mypage',
+          link: '/vue-2023/mypage/',
           iconClass: 'f-my',
           title: '마이페이지'
         }
