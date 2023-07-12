@@ -9,19 +9,18 @@ import Notice from './../pages/Notice.vue';
 import Store from './../pages/Store.vue';
 
 const routes = [
-	{ path: '/', component: Home },
-	{ path: '/category/', component: Category },
-	{ path: '/display/', component: Display },
-	{ path: '/about/', component: About },
-	{ path: '/like/', component: Like },
-	{ path: '/mypage/', component: Mypage },
-	{ path: '/notice/', component: Notice },
-	{ path: '/store/', component: Store }
+	{ path: '/vue-2023/', component: Home },
+	{ path: '/vue-2023/category', component: Category },
+	{ path: '/vue-2023/display', component: Display },
+	{ path: '/vue-2023/about', component: About },
+	{ path: '/vue-2023/like', component: Like },
+	{ path: '/vue-2023/mypage', component: Mypage },
+	{ path: '/vue-2023/notice', component: Notice },
+	{ path: '/vue-2023/store', component: Store }
 ];
 
 const router = createRouter({
-  history: createWebHistory('/vue-2023/'),
-  // history: createWebHistory(),
+  history: createWebHistory(),
   routes
 });
 
