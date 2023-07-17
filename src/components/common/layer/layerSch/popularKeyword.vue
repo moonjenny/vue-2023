@@ -1,97 +1,95 @@
-<template>
-  <div class="login-top">
-    <div class="member-name">{{ name }}님</div>
-    <div class="member-util">
-      <router-link
-        v-for="(util, index) in utils"
-        :key="index"
-        :to="util.route"
-        :class="['btn', 'btn-' + util.className]"
-        @click="closeLayer"
-      >
-        {{ util.name }}
-      </router-link>
-      <button type="button" class="btn-close" @click="closeLayer">레이어 닫기</button>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
     return {
-      name : '회원명',
-      utils : [
-        { name: '검색', className: 'search', route: '/vue-2023/search/' },
-        { name: '좋아요', className: 'like', route: '/vue-2023/like/' },
-        { name: '장바구니', className: 'cart', route: '/vue-2023/cart/' },
+      title : '인기검색어',
+      keywords: [
+        { name: '원피스', state: 'up', stateText: '상승' },
+        { name: '반팔티', state: '', stateText: '' },
+        { name: '스니커즈', state: 'down', stateText: '하락' },
+        { name: '백팩', state: 'new', stateText: 'new' },
+        { name: '백팩', state: '', stateText: '' },
+        { name: '백팩', state: '', stateText: '' },
+        { name: '백팩', state: '', stateText: '' },
+        { name: '백팩', state: '', stateText: '' },
+        { name: '백팩', state: '', stateText: '' },
+        { name: '스니커즈스니커즈스니커즈 스니커즈스니커즈스니커즈스니커즈 스니커즈스니커즈', state: 'new', stateText: 'new' },
       ],
     }
   },
   methods: {
-    closeLayer() {
-      // .layer-wrap .close 클래스명 제거
-      document.querySelector(".layer-wrap").classList.remove("active");
-
-      // body에서 .active 클래스 제거
-			document.body.classList.remove("active");
-
-			// window.scrollTo({
-      //   top: 0,
-      // });
-    }
-  }
+  },
 }
 </script>
 
+<template>
+  <div class="search-popular">
+    <div class="search-title">{{ title }}</div>
+    <ul class="popular-list">
+      <li v-for="(keyword, index) in keywords" :key="index">
+        <span class="rank">{{ index + 1 }}</span>
+        <em>{{ keyword.name }}</em>
+        <sub :class="['state', keyword.state]">{{ keyword.stateText }}</sub>
+      </li>
+    </ul>
+  </div>
+</template>
+
 <style lang="scss">
 /* 컴포넌트 스타일 */
-.login-top {
-  position: sticky;
-  top: 0;
-  padding: 26px 0 14px;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .member-name {
-    font-size: 18px;
-    color: #111;
-    font-weight: 500;
+.search-popular {
+  margin:40px 0 0;
+  padding:0 20px;
+  .search-title {
+    font-size:16px;
+    font-weight:600;
   }
-
-  .member-util {
-    button {
-      width: 36px;
-      height: 36px;
-      font-size: 0;
-      color: #fff;
-    }
-    a {
-      display: inline-block;
-      width: 36px;
-      height: 36px;
-      font-size: 0;
-      color: #fff;
-      vertical-align: top;
-    }
-
-    .btn-search {
-      background: url(/src/assets/images/common/btn-search.svg) center center no-repeat;
-    }
-
-    .btn-like {
-      background: url(/src/assets/images/common/btn-like.svg) center center no-repeat;
-    }
-
-    .btn-cart {
-      background: url(/src/assets/images/common/btn-cart.svg) center center no-repeat;
-    }
-
-    .btn-close {
-      margin-left: 10px;
-      background: url(/src/assets/images/common/btn-close.svg) center center no-repeat;
+  .popular-list {
+    margin:16px 0 0;
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding:4px 0;
+      height:24px;
+      .rank {
+        flex-shrink: 0;
+        width:32px;
+        font-size:18px;
+        font-weight:700;
+        color:#333;
+      }
+      em {
+        flex:1;
+        font-size:15px;
+        color:#111;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+      }
+      .state {
+        margin: 0 0 0 auto;
+        width: 24px;
+        height: 16px;
+        text-align:center;
+        font-size:0;
+        background:url(/src/assets/images/common/search-state.svg) center center no-repeat;
+        &.up {
+          background:url(/src/assets/images/common/search-up.svg) center center no-repeat;
+        }
+        &.down {
+          background:url(/src/assets/images/common/search-down.svg) center center no-repeat;
+        }
+        &.new {
+          font-size:11px;
+          color:red;
+          background:#fff;
+        }
+      }
     }
   }
 }

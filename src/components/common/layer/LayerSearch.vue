@@ -31,10 +31,9 @@ export default {
   <article class="layer-search">
     <section class="search-box">
       <SearchForm />
-      <!-- 
       <NewKeyword />
       <PopularKeyword />
-      <Rank /> -->
+      <Rank />
     </section>
     <div class="layer-overlay"></div>
   </article>
@@ -74,7 +73,9 @@ export default {
   position:relative;
   width:100%;
   height:100%;
+  padding:0 0 20px;
   background-color:#fff;
   z-index:1;
+  overflow-y:auto;
 }
 </style>

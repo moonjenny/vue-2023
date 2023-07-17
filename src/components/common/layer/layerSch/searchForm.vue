@@ -1,30 +1,3 @@
-<template>
-  <div class="search-form">
-    <button 
-      type="button"
-      class="btn-back"
-      @click="closeLayer"
-    >
-      검색 레이어 닫기
-    </button>
-    <!-- 검색 입력 -->
-    <form @submit.prevent="submitSearch">
-      <input
-        type="text"
-        v-model="searchQuery"
-        placeholder="검색어를 입력해 주세요"
-      />
-      <button type="submit" class="btn-search">검색</button>
-    </form>
-  </div>
-  <!-- 검색 리스트 노출 -->
-  <ul>
-    <li v-for="result in searchResults" :key="result.id">
-      {{ result.title }}
-    </li>
-  </ul>
-</template>
-
 <script>
 export default {
   data() {
@@ -59,12 +32,44 @@ export default {
 }
 </script>
 
+<template>
+  <div class="search-form">
+    <button 
+      type="button"
+      class="btn-back"
+      @click="closeLayer"
+    >
+      검색 레이어 닫기
+    </button>
+    <!-- 검색 입력 -->
+    <form @submit.prevent="submitSearch">
+      <input
+        type="text"
+        v-model="searchQuery"
+        placeholder="검색어를 입력해 주세요"
+      />
+      <button type="submit" class="btn-search">검색</button>
+    </form>
+  </div>
+  <!-- 검색 리스트 노출 -->
+  <div class="search-list">
+    <ul>
+      <li v-for="result in searchResults" :key="result.id">
+        {{ result.title }}
+      </li>
+    </ul>
+  </div>
+</template>
+
 <style lang="scss">
 .search-form {
+  position:sticky;
+  top:0;
   display:flex;
   align-items:center;
   height:50px;
   border-bottom:1px solid #eee;
+  background-color:#fff;
   form {
     flex:1;
     display:flex;
@@ -94,12 +99,14 @@ export default {
   }
 
 }
-ul {
-  li{
-    padding:10px;
-    color:#333;
-    font-size:15px;
-    border-bottom:1px solid #eee;
+.search-list {
+  ul {
+    li{
+      padding:10px;
+      color:#333;
+      font-size:15px;
+      border-bottom:1px solid #eee;
+    }
   }
 }
 </style>
