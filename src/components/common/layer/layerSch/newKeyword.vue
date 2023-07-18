@@ -57,7 +57,7 @@ export default {
         width:24px;
         font-size:0;
         color:#111;
-        background:#eee url(/vue-2023/src/assets/images/common/btn-close.svg) 4px center no-repeat;
+        background:#eee url(/src/assets/images/common/btn-close.svg) 4px center no-repeat;
         background-size:8px 8px;
       }
     }

@@ -87,7 +87,7 @@ export default {
     height: 50px;
     font-size: 0;
     color: #fff;
-    background: url(/vue-2023/src/assets/images/common/btn-search.svg) center center no-repeat;
+    background: url(/src/assets/images/common/btn-search.svg) center center no-repeat;
   }
   .btn-back {
     padding:10px 8px 10px 14px;
@@ -95,7 +95,7 @@ export default {
     height: 50px;
     font-size: 0;
     color: #fff;
-    background: url(/vue-2023/src/assets/images/common/btn-back.svg) center center no-repeat;
+    background: url(/src/assets/images/common/btn-back.svg) center center no-repeat;
   }
 
 }
