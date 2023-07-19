@@ -18,7 +18,7 @@
         console.log(swiper);
       },
       onSlideChange() {
-        console.log('slide change');
+        // console.log('slide change');
       },
 		},
   	setup() {

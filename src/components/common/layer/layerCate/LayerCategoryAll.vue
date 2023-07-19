@@ -92,9 +92,10 @@ export default {
       }
     }
   }
-}
-.category-list li {
-  overflow: hidden;
+  
+  .category-list li {
+    overflow: hidden;
+  }
 }
 
 .category-parent {

@@ -33,7 +33,6 @@ export default {
   methods: {
     goToLink(link) {
       this.$router.push(link);
-      console.log(link);
 
       //최상단 이동
       window.scrollTo({

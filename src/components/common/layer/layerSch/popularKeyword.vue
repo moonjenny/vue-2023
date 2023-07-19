@@ -4,20 +4,27 @@ export default {
     return {
       title : '인기검색어',
       keywords: [
-        { name: '원피스', state: 'up', stateText: '상승' },
-        { name: '반팔티', state: '', stateText: '' },
-        { name: '스니커즈', state: 'down', stateText: '하락' },
-        { name: '백팩', state: 'new', stateText: 'new' },
-        { name: '백팩', state: '', stateText: '' },
-        { name: '백팩', state: '', stateText: '' },
-        { name: '백팩', state: '', stateText: '' },
-        { name: '백팩', state: '', stateText: '' },
-        { name: '백팩', state: '', stateText: '' },
-        { name: '스니커즈스니커즈스니커즈 스니커즈스니커즈스니커즈스니커즈 스니커즈스니커즈', state: 'new', stateText: 'new' },
+        { name: '원피스', route: '/vue-2023/display/', state: 'up', stateText: '상승' },
+        { name: '반팔티', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '스니커즈', route: '/vue-2023/display/', state: 'down', stateText: '하락' },
+        { name: '백팩', route: '/vue-2023/display/', state: 'new', stateText: 'new' },
+        { name: '백팩', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '백팩', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '백팩', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '백팩', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '백팩', route: '/vue-2023/display/', state: '', stateText: '' },
+        { name: '스니커즈스니커즈스니커즈 스니커즈스니커즈스니커즈스니커즈 스니커즈스니커즈', route: '/vue-2023/display/', state: 'new', stateText: 'new' },
       ],
     }
   },
   methods: {
+    closeLayer() {
+      // .layer-wrap .close 클래스명 제거
+      document.querySelector(".layer-search").classList.remove("active");
+
+      // body에서 .active 클래스 제거
+      document.body.classList.remove("active");
+    },
   },
 }
 </script>
@@ -25,13 +32,13 @@ export default {
 <template>
   <div class="search-popular">
     <div class="search-title">{{ title }}</div>
-    <ul class="popular-list">
-      <li v-for="(keyword, index) in keywords" :key="index">
+    <div class="popular-list">
+      <router-link v-for="(keyword, index) in keywords" :key="index" :to="keyword.route" @click="closeLayer">
         <span class="rank">{{ index + 1 }}</span>
         <em>{{ keyword.name }}</em>
         <sub :class="['state', keyword.state]">{{ keyword.stateText }}</sub>
-      </li>
-    </ul>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -46,7 +53,7 @@ export default {
   }
   .popular-list {
     margin:16px 0 0;
-    li {
+    a {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -72,7 +79,7 @@ export default {
         -webkit-line-clamp: 1;
       }
       .state {
-        margin: 0 0 0 auto;
+        margin: 0 0 0 10px;
         width: 24px;
         height: 16px;
         text-align:center;

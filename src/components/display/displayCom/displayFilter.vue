@@ -98,7 +98,7 @@ export default {
 
 .display-filter {
   position: sticky;
-  top: 0;
+  top: 52px;
   padding: 10px 20px;
   background:#fff;
   z-index:9;

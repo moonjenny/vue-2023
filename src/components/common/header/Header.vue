@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <header class="header" id="header">
+  <header class="header">
     <h1>
       <a href="/vue-2023/">
         <span class="logo">{{ logoText }}</span>
@@ -104,7 +104,7 @@ export default {
   > div {
     width:32px;
     height:32px;
-    margin-left:12px;
+    margin-left:2px;
   }
 }
 .util-search button,
