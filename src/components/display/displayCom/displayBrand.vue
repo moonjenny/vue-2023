@@ -57,7 +57,7 @@
 /* display-brand */
 
 .display-brand {
-  padding-bottom: 50px;
+  margin:30px 0 40px;
 
   .title {
     padding-left: 20px;

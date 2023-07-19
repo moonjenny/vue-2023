@@ -18,7 +18,7 @@ export default {
     const activeTab = ref(0);
     const tabSwiper = ref(null);
 
-    const tabs = ['전체', '아우터', '원피스', '블라우스', '팬츠', '신발'];
+    const tabs = ['자켓', '코트', '핸드메이드', '아우터', '원피스', '블라우스', '팬츠', '신발', '기타'];
 
     const switchTab = (tabIndex) => {
       if (tabSwiper.value) {
@@ -30,9 +30,8 @@ export default {
     };
 
     onMounted(() => {
-      tabSwiper.value = new Swiper('.display-tabs .swiper-container', {
+      tabSwiper.value = new Swiper('.display-category .swiper-container', {
         slidesPerView: 'auto',
-        spaceBetween: 8,
       });
     });
 
@@ -47,7 +46,7 @@ export default {
 </script>
 
 <template>
-  <section class="display-tabs">
+  <section class="display-category">
     <div class="swiper-container">
       <ul class="tabs-list swiper-wrapper">
         <li v-for="(item, index) in tabs" :key="index" class="tabs-item swiper-slide" @click="switchTab(index)">
@@ -59,15 +58,12 @@ export default {
 </template>
 
 <style lang="scss">
-.display-tabs {
+.display-category {
+  padding: 0 10px;
+  border-bottom:1px solid #eee;
   overflow: hidden;
-  .swiper-wrapper {
-    margin: 24px 20px;
-  }
-
   .swiper-slide {
     width: auto;
-    margin-right: 8px;
 
     &:last-child {
       margin-right: 0 !important;
@@ -75,17 +71,11 @@ export default {
 
     a {
       display: block;
-      padding: 12px 24px;
+      padding: 14px 12px;
       font-size: 14px;
-      color: #111;
-      border: 1px solid #eee;
+      color: #666;
+      font-weight: 600;
     }
-  }
-
-  a.active {
-    color: #fff;
-    border: 1px solid #333;
-    background: #333;
   }
 }
 </style>

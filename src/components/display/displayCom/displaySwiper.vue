@@ -94,7 +94,7 @@
 
 <style lang="scss">
 .display-banner {
-  padding: 8px 0 60px;
+  margin: 8px 0 60px;
 
   .title {
     padding: 0 20px;

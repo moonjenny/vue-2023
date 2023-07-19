@@ -23,7 +23,7 @@
       return Header
     } else if (route.path === '/vue-2023/mypage/') {
       return HeaderMy
-    } else if (route.path === '/vue-2023/display/') {
+    } else if (route.path === '/vue-2023/display/' || '/vue-2023/category/') {
       return HeaderList
     } else {
       return Header
