@@ -13,7 +13,7 @@ const gnbUtils = [
 ]
 const cateLists = [
   { route: '/vue-2023/category/', name: '아우터' },
-  { route: '/vue-2023/category/', name: '블라우스/셔츠' },
+  { route: '/vue-2023/display/', name: '블라우스/셔츠' },
   { route: '/vue-2023/category/', name: '티셔츠' },
   { route: '/vue-2023/category/', name: '니트' },
   { route: '/vue-2023/category/', name: '원피스' },
@@ -35,6 +35,7 @@ const handleGnbUtilClick = (gnbUtil) => {
 }
 
 const toggleCategoryList = () => {
+  console.log(isCateActive.value);
   isCateActive.value = !isCateActive.value
 }
 
@@ -42,7 +43,9 @@ const closeCategory = () => {
   window.scrollTo({
     top: 0
   })
+  console.log(isCateActive.value);
   isCateActive.value = false
+  console.log(isCateActive.value);
 }
 
 const goBack = () => {
@@ -136,7 +139,9 @@ const updateBtnNavText = (index) => {
           transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
           appearance: none;
           a {
-            padding: 8px 10px 9px;
+            display:block;
+            width:100%;
+            padding: 8px 12px 9px;
             font-size: 14px;
             color: #111;
             line-height: 1.5;
