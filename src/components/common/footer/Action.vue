@@ -3,7 +3,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import LayerCate from '../layer/LayerCategory.vue'
 
-const hasLike = ref(false); // hasLike를 reactive 변수로 정의
+//const hasLike = ref(false); // hasLike를 reactive 변수로 정의
 
 const navs = [
   {
@@ -32,6 +32,7 @@ const prevScrollY = ref(window.scrollY);
 
 function goToLink(link) {
   this.$router.push(link);
+  console.log(link);
 
   //최상단 이동
   window.scrollTo({
@@ -98,13 +99,12 @@ onUnmounted(() => {
         :key="nav.id" 
         class="nav-item"
       >
-        <button 
-          type="button" 
-          @click="goToLink(nav.link)"
+        <router-link 
+          :to="nav.link"
           :class="{ 'active': nav.link === '/vue-2023/like/' && hasLike, 'f-like': nav.link === '/vue-2023/like/' }"
         >
           <span :class="nav.iconClass">{{ nav.title }}</span>
-        </button>
+        </router-link>
       </li>
 
       <li>
@@ -173,7 +173,9 @@ body.active {
   li {
     width: 20%;
     height: 100%;
-    button {
+    button,
+    a {
+      display:block;
       width: 100%;
       height: 100%;
       span {
