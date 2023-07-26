@@ -2,15 +2,20 @@
 import { ref } from 'vue'
 import LayerSearch from '../layer/LayerSearch.vue'
 
+// 검색 레이어의 활성화 여부를 저장하는 ref
 const isActive = ref(false)
+// 카테고리 리스트의 활성화 여부를 저장하는 ref
 const isCateActive = ref(false)
-const selectedCategoryIndex = ref(0) // 첫 번째 인덱스로 초기화
+// 선택된 카테고리의 인덱스를 저장하는 ref (첫 번째 인덱스로 초기화)
+const selectedCategoryIndex = ref(0)
 
-const logoText = 'BYLYNN.SHOP'
+// GNB 유틸리티 버튼 데이터
 const gnbUtils = [
   { name: '검색', className: 'search' },
   { name: '장바구니', className: 'cart', route: '/vue-2023/cart/' },
 ]
+
+// 카테고리 리스트 데이터
 const cateLists = [
   { route: '/vue-2023/category/', name: '아우터' },
   { route: '/vue-2023/display/', name: '블라우스/셔츠' },
@@ -21,6 +26,7 @@ const cateLists = [
   { route: '/vue-2023/category/', name: '데님' },
 ]
 
+// GNB 유틸리티 버튼 클릭 처리 함수
 const handleGnbUtilClick = (gnbUtil) => {
   if (gnbUtil.name === '검색') {
     isActive.value = true
@@ -34,11 +40,13 @@ const handleGnbUtilClick = (gnbUtil) => {
   }
 }
 
+// 카테고리 리스트 토글 처리 함수
 const toggleCategoryList = () => {
   console.log(isCateActive.value);
   isCateActive.value = !isCateActive.value
 }
 
+// 카테고리 리스트 닫기 처리 함수
 const closeCategory = () => {
   window.scrollTo({
     top: 0
@@ -48,10 +56,12 @@ const closeCategory = () => {
   console.log(isCateActive.value);
 }
 
+// 뒤로 가기 처리 함수
 const goBack = () => {
   history.back()
 }
 
+// 선택된 카테고리 인덱스 업데이트 처리 함수
 const updateBtnNavText = (index) => {
   selectedCategoryIndex.value = index
   document.querySelector('.btn-nav').classList.remove('active')
