@@ -214,6 +214,7 @@ body.active {
       }
       .f-my {
         background: url(@/assets/images/common/action-my-active.svg) center center no-repeat;
+        background-size: 25px auto;
         /*
         animation-name: actionMy;
         animation-duration: 2s;
