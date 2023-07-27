@@ -31,7 +31,7 @@ const scrollClass = ref('');
 const prevScrollY = ref(window.scrollY);
 
 // 최상단 이동
-function goToLink(link) {
+function goToLink(link) {  
   window.scrollTo({
     top: 0,
   });
@@ -98,10 +98,13 @@ onUnmounted(() => {
       >
         <router-link 
           :to="nav.link"
-          :class="{ 'active': nav.link === '/vue-2023/like/' && hasLike, 'f-like': nav.link === '/vue-2023/like/' }"
           @click="goToLink(nav.link)"
         >
-          <span :class="nav.iconClass">{{ nav.title }}</span>
+          <span 
+            :class="[nav.iconClass, { 'active': activeLink === nav.link }]"
+          >
+            {{ nav.title }}
+          </span>
         </router-link>
       </li>
 
@@ -188,9 +191,6 @@ body.active {
       }
       .f-like {
         background: url(@/assets/images/common/action-like.svg) center center no-repeat;
-        &.active {
-          background: url(@/assets/images/common/action-like-active.svg) center center no-repeat;
-        }
       }
       .f-home {
         background: url(@/assets/images/common/action-home.svg) center center no-repeat;
@@ -205,7 +205,7 @@ body.active {
         flex-wrap: wrap;
       }
     }
-    button.active {
+    .router-link-active {
       .f-like {
         background: url(@/assets/images/common/action-like-active.svg) center center no-repeat;
       }
@@ -213,10 +213,12 @@ body.active {
         background: url(@/assets/images/common/action-home-active.svg) center center no-repeat;
       }
       .f-my {
+        background: url(@/assets/images/common/action-my-active.svg) center center no-repeat;
+        /*
         animation-name: actionMy;
         animation-duration: 2s;
         animation-iteration-count: 2;
-        animation-timing-function: ease;
+        animation-timing-function: ease; */
       }
       .f-view {
         .action-view1 {
