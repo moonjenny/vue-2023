@@ -4,34 +4,34 @@ export default {
     return {
       hashtags: [
         {
-          link: "#none1",
+          link: "javascript:;",
           text: '#모피', 
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-01.png'
         },
         {
-          link: "#none",
+          link: "javascript:;",
           text: '#데님',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-02.png'
         },
         {
-          link: "#none",
+          link: "javascript:;",
           text: '#모피2',
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-01.png'
         },
         {
-          link: "#none",
+          link: "javascript:;",
           text: '#데님2',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-02.png'
         },
         {
-          link: "#none",
+          link: "javascript:;",
           text: '#모피3',
-          image: '/src/assets/images/main/hashtag-01.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-01.png'
         },
         {
-          link: "#none",
+          link: "javascript:;",
           text: '#데님3',
-          image: '/src/assets/images/main/hashtag-02.png'
+          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/hashtag-02.png'
         },
       ],
     };

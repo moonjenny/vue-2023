@@ -5,29 +5,43 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "#none1",
-          image: "/src/assets/images/main/thumb-01.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
 					alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
-          link: "#none",
-          image: "/src/assets/images/main/thumb-02.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
-          link: "#none",
-          image: "/src/assets/images/main/thumb-01.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"
         },
         {
-          link: "#none",
-          image: "/src/assets/images/main/thumb-02.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+          alt: '클래식 크롭 테일러드 자켓',
+					name: '클래식 크롭 테일러드 자켓',
+					price: "219,000원"
+        },
+        {
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+          alt: '클래식 크롭 테일러드 자켓',
+					name: '클래식 크롭 테일러드 자켓',
+					price: "219,000원"
+        },
+        {
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           alt: '클래식 크롭 테일러드 자켓',
 					name: '클래식 크롭 테일러드 자켓',
 					price: "219,000원"

@@ -4,8 +4,8 @@ export default {
     return {      
       items: [
         {
-          link: "#none",
-          image: "/src/assets/images/main/main-banner.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/main-banner.png",
           alt: '신규회원 가입 혜택',
         }
       ]

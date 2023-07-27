@@ -58,8 +58,7 @@ input,
 select,
 table,
 textarea {
-  color: #222;
-  line-height: 1.2;
+  color: #111;
 }
 body {
   -webkit-text-size-adjust: none;
@@ -141,6 +140,11 @@ button .text {
 }
 svg {
   vertical-align: top;
+}
+*,
+:before,
+:after {
+  box-sizing: border-box;
 }
 
 // main

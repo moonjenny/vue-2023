@@ -1,19 +1,26 @@
 <script>
 export default {
+  name: 'ProdType2',
   data() {
     return {
       //상품리스트 
-      items: [
+      /* items: [
         {
-          link: "#none1",
-          image: "/src/assets/images/main/style-01.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/style-01.png",
           alt: '이번 시즌 린은 특별한 날의 순간을 스케치하였습니다.',
           title: "SOMEDAY",
           text: "이번 시즌 린은 특별한 날의 순간을 스케치하였습니다.",
         }
-      ],
+      ], */
     };
-  }
+  },
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
 

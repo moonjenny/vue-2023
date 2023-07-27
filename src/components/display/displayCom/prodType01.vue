@@ -5,11 +5,11 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "#none1",
+          link: "",
           images: [
-            "/src/assets/images/main/thumb-01.png",
-            "/src/assets/images/main/thumb-02.png",
-            "/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -21,10 +21,10 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
-            "/src/assets/images/main/thumb-02.png",
-            "/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
           ],
           alt: '클래식 크롭 테일러드',
           colors: ["black", "gray"],
@@ -36,11 +36,11 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
-            "/src/assets/images/main/thumb-01.png",
-            "/src/assets/images/main/thumb-02.png",
-            "/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -52,11 +52,11 @@ export default {
           active: false
         },
         {
-          link: "#none",
+          link: "",
           images: [
-            "/src/assets/images/main/thumb-01.png",
-            "/src/assets/images/main/thumb-02.png",
-            "/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-03.png",
           ],
           alt: '클래식 크롭 테일러드 자켓',
           colors: ["black", "brown", "gray"],
@@ -68,24 +68,24 @@ export default {
           active: false
         }
       ],
-      // 컬러칩 활성화 인덱스
-      activeColor: 0,
-      //썸네일 인덱스
-      activeThumbIndex: 0,
+      activeColor: [], // 컬러칩 활성화 인덱스 (배열로 변경)
+      activeThumbIndex: [], // 썸네일 인덱스 (배열로 변경)
     };
   },
   methods: {
-    //좋아요 클릭
     toggleActive(item) {
       item.active = !item.active;
     },
-    //컬러칩 토글
-    toggleActiveColor(index, item) {
-      this.activeColor = index === this.activeColor ? null : index;
-      this.activeThumbIndex = index;
-      this.$refs.thumb.src = item.images[index];
-      console.log(index, liId);
+    toggleActiveColor(index, itemIndex, item) {
+      this.activeColor[itemIndex] = index;
+      this.activeThumbIndex[itemIndex] = index;
+      console.log("li의 index:", itemIndex, index);
     }
+  },
+  mounted() {
+    // 초기에 첫 번째 썸네일 이미지 및 color-chip 활성화
+    this.activeThumbIndex = this.items.map(() => 0);
+    this.activeColor = this.items.map((item, index) => (index === index ? 0 : null));
   }
 };
 </script>
@@ -96,23 +96,23 @@ export default {
       <li v-for="(item, index) in items" :key="index">
         <div class="item">
           <div class="thumb">
-            <img :src="item.images[activeThumbIndex]" :alt="item.alt" ref="thumb" />
+            <img :src="item.images[activeThumbIndex[index]]" :alt="item.alt" ref="thumb" />
           </div>
-          <a href="#none" class="btn-like" 
+          <button class="btn-like" 
             :class="{ active: item.active }" 
             @click="toggleActive(item)"
           >
             좋아요
-          </a>
+          </button>
           <div class="color-chip">
-            <a href="#none"
+            <button type="button"
               v-for="(color, i) in item.colors"
               :key="color"
-              :class="[{ active: i === activeColor || (i === 0 && !activeColor && item.active) }]"
-              @click="toggleActiveColor(i, item); activeThumbIndex = i; $refs.thumb.src = item.images[activeThumbIndex]"
+              :class="{ active: i === activeColor[index] }"
+              @click="toggleActiveColor(i, index, item)"
             >
               <span :class="'color-' + (color)">{{ color }}</span>
-            </a>
+            </button>
           </div>
           <div class="info">
             <a :href="item.link">
@@ -191,7 +191,7 @@ export default {
     display: -webkit-box;
     display: -ms-flexbox;
 
-    a {
+    button {
       display: block;
       margin-right: 8px;
       width: 24px;
@@ -201,7 +201,7 @@ export default {
 
       span {
         display: block;
-        margin: 4px;
+        margin: 3px;
         width: 16px;
         height: 16px;
         font-size: 0;

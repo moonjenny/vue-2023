@@ -2,9 +2,15 @@
   <div class="login-top">
     <div class="member-name">{{ name }}님</div>
     <div class="member-util">
-      <button type="button" class="btn-search">검색</button>
-      <button type="button" class="btn-like">좋아요</button>
-      <button type="button" class="btn-cart">장바구니</button>
+      <router-link
+        v-for="(util, index) in utils"
+        :key="index"
+        :to="util.route"
+        :class="['btn', 'btn-' + util.className]"
+        @click="closeLayer"
+      >
+        {{ util.name }}
+      </router-link>
       <button type="button" class="btn-close" @click="closeLayer">레이어 닫기</button>
     </div>
   </div>
@@ -14,7 +20,12 @@
 export default {
   data() {
     return {
-      name : '회원명'
+      name : '회원명',
+      utils : [
+        { name: '검색', className: 'search', route: '/vue-2023/search/' },
+        { name: '좋아요', className: 'like', route: '/vue-2023/like/' },
+        { name: '장바구니', className: 'cart', route: '/vue-2023/cart/' },
+      ],
     }
   },
   methods: {
@@ -38,7 +49,7 @@ export default {
 .login-top {
   position: sticky;
   top: 0;
-  padding: 32px 0 20px;
+  padding: 26px 0 14px;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -52,11 +63,18 @@ export default {
 
   .member-util {
     button {
-      width: 24px;
-      height: 24px;
-      margin-left: 12px;
+      width: 36px;
+      height: 36px;
       font-size: 0;
       color: #fff;
+    }
+    a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      font-size: 0;
+      color: #fff;
+      vertical-align: top;
     }
 
     .btn-search {
@@ -72,7 +90,7 @@ export default {
     }
 
     .btn-close {
-      margin-left: 16px;
+      margin-left: 10px;
       background: url(/src/assets/images/common/btn-close.svg) center center no-repeat;
     }
   }

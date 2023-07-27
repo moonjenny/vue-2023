@@ -1,69 +1,44 @@
 <template>
-  <div class="category-all">
+  <div class="layer-category">
     <div class="title">{{ title }}</div>
-    <div class="category-list">
+    <div class="category-link">
       <ul>
-        <li v-for="(item, index) in categories" :key="index">
-          <span class="category-parent" :class="{ open: isOpen[index] }" @click="toggle(index)">{{ item.name }}</span>
-          <div class="depth1">
-            <a href="#none" v-for="link in item.links" :key="link">{{ link }}</a>
-          </div>
+        <li v-for="(category, index) in categories" :key="index" @click="closeLayer">
+          <router-link :to="category.route">{{ category.name }}</router-link>
         </li>
       </ul>
     </div>
   </div>
 </template>
-<script>
-import { ref } from 'vue';
 
+<script>
 export default {
   data() {
     return {
-      title: 'category',
+      title: 'all',
       categories: [
-        {
-          name: '의류',
-          links: [
-            '전체',
-            '아우터 (클릭)',
-            '원피스',
-            '블라우스/셔츠',
-            '스커트',
-            '팬츠',
-            '티셔츠',
-            '데님',
-            '니트',
-          ],
-        },
-        {
-          name: '가방',
-          links: ['전체', '전체', '전체'],
-        },
-        {
-          name: '신발',
-          links: ['전체', '전체', '전체'],
-        },
-        {
-          name: '악세서리',
-          links: ['전체', '전체', '전체'],
-        },
-        {
-          name: '골프/애슬레저',
-          links: ['전체', '전체', '전체'],
-        },
+        { name: "의류", route: "/vue-2023/display/" },
+        { name: "가방", route: "/vue-2023/display/" },
+        { name: "악세사리", route: "/vue-2023/display/" },
+        { name: "골프/에슬레저", route: "/vue-2023/display/" },
       ],
-    };
+      isActive: false
+    }
   },
-  setup() {
-    const isOpen = ref([false, false]);
+  methods: {
+    closeLayer() {
+      // .layer-wrap .close 클래스명 제거
+      document.querySelector(".layer-wrap").classList.remove("active");
 
-    const toggle = (index) => {
-      isOpen.value[index] = !isOpen.value[index];
-    };
+      // body에서 .active 클래스 제거
+			document.body.classList.remove("active");
 
-    return { isOpen, toggle };
-  },
-};
+			window.scrollTo({
+        top: 0,
+      });
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -71,8 +46,8 @@ export default {
 
 /* category */
 
-.category-all {
-  padding: 40px 0 30px;
+.layer-category {
+  padding-top: 40px;
 
   .title {
     font-size: 24px;
@@ -173,5 +148,6 @@ export default {
     }
   }
 }
+
 
 </style>

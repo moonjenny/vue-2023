@@ -7,16 +7,16 @@ export default {
       
       boxs: [
         {
-          link: "#none1",
-          image: "/src/assets/images/main/news-01.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/news-01.png",
           alt: 'Mind Mapping',
           code: "NUVO10",
           title: "Mind Mapping",
           text: "이번 시즌 누보텐은 아이템간에 유기적인 스타일링에 집중하였습니다."
         },
         {
-          link: "#none",
-          image: "/src/assets/images/main/news-02.png",
+          link: "javascript:;",
+          image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/news-02.png",
           alt: '클래식 크롭 테일러드 자켓',
           code: "LINE",
           title: "OUR TIME",

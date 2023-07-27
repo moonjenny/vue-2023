@@ -2,48 +2,56 @@
   
 </script>
 <script>
-  import SwiperClass, { Pagination } from 'Swiper'
-  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+  // import Swiper core and required modules
+  import SwiperCore, { Pagination, A11y } from 'swiper';
 
-  // import swiper module styles
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
   import 'swiper/css'
   import 'swiper/css/pagination'
-  // more module style...
+  import 'swiper/swiper-bundle.css'
+
+  // install Swiper modules
+  SwiperCore.use([Pagination, A11y]);
 
   export default {
     components: {
       Swiper,
-      SwiperSlide
+      SwiperSlide,
     },
+    methods: {
+      onSwiper(swiper) {
+        console.log(swiper);
+      },
+      onSlideChange() {
+        console.log('slide change');
+      },
+		},
     setup() {
-      return {
-        modules: [Pagination]
-      }
-    },
-    
-    data() {
       return {
         title: "아우터",
         items: [
           {
-            link: "#none",
-            image: "/src/assets/images/display/display-slide.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "KENNETH LADY",
             text: "IN CLASSIC",
             subtext: "2022 winter collection"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/display-slide.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "TITLE 한줄이상 말줄임처리 됩니다. 한줄이상 말줄임처리 됩니다.",
             text: "두줄이상 말줄임처리 됩니다. 두줄이상 말줄임처리 됩니다.",
             subtext: "2022 winter collection"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/display-slide.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/display-slide.png",
             alt: '이미지 설명',
             title: "KENNETH LADY",
             text: "IN CLASSIC",
@@ -60,8 +68,15 @@
     <div class="title">{{ title }}</div>
 
     <div class="display-slide">
-      <swiper :modules="modules" :pagination="{ clickable: true }">
-        <swiper-slide v-for="(item, index) in items" :key="index">
+      <swiper
+				:slides-per-view="1"
+				:space-between="0"
+				:pagination="{ clickable: true }"
+        :loop="true"
+				@swiper="onSwiper"
+				@slideChange="onSlideChange"
+			>
+				<swiper-slide v-for="(item, index) in items" :key="index">
           <a :href="item.link">
             <img :src="item.image" :alt="item.alt" />
             <span>
@@ -73,12 +88,13 @@
         </swiper-slide>
       </swiper>
     </div>
+
   </section>
 </template>
 
 <style lang="scss">
 .display-banner {
-  padding: 8px 0 60px;
+  margin: 8px 0 60px;
 
   .title {
     padding: 0 20px;
@@ -89,6 +105,7 @@
 
 .display-slide {
   padding-top: 24px;
+  overflow:hidden;
 
   .swiper-slide {
     a {

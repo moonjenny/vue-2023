@@ -1,9 +1,9 @@
 <script setup>
-import LayerTop from '@/components/common/layer/layerCom/LayerTop.vue'
-import LayerPoint from '@/components/common/layer/layerCom/LayerPoint.vue'
-import LayerCategory from '@/components/common/layer/layerCom/LayerCategory.vue'
-import LayerCategoryAll from '@/components/common/layer/layerCom/LayerCategoryAll.vue'
-import LayerFooter from '@/components/common/layer/layerCom/LayerFooter.vue'
+import LayerTop from '@/components/common/layer/layerCate/LayerTop.vue'
+import LayerPoint from '@/components/common/layer/layerCate/LayerPoint.vue'
+import LayerCategory from '@/components/common/layer/layerCate/LayerCategory.vue'
+import LayerCategoryAll from '@/components/common/layer/layerCate/LayerCategoryAll.vue'
+import LayerFooter from '@/components/common/layer/layerCate/LayerFooter.vue'
 </script>
 <script>
 export default {
@@ -29,8 +29,8 @@ export default {
 </script>
 
 <template>
-  <div class="layer-wrap">
-  <!-- Navigation Layer -->
+  <article class="layer-wrap">
+    <!-- Navigation Layer -->
     <section class="layer-login">
       <LayerTop />
       <LayerPoint />
@@ -39,7 +39,7 @@ export default {
       <LayerFooter />
     </section>
     <!-- //Navigation Layer -->
-  </div>
+  </article>
 </template>
 
 <script>

@@ -1,44 +1,64 @@
 <template>
-  <div class="layer-category">
+  <div class="category-all">
     <div class="title">{{ title }}</div>
-    <div class="category-link">
+    <div class="category-list">
       <ul>
-        <li v-for="(category, index) in categories" :key="index" @click="closeLayer">
-          <router-link :to="category.route">{{ category.name }}</router-link>
+        <li v-for="(item, index) in categories" :key="index">
+          <span class="category-parent" :class="{ open: isOpen[index] }" @click="toggle(index)">{{ item.oneDepth }}</span>
+          <div class="depth1">
+            <a v-for="(twoDepth, idx) in item.twoDepths" :key="idx" :href="item.links[idx]">{{ twoDepth }}</a>
+          </div>
         </li>
       </ul>
     </div>
   </div>
 </template>
-
 <script>
+import { ref } from 'vue';
+
 export default {
   data() {
     return {
-      title: 'all',
+      title: 'category',
       categories: [
-        { name: "의류", route: "/display" },
-        { name: "가방", route: "/display" },
-        { name: "악세사리", route: "/display" },
-        { name: "골프/에슬레저", route: "/display" },
+        {
+          oneDepth: '의류',
+          twoDepths: ['전체','아우터 (클릭)','원피스','블라우스/셔츠','스커트','팬츠','티셔츠','데님','니트',],
+          links: ['#link1', '#link2', '#link3', '#link4', '#link5', '#link6', '#link7', '#link8', '#link9'],
+        },
+        {
+          oneDepth: '가방',
+          twoDepths: ['전체', '전체', '전체'],
+          links: ['#link10', '#link11', '#link12'],
+        },
+        {
+          oneDepth: '신발',
+          twoDepths: ['전체', '전체', '전체'],
+          links: ['#link13', '#link14', '#link15'],
+        },
+        {
+          oneDepth: '악세서리',
+          twoDepths: ['전체', '전체', '전체'],
+          links: ['#link16', '#link17', '#link18'],
+        },
+        {
+          oneDepth: '골프/애슬레저',
+          twoDepths: ['전체', '전체', '전체'],
+          links: ['#link19', '#link20', '#link21'],
+        },
       ],
-      isActive: false
-    }
+    };
   },
-  methods: {
-    closeLayer() {
-      // .layer-wrap .close 클래스명 제거
-      document.querySelector(".layer-wrap").classList.remove("active");
+  setup() {
+    const isOpen = ref([]);
 
-      // body에서 .active 클래스 제거
-			document.body.classList.remove("active");
+    const toggle = (index) => {
+      isOpen.value[index] = !isOpen.value[index];
+    };
 
-			window.scrollTo({
-        top: 0,
-      });
-    }
-  }
-}
+    return { isOpen, toggle };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -46,8 +66,8 @@ export default {
 
 /* category */
 
-.layer-category {
-  padding-top: 40px;
+.category-all {
+  padding: 40px 0 30px;
 
   .title {
     font-size: 24px;
@@ -72,9 +92,10 @@ export default {
       }
     }
   }
-}
-.category-list li {
-  overflow: hidden;
+  
+  .category-list li {
+    overflow: hidden;
+  }
 }
 
 .category-parent {
@@ -148,6 +169,5 @@ export default {
     }
   }
 }
-
 
 </style>

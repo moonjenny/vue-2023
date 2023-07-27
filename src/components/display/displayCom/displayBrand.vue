@@ -5,28 +5,28 @@
         title: "브랜드",
         lists: [
           {
-            link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/brand-01.png",
             alt: "이미지 설명1"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/brand-02.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/brand-02.png",
             alt: "이미지 설명2"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/brand-01.png",
             alt: "이미지 설명3"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/brand-02.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/brand-02.png",
             alt: "이미지 설명4"
           },
           {
-            link: "#none",
-            image: "/src/assets/images/display/brand-01.png",
+            link: "javascript:;",
+            image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/display/brand-01.png",
             alt: "이미지 설명5"
           }
         ],
@@ -57,7 +57,7 @@
 /* display-brand */
 
 .display-brand {
-  padding-bottom: 50px;
+  margin:30px 0 40px;
 
   .title {
     padding-left: 20px;
