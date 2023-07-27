@@ -30,11 +30,8 @@ const isActive = ref(false);
 const scrollClass = ref('');
 const prevScrollY = ref(window.scrollY);
 
+// 최상단 이동
 function goToLink(link) {
-  this.$router.push(link);
-  console.log(link);
-
-  //최상단 이동
   window.scrollTo({
     top: 0,
   });
@@ -86,8 +83,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
-
 </script>
+
 <template>
   <section class="actionbar" :class="scrollClass">
     <ul class="actionbar-nav">
@@ -102,6 +99,7 @@ onUnmounted(() => {
         <router-link 
           :to="nav.link"
           :class="{ 'active': nav.link === '/vue-2023/like/' && hasLike, 'f-like': nav.link === '/vue-2023/like/' }"
+          @click="goToLink(nav.link)"
         >
           <span :class="nav.iconClass">{{ nav.title }}</span>
         </router-link>
