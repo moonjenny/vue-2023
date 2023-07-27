@@ -2,7 +2,7 @@
   import { defineComponent } from 'vue'
   import { useRoute } from 'vue-router'
 
-  // 공통 헤더
+  // 헤더 컴포넌트들을 가져옴
   import SkipMenu from    './components/common/header/Skip.vue'
   import Header from      './components/common/header/Header.vue'
   import HeaderMy from    './components/common/header/HeaderMy.vue'
@@ -10,34 +10,39 @@
 
   // 공통 푸터
   import CommonFooter from './components/common/CommonFooter.vue'
-  //메인 
+  // 메인 
   import CommonMain from './pages/CommonMain.vue'
 
   // 현재 경로를 가져옴
   const route = useRoute()
 
-  // 현재 경로에 따라서 헤더 컴포넌트를 동적으로 선택
+  // 현재 경로에 따라 동적으로 헤더 컴포넌트를 선택하기 위한 계산된 속성
   const getHeaderComponent = () => {
-    console.log(route.path);
-    if (route.path === '/vue-2023/') {
-      return Header
-    } else if (route.path === '/vue-2023/mypage/') {
-      return HeaderMy
-    } else if (route.path === '/vue-2023/display/' || '/vue-2023/category/') {
-      return HeaderList
-    } else {
-      return Header
+    switch (route.path) {
+      case '/vue-2023/':
+        return Header
+      case '/vue-2023/mypage/':
+      case '/vue-2023/notice/':
+      case '/vue-2023/store/':
+      case '/vue-2023/like/':
+      case '/vue-2023/cart/':
+        return HeaderMy
+      case '/vue-2023/display/':
+      case '/vue-2023/category/':
+        return HeaderList
+      default:
+        return Header
     }
   }
 </script>
 
 <template>
-  <div class="wrap" id="wrap" msg="wrap">
+  <div class="wrap" id="wrap" msg="wrap" @scroll="handleScroll">
     <!-- Skip -->
     <SkipMenu />
     
     <!-- 동적으로 선택된 헤더 -->
-    <component :is="getHeaderComponent()" />
+    <component :is="getHeaderComponent()" :pageTitle="headerTitle" />
     <!-- //헤더 -->
 
     <!-- 컨텐츠 -->
@@ -51,17 +56,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
 
-  }
-}
-</script>
 <style scoped>
 </style>
