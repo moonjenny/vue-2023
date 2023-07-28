@@ -151,7 +151,7 @@ body.active {
   height: 57px;
   border-top: 1px solid #eee;
   background: #fff;
-  z-index: 100;
+  z-index: 10;
   transition: transform .3s ease;
   &.show {
     transform:translateY(0);

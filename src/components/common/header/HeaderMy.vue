@@ -21,8 +21,9 @@ const titles = {
   '/vue-2023/mypage/': '마이페이지',
   '/vue-2023/notice/': '공지사항',
   '/vue-2023/store/': '매장안내',
-  '/vue-2023/like/': '좋아요',
+  '/vue-2023/like/': '관심상품',
   '/vue-2023/cart/': '장바구니',
+  '/vue-2023/search/': '검색결과',
 }
 
 // 현재 라우트에 따른 헤더 제목을 계산된 속성으로 정의
@@ -88,6 +89,7 @@ const goBack = () => {
       flex: 1 1 auto;
       margin:0 10px;
       font-size:18px;
+      font-weight: 500;
     }
   }
   .btn-back {

@@ -4,9 +4,9 @@ export default {
     return {
       title : '최근검색어',
       keywords: [
-        { word: '원피스', route: '/vue-2023/display/' },
-        { word: '스커트', route: '/vue-2023/display/' },
-        { word: '반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 ', route: '/vue-2023/display/' }
+        { word: '원피스', route: '/vue-2023/search/' },
+        { word: '스커트', route: '/vue-2023/search/' },
+        { word: '반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 반팔티 ', route: '/vue-2023/search/' }
       ]
     }
   },

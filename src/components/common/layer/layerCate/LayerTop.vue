@@ -22,7 +22,7 @@ export default {
     return {
       name : '회원명',
       utils : [
-        { name: '검색', className: 'search', route: '/vue-2023/search/' },
+        // { name: '검색', className: 'search', route: '/vue-2023/search/' },
         { name: '좋아요', className: 'like', route: '/vue-2023/like/' },
         { name: '장바구니', className: 'cart', route: '/vue-2023/cart/' },
       ],
