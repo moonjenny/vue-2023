@@ -36,9 +36,9 @@ export default {
       // body에서 .active 클래스 제거
 			document.body.classList.remove("active");
 
-			// window.scrollTo({
-      //   top: 0,
-      // });
+			window.scrollTo({
+        top: 0,
+      });
     }
   }
 }
