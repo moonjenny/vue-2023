@@ -163,7 +163,8 @@ export default {
     }
     button {
       display:block;
-      padding:13px 24px;
+      width:80px;
+      padding:13px 20px;
       line-height:20px;
       font-size:14px;
       font-weight:bold;
