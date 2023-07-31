@@ -5,7 +5,7 @@
   // 헤더 컴포넌트들을 가져옴
   import SkipMenu from    './components/common/header/Skip.vue'
   import Header from      './components/common/header/Header.vue'
-  import HeaderMy from    './components/common/header/HeaderMy.vue'
+  import HeaderTitle from    './components/common/header/HeaderTitle.vue'
   import HeaderList from  './components/common/header/HeaderList.vue'
 
   // 공통 푸터
@@ -22,12 +22,14 @@
       case '/vue-2023/':
         return Header
       case '/vue-2023/mypage/':
+      case '/vue-2023/mypage/point/':
       case '/vue-2023/notice/':
       case '/vue-2023/store/':
       case '/vue-2023/like/':
       case '/vue-2023/cart/':
       case '/vue-2023/search/':
-        return HeaderMy
+      case '/vue-2023/login/':
+        return HeaderTitle
       case '/vue-2023/display/':
       case '/vue-2023/category/':
         return HeaderList

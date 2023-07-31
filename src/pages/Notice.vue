@@ -147,7 +147,6 @@ export default {
 
   .search {
     display:flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap:8px;
@@ -156,6 +155,7 @@ export default {
     input[type="text"]{
       flex: 1 1 auto;
       padding:12px 12px;
+      line-height:20px;
       font-size:14px;
       color: var(--111111, #111);
       border: 1px solid var(--cccccc, #CCC);
@@ -163,7 +163,8 @@ export default {
     }
     button {
       display:block;
-      padding:15px 24px;
+      padding:13px 24px;
+      line-height:20px;
       font-size:14px;
       font-weight:bold;
       color: var(--ffffff, #fff);
@@ -182,6 +183,9 @@ export default {
         flex-shrink: 1;
         flex-grow: 0;
         flex-basis: 33.3%;
+        border: 1px solid #eeeeee;
+        margin-top: -1px;
+        margin-left: -1px;
         button {
           display:block;
           width:100%;
@@ -189,12 +193,11 @@ export default {
           font-size:16px;
           text-align: center;
           color: #111;
-          border: 1px solid #eeeeee;
-          margin-top: -1px;
-          margin-left: -1px;
           background-color: #fff;
         }
         &.active {
+          border-color:#111;
+          z-index:1;
           button {
             color:#fff;
             background:#111;

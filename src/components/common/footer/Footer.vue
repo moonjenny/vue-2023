@@ -16,8 +16,8 @@
         </div>
         <div class="footer-links">
             <ul>
-                <li><a href="/vue-2023/notice/">공지사항</a></li>
-                <li><a href="/vue-2023/store/">매장안내</a></li>
+                <li><router-link to="/vue-2023/notice/">공지사항</router-link></li>
+                <li><router-link to="/vue-2023/store/">매장안내</router-link></li>
                 <!-- 
                 <li><a href="/">이용약관</a></li>
                 <li><a href="/">개인정보처리방침</a></li>

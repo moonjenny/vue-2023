@@ -1,24 +1,15 @@
 import {createStore} from 'vuex'
+import getters from "./getters"
+import mutations from "./mutations"
+import actions from "./actions";    //추가
 
-const store = createStore({
-	state() { //변수들의 집합
-		return {
-			account: {
-				id: 0
-			},
-			name: '이름이이'
-		}
-	},
-  getters: { // [state의 변수들을 get 호출]
-    getUserInfo(state){
-      return "이름 : " + state.name;
-    }
+export default createStore({
+  state: {
+    user: null,
+    isLogin: false,
   },
-	mutations: {
-		setAccount(state, payload) {
-			state.account.id = payload;
-		}
-	}
-})
+  mutations,
+  getters,
+  actions     //추가
 
-export default store;
+})

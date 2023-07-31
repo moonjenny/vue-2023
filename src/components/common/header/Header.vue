@@ -26,9 +26,9 @@ export default {
         document.body.classList.add("active");
 
         //레이어 항상 top으로 이동하기
-        document.querySelector(".layer-search").scrollTo({
-          top: 0,
-        });
+        // document.querySelector(".layer-search").scrollTo({
+        //   top: 0,
+        // });
       } else if (gnbUtil.route) {
         // 다른 유틸리티 버튼의 동작 처리
         window.location.href = gnbUtil.route;

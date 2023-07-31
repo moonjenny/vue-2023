@@ -26,10 +26,6 @@ export default {
   },
   methods: {
     handleLinkClick(util) {
-      // 페이지의 맨 위로 스크롤 이동
-      window.scrollTo({
-        top: 0,
-      });
       if (util.name === '로그아웃') {
         this.logout();
       } else {
