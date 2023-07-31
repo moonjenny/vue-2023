@@ -4,28 +4,28 @@
     <div class="ignore-responsive">
     <ul>
         <li>
-          <a href="/myPage/point" class="item">
+          <router-link to="/vue-2023/mypage/point/" class="item">
             <span class="tit">보유 포인트</span>
             <strong>5,000P</strong>
-          </a>  
+          </router-link>  
         </li>
         <li>
-          <a href="/myPage/coupon" class="item">
+          <router-link to="/vue-2023/mypage/coupon/" class="item">
             <span class="tit">총 보유쿠폰</span>
             <strong>2개</strong>
-          </a>
+          </router-link>
         </li>
         <li>
-          <a href="/myPage/coupon?couponType=online" class="item">
+          <router-link to="/vue-2023/mypage/coupon/" class="item">
             <span class="tit">온라인 쿠폰</span>
             <strong>1개</strong>
-          </a>
+          </router-link>
         </li>
         <li>
-          <a href="/myPage/wishList" class="item">
+          <router-link to="/vue-2023/like" class="item">
             <span class="tit">관심상품</span>
             <strong>0개</strong>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -33,16 +33,16 @@
     <div class="my-summary">
       <ul>
         <li>
-          <a href="/myPage/point" class="item">
+          <router-link to="/vue-2023/mypage/point/" class="item">
             <span class="tit">보유 포인트</span>
             <strong>5,000P</strong>
-          </a>  
+          </router-link>  
         </li>
         <li>
-          <a href="/myPage/coupon" class="item">
+          <router-link to="/vue-2023/mypage/coupon/" class="item">
             <span class="tit">당월 소멸예정 포인트</span>
             <strong>0P</strong>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

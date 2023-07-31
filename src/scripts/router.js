@@ -11,16 +11,76 @@ import Login from './../pages/Login.vue';
 import Point from './../pages/mypage/Point.vue';
 
 const routes = [
-  { path: '/vue-2023/', component: Home },
-  { path: '/vue-2023/category/', component: Category },
-  { path: '/vue-2023/display/', component: Display },
-  { path: '/vue-2023/about/', component: About },
-  { path: '/vue-2023/like/', component: Like },
-  { path: '/vue-2023/mypage/', component: Mypage },
-  { path: '/vue-2023/mypage/point/', component: Point },
-  { path: '/vue-2023/notice/', component: Notice },
-  { path: '/vue-2023/store/', component: Store },
-  { path: '/vue-2023/login/', component: Login }
+  { 
+    path: '/vue-2023/', 
+    component: Home,
+    meta: {
+      title: 'Home'
+    }
+  },
+  { 
+    path: '/vue-2023/category/', 
+    component: Category,
+    meta: {
+      title: '카테고리'
+    }
+  },
+  { 
+    path: '/vue-2023/display/', 
+    component: Display,
+    meta: {
+      title: '리스트'
+    }
+  },
+  { 
+    path: '/vue-2023/about/', 
+    component: About,
+    meta: {
+      title: 'About'
+    }
+  },
+  { 
+    path: '/vue-2023/like/', 
+    component: Like,
+    meta: {
+      title: '관심상품'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/', 
+    component: Mypage,
+    meta: {
+      title: '마이페이지'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/point/', 
+    component: Point,
+    meta: {
+      title: '마이페이지 | 포인트'
+    }
+  },
+  { 
+    path: '/vue-2023/notice/', 
+    component: Notice,
+    meta: {
+      title: '공지사항'
+    }
+  },
+  { 
+    path: '/vue-2023/store/', 
+    component: Store,
+    meta: {
+      title: '매장안내'
+    }
+  },
+  { 
+    path: '/vue-2023/login/', 
+    component: Login,
+    meta: {
+      title: 'Login'
+    }
+  }
 ];
 
 const router = createRouter({
@@ -36,5 +96,9 @@ const router = createRouter({
   },
 });
 
+router.afterEach((to, from) => {
+  const title = to.meta.title || packageJson.name
+  if(title) document.title = title
+})
 
 export default router;
