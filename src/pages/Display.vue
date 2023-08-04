@@ -4,6 +4,7 @@ import displayTags from '/src/components/display/displayCom/displayTags.vue'
 import displaySwiper from '/src/components/display/displayCom/displaySwiper.vue'
 import displayBrand from '/src/components/display/displayCom/displayBrand.vue'
 import displayFilter from '/src/components/display/displayCom/displayFilter.vue'
+import layerFilter from '/src/components/display/displayLayer/layerFilter.vue'
 import displayPrdlist from '/src/components/display/displayCom/displayPrdlist.vue'
 </script>
 
@@ -14,6 +15,7 @@ import displayPrdlist from '/src/components/display/displayCom/displayPrdlist.vu
     <displaySwiper />
     <displayBrand />
     <displayFilter />
+    <layerFilter />
     <displayPrdlist />
   </div>
   <!-- //container -->
@@ -25,7 +27,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 /* 컴포넌트 스타일 */
 
 </style>
