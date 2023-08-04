@@ -34,6 +34,7 @@
       }
       span {
         position:relative;
+        flex-basis:auto;
         input[type="number"] {
           padding: 8px 28px 9px 12px;
           font-size: 14px;
