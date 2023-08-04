@@ -142,7 +142,7 @@ const clearSearchKeyword = () => {
         width:40px;
         height:40px;
         font-size:0;
-        background: url(/vue-2023/src/assets/images/common/btn-search.svg) center center no-repeat;
+        background: url(@/assets/images/common/btn-search.svg) center center no-repeat;
       }
       .btn-delete {
         position:absolute;
@@ -152,7 +152,7 @@ const clearSearchKeyword = () => {
         width:30px;
         height:30px;
         font-size:0;
-        background: url(/vue-2023/src/assets/images/display/btn-close.svg) center center no-repeat;
+        background: url(@/assets/images/display/btn-close.svg) center center no-repeat;
         background-size:12px auto;
       }
     }
