@@ -68,21 +68,26 @@ export default {
     align-items: center;
   }
 
-  li a {
-    position: relative;
-    display: block;
-    padding: 18px 20px;
-    font-size: 13px;
-    line-height: 14px;
-    color: #111;
+  li {
+    a {
+      position: relative;
+      display: block;
+      padding: 18px 20px;
+      font-size: 13px;
+      line-height: 14px;
+      color: #111;
 
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 1px;
-      height: 14px;
-      background: #ccc;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 1px;
+        height: 14px;
+        background: #ccc;
+      }
+    }
+    &:first-child a:after {
+      display:none;
     }
   }
 }
