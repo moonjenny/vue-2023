@@ -147,6 +147,8 @@ export default {
 
   .search {
     display:flex;
+    flex-wrap: wrap;
+    width:100%;
     justify-content: space-between;
     align-items: center;
     gap:8px;
@@ -163,7 +165,7 @@ export default {
     }
     button {
       display:block;
-      width:80px;
+      width:90px;
       padding:13px 20px;
       line-height:20px;
       font-size:14px;

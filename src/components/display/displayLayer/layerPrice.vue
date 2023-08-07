@@ -24,6 +24,7 @@
     .price-form {
       display:flex;
       flex-wrap: wrap;
+      width:100%;
       align-items: center;
       justify-content: space-evenly;
       margin-bottom:10px;
