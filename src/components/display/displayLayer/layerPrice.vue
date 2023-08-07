@@ -39,6 +39,7 @@
         flex-basis:auto;
         input[type="number"] {
           padding: 8px 28px 9px 12px;
+          width:100%;
           font-size: 14px;
           text-align:right;
           border: 1px solid #cccccc;
