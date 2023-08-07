@@ -37,6 +37,7 @@
       span {
         position:relative;
         flex-basis:auto;
+        width:66%;
         input[type="number"] {
           padding: 8px 28px 9px 12px;
           width:100%;
