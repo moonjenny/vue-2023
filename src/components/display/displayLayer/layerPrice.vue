@@ -20,6 +20,7 @@
 <style lang="scss">
 
   .filter-price{
+    position:relative;
     padding:12px 20px;
     .price-form {
       display:flex;
