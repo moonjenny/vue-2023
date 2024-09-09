@@ -108,12 +108,12 @@ export default {
     filteredItems() {
       if (this.currentTab === "전체") {
         return this.items.filter((item) =>
-          item.title.includes(this.searchKeyword)
+          item.title.includes(this.searchKeyword) || item.subtext.includes(this.searchKeyword)
         );
       } else {
         return this.items
           .filter((item) => item.label === this.currentTab)
-          .filter((item) => item.title.includes(this.searchKeyword));
+          .filter((item) => item.title.includes(this.searchKeyword) || item.subtext.includes(this.searchKeyword));
       }
     },
   },
@@ -163,6 +163,7 @@ export default {
       color: var(--111111, #111);
       border: 1px solid var(--cccccc, #CCC);
       background: var(--ffffff, #FFF);
+      outline: 0;
     }
     button {
       display:block;
@@ -186,7 +187,7 @@ export default {
         display: initial;
         flex-shrink: 1;
         flex-grow: 0;
-        flex-basis: 33.3%;
+        flex-basis: 33.3333%;
         border: 1px solid #eeeeee;
         margin-top: -1px;
         margin-left: -1px;
@@ -235,12 +236,14 @@ export default {
           align-items: flex-start;
           gap: 15px;
           padding:16px 0;
+          cursor: pointer;
           .label {
+            width: 60px;
             font-size:12px;
             color:#999;
           }
           .title {
-            flex: 1 1 auto;
+            flex: 3 1 auto;
             font-size:14px;
             .date {
               margin:4px 0 0;
@@ -266,6 +269,7 @@ export default {
           background-color:#f6f6f6;
           p{
             margin:6px 0;
+            line-height: 20px;
           }
         }
       }
