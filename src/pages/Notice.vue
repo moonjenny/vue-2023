@@ -155,8 +155,9 @@ export default {
     padding:30px 20px;
     background-color:#f6f6f6;
     input[type="text"]{
-      flex: 1 1 auto;
+      flex: 1;
       padding:12px 12px;
+      width:calc(100% - 98px);
       line-height:20px;
       font-size:14px;
       color: var(--111111, #111);
