@@ -3,6 +3,7 @@ import Home from './../pages/CommonMain.vue';
 import Category from './../pages/Category.vue'; // 카테고리 레이어
 import Display from './../pages/Display.vue'; //리스트
 import About from './../pages/About.vue';
+import Cart from './../pages/Cart.vue';
 import Like from './../pages/Like.vue';
 import Mypage from './../pages/Mypage.vue';
 import Notice from './../pages/Notice.vue';
@@ -37,6 +38,13 @@ const routes = [
     component: About,
     meta: {
       title: 'About'
+    }
+  },
+  { 
+    path: '/vue-2023/cart/', 
+    component: Cart,
+    meta: {
+      title: '장바구니'
     }
   },
   { 
