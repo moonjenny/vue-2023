@@ -83,6 +83,33 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+// "더보기" 버튼 클릭 시 SVG 애니메이션을 추가하는 함수
+function addAnimation() {
+  const actionView1 = document.querySelector(".action-view1");
+  const actionView2 = document.querySelector(".action-view2");
+  const actionView3 = document.querySelector(".action-view3");
+
+  actionView1.classList.add("animate");
+  setTimeout(() => {
+    actionView2.classList.add("animate");
+  }, 300);
+  setTimeout(() => {
+    actionView3.classList.add("animate");
+  }, 600);
+
+  // 애니메이션이 끝난 후 클래스 제거
+  actionView1.addEventListener("animationend", () => {
+    actionView1.classList.remove("animate");
+  });
+  actionView2.addEventListener("animationend", () => {
+    actionView2.classList.remove("animate");
+  });
+  actionView3.addEventListener("animationend", () => {
+    actionView3.classList.remove("animate");
+  });
+}
+
 </script>
 
 <template>
@@ -109,7 +136,7 @@ onUnmounted(() => {
       </li>
 
       <li>
-        <button type="button">
+        <button type="button" @click="addAnimation">
           <span class="f-view">더보기
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle class="action-view1" cx="4.5" cy="12" r="2" fill="black"/>
@@ -121,10 +148,10 @@ onUnmounted(() => {
       </li>
     </ul>
     <div class="actionbar-floating">
-      <!-- <button type="button">
+      <button type="button">
         <span class="float-item">최근 본 상품</span>
         <img src="https://sui.ssgcdn.com/cmpt/banner/202211/2022111617073094621939279193_822.png" alt="아우터">
-      </button> -->
+      </button>
       <button type="button">
         <span class="float-chat">1:1채팅하기</span>
       </button>
@@ -285,5 +312,21 @@ body.active {
     }
   }
 }
+// SVG 애니메이션을 정의하는 CSS
+@keyframes actionView {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+// 애니메이션을 추가할 때 사용할 클래스
+.animate {
+  animation: actionView 1s ease;
+}
 </style>
