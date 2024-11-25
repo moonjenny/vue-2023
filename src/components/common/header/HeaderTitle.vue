@@ -26,6 +26,7 @@ const titles = {
   '/vue-2023/login/': '로그인',
   '/vue-2023/mypage/': '마이페이지',
   '/vue-2023/mypage/point/': '포인트',
+  '/vue-2023/detail/': '상품상세',
 }
 
 // 현재 라우트에 따른 헤더 제목을 계산된 속성으로 정의
@@ -53,7 +54,20 @@ const goBack = () => {
 </script>
 
 <template>
-  <header class="header title">
+  <header v-if="headerTitle === '상품상세'" :class="['header title', 'detail-header']">
+    <button type="button" class="btn-back" @click="goBack">
+      이전페이지 이동
+    </button>
+    <div class="header-nav">
+      <a href="/vue-2023/" class="link-home"><span class="ico-home">홈</span></a>
+    </div>
+    <div class="gnb-util">
+      <div class="util-cart">
+        <button type="button" class="btn-cart" @click="handleGnbUtilClick({ name: '장바구니', route: '/vue-2023/cart/' })">장바구니</button>
+      </div>
+    </div>
+  </header>
+  <header v-else :class="['header title']">
     <button type="button" class="btn-back" @click="goBack">
       이전페이지 이동
     </button>
@@ -71,7 +85,6 @@ const goBack = () => {
         </button>
       </div>
     </div>
-
   </header>
 
   <!-- 검색 레이어 -->
@@ -128,6 +141,20 @@ const goBack = () => {
   font-size: 0;
   color: #fff;
   background: url(@/assets/images/common/btn-cart.svg) center center no-repeat;
+}
+
+.link-home {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.ico-home {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size:0;
+  color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 14.4806L16 7.28062L25 14.4806V25H7V14.4806Z' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
 }
 
 </style>

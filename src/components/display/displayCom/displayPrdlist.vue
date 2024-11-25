@@ -5,7 +5,7 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -22,7 +22,7 @@ export default {
           rank: 2,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -39,7 +39,7 @@ export default {
           rank: 3,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -56,7 +56,7 @@ export default {
           rank: 1,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-09.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
@@ -72,7 +72,7 @@ export default {
           rank: 4,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -89,7 +89,7 @@ export default {
           rank: 5,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -106,7 +106,7 @@ export default {
           rank: 6,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -123,7 +123,7 @@ export default {
           rank: 7,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -140,7 +140,7 @@ export default {
           rank: 8,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -157,7 +157,7 @@ export default {
           rank: 9,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -174,7 +174,7 @@ export default {
           rank: 10,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -191,7 +191,7 @@ export default {
           rank: 11,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -208,7 +208,7 @@ export default {
           rank: 12,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -225,7 +225,7 @@ export default {
           rank: 13,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -242,7 +242,7 @@ export default {
           rank: 14,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -259,7 +259,7 @@ export default {
           rank: 15,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -276,7 +276,7 @@ export default {
           rank: 16,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -293,7 +293,7 @@ export default {
           rank: 17,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
