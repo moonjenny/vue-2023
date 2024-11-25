@@ -11,6 +11,4 @@
 <div> 보안상의 이유로 커밋하기 어려워 직접 업로드 하여, 히스토리가 지저분합니다.</div>
 
 <div>*토큰</div>
-<div style="font-size:0;color:#fff;">
-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
-</div>
+
