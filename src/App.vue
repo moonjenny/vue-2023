@@ -29,6 +29,7 @@
       case '/vue-2023/cart/':
       case '/vue-2023/search/':
       case '/vue-2023/login/':
+      case '/vue-2023/detail/':
         return HeaderTitle
       case '/vue-2023/display/':
       case '/vue-2023/category/':

@@ -9,6 +9,9 @@ import Mypage from './../pages/Mypage.vue';
 import Notice from './../pages/Notice.vue';
 import Store from './../pages/Store.vue';
 import Login from './../pages/Login.vue';
+// 상품상세
+import Detail from './../pages/Detail.vue';
+// 마이페이지
 import Point from './../pages/mypage/Point.vue';
 
 const routes = [
@@ -87,6 +90,13 @@ const routes = [
     component: Login,
     meta: {
       title: 'Login'
+    }
+  },
+  { 
+    path: '/vue-2023/detail/', 
+    component: Detail,
+    meta: {
+      title: '상품상세'
     }
   }
 ];
