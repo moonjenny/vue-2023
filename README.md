@@ -1,16 +1,29 @@
-# vue-2023
+# vue-project
 
-안녕하세요. vue3를 이용하여 간단한 페이지 만드는 중입니다.
-<hr>
+This template should help get you started developing with Vue 3 in Vite.
 
-<div>사이트 보러가기 </div>
-<div><a href="https://moonjenny.github.io/vue-2023/" target="_blank">바로가기</a></div>
-<hr>
+## Recommended IDE Setup
 
-<div> vue3, 깃허브 Actions 을 이용</div>
-<div> 보안상의 이유로 커밋하기 어려워 직접 업로드 하여, 히스토리가 지저분합니다.</div>
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-<div>*토큰</div>
-<div style="font-size:0;color:#fff;">
-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
-</div>
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
