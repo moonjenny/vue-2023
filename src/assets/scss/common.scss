@@ -148,6 +148,14 @@ svg {
   box-sizing: border-box;
 }
 
+input::placeholder,
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+input:-mos-input-placeholder {
+  color:#666;
+  opacity: 0.5;
+}
+
 // main
 .main-title {
 	padding:0 20px;
@@ -191,6 +199,9 @@ svg {
       &:before {
         border:none;
         background:#000 url(/src/assets/images/common/input-checkbox.svg) center center no-repeat;
+      }
+      & + label {
+        color:#000;
       }
     }
     & + label {
