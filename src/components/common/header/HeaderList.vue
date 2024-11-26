@@ -86,7 +86,15 @@ const updateBtnNavText = (index) => {
     </div>
     <div class="gnb-util">
       <div v-for="(gnbUtil, index) in gnbUtils" :key="index" :class="['util-' + gnbUtil.className]">
+        <router-link
+          v-if="gnbUtil.route"
+          :to="gnbUtil.route"
+          :class="['btn-' + gnbUtil.className]"
+        >
+          {{ gnbUtil.name }}
+        </router-link>
         <button
+          v-else
           type="button"
           :class="['btn-' + gnbUtil.className]"
           @click="handleGnbUtilClick(gnbUtil)"

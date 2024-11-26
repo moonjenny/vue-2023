@@ -41,18 +41,27 @@ export default {
 <template>
   <header class="header">
     <h1>
-      <a href="/vue-2023/">
+      <router-link 
+        :to="'/vue-2023/'"
+      >
         <span class="logo">{{ logoText }}</span>
-      </a>
+      </router-link>
     </h1>
     <div class="gnb-util">
-      <div 
+      <div
         v-for="(gnbUtil, index) in gnbUtils"
         :key="index"
         :class="['util-' + gnbUtil.className]"
       >
-        <button 
-          type="button"
+        <router-link
+          v-if="gnbUtil.route"
+          :to="gnbUtil.route"
+          :class="['btn-' + gnbUtil.className]"
+        >
+          {{ gnbUtil.name }}
+        </router-link>
+        <button
+          v-else type="button"
           :class="['btn-' + gnbUtil.className]"
           @click="handleGnbUtilClick(gnbUtil)"
         >
