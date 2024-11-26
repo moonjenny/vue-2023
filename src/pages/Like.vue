@@ -5,7 +5,7 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -21,7 +21,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -37,7 +37,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -53,7 +53,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-09.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
@@ -68,7 +68,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -84,7 +84,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -100,7 +100,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -116,7 +116,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -132,7 +132,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -148,7 +148,7 @@ export default {
           active: true
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -267,14 +267,17 @@ export default {
                   </button>
                 </div>
                 <div class="info">
-                  <a :href="item.link">
+                  <router-link 
+                    :to="item.link"
+                    @click="goToLink(item.link)"
+                  >
                     <span class="brand">{{ item.brand }}</span>
                     <span class="name">{{ item.name }}</span>
                     <span class="price">
                       <span class="discount">{{ item.discount }}</span>
                       <span class="origin">{{ item.price }}</span>
                     </span>
-                  </a>
+                  </router-link>
                 </div>
             </div>
           </li>
