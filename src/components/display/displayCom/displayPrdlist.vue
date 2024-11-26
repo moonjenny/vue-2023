@@ -374,14 +374,17 @@ export default {
                 </button>
               </div>
               <div class="info">
-                <a :href="item.link">
+                <router-link 
+                  :to="item.link"
+                  @click="goToLink(item.link)"
+                >
                   <span class="brand">{{ item.brand }}</span>
                   <span class="name">{{ item.name }}</span>
                   <span class="price">
                     <span class="discount">{{ item.discount }}</span>
                     <span class="origin">{{ item.price }}</span>
                   </span>
-                </a>
+                </router-link>
               </div>
           </div>
         </li>

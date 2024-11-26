@@ -5,7 +5,7 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
@@ -21,7 +21,7 @@ export default {
           active: false
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
@@ -36,7 +36,7 @@ export default {
           active: false
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
@@ -52,7 +52,7 @@ export default {
           active: false
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png",
@@ -115,7 +115,10 @@ export default {
             </button>
           </div>
           <div class="info">
-            <a :href="item.link">
+            <router-link 
+              :to="item.link"
+              @click="goToLink(item.link)"
+            >
               <span class="brand">{{ item.brand }}</span>
               <span class="name">{{ item.name }}</span>
               <span class="price">
@@ -123,7 +126,7 @@ export default {
                 <span class="discount">{{ item.discount }}</span>
                 <span class="percent">{{ item.percent }}</span>
               </span>
-            </a>
+            </router-link>
           </div>
         </div>
       </li>
