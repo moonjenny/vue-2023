@@ -22,23 +22,6 @@
       </li>
     </ul>
   </section>
-
-  <!-- layer-filter -->
-  <section class="layer-filter">
-      <div class="filter-top">
-          <h3 class="filter-title">필터</h3>
-          <button type="button" class="btn-filter" @click="closeLayer">닫기</button>
-      </div>
-      <div class="filter-contents" style="height:2000px;background:yellowgreen;">
-        <div>dkdlsjflk</div>
-        <div style="height:100px;background-color:#ddd;">dkdlsjflk</div>
-      </div>
-      <div class="filter-buttons">
-        <button type="button" class="btn-white">초기화</button>
-        <button type="button" class="btn-black" @click="closeLayer">적용</button>
-      </div>
-  </section>
-  <!-- //layer-filter -->
 </template>
 
 <script>
@@ -183,65 +166,5 @@ export default {
     }
   }
 }
-
-/* layer-filter */
-
-.layer-filter {
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:100%;
-  height:100%;
-  z-index:999;
-  transition: right 0.5s ease;
-  overflow:auto;
-
-  &.active {
-    right:0;
-  }
-}
-
-.filter-top {
-  position: sticky;
-  top: 0;
-  padding: 34px 20px 20px;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .filter-title {
-    font-size: 22px;
-    color: #111;
-    font-weight: 500;
-  }
-
-  .btn-filter {
-    width: 24px;
-    height: 24px;
-    font-size: 0;
-    color: #fff;
-    background: url(/src/assets/images/display/btn-close.svg) no-repeat;
-  }
-}
-
-.filter-buttons {
-  position: sticky;
-  bottom: 0;
-  background: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  button {
-    width: calc(50% - 4px);
-    padding: 20px;
-  }
-}
-
-.filter-contents {
-  padding: 0 0 100px;
-}
-
 
 </style>

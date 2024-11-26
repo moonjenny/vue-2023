@@ -5,7 +5,7 @@ export default {
       //상품리스트 
       items: [
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -15,13 +15,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
-          discount: "219,000원",
+          price: "2,219,000원",
+          discount: "2,019,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 2,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -31,13 +32,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
-          discount: "219,000원",
+          price: "3,219,000원",
+          discount: "3,019,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 3,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -47,13 +49,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
-          discount: "219,000원",
+          price: "239,000원",
+          discount: "209,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 1,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-09.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
@@ -63,12 +66,13 @@ export default {
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
           price: "219,000원",
-          discount: "219,000원",
+          discount: "209,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 4,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-01.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
@@ -78,13 +82,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
-          discount: "219,000원",
+          price: "259,000원",
+          discount: "239,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 5,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
@@ -94,13 +99,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
-          discount: "219,000원",
+          price: "269,000원",
+          discount: "239,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 6,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-07.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -110,13 +116,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
+          price: "269,000원",
           discount: "219,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 7,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-10.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-08.png",
@@ -126,13 +133,14 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
+          price: "249,000원",
           discount: "219,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 8,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -142,13 +150,150 @@ export default {
           colors: ["black", "brown", "gray"],
           brand: "LYNN",
           name: "클래식 크롭 테일러드 자켓111",
-          price: "219,000원",
+          price: "289,000원",
           discount: "219,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 9,
         },
         {
-          link: "",
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-06.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 10,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-03.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 11,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-06.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 12,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-03.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 13,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-06.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 14,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-03.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 15,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-06.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 16,
+        },
+        {
+          link: "/vue-2023/detail/",
+          images: [
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-05.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
+            "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-03.png",
+          ],
+          alt: '클래식 크롭 테일러드 자켓',
+          colors: ["black", "brown", "gray"],
+          brand: "LYNN",
+          name: "클래식 크롭 테일러드 자켓111",
+          price: "299,000원",
+          discount: "219,000원",
+          percent: "10%",
+          active: false,
+          rank: 17,
+        },
+        {
+          link: "/vue-2023/detail/",
           images: [
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-02.png",
             "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/temp/thumb-04.png",
@@ -161,12 +306,24 @@ export default {
           price: "219,000원",
           discount: "219,000원",
           percent: "10%",
-          active: false
+          active: false,
+          rank: 18,
         }
       ],
       activeColor: [], // 컬러칩 활성화 인덱스 (배열로 변경)
       activeThumbIndex: [], // 썸네일 인덱스 (배열로 변경)
+      visibleItemCount: 6, // 초기에 보여줄 상품 개수
     }
+  },
+  computed: {
+    // visibleItems를 계산된 속성으로 추가하여 보여줄 상품들을 계산합니다.
+    visibleItems() {
+      return this.items.slice(0, this.visibleItemCount);
+    },
+    // 더 이상 보여줄 상품이 있는지 여부를 계산된 속성으로 추가
+    hasMoreItems() {
+      return this.visibleItemCount < this.items.length;
+    },
   },
   methods: {
     toggleActive(item) {
@@ -176,13 +333,17 @@ export default {
       this.activeColor[itemIndex] = index;
       this.activeThumbIndex[itemIndex] = index;
       console.log("li의 index:", itemIndex, index);
-    }
+    },
+    loadMoreItems() {
+      // 더 이상 보여줄 상품이 없을 때 visibleItemCount 값이 전체 상품 개수를 넘지 않도록 제한
+      this.visibleItemCount = Math.min(this.visibleItemCount + 6, this.items.length);
+    },
   },
   mounted() {
-    // 초기에 첫 번째 썸네일 이미지 및 color-chip 활성화
+    // 초기 화면 로딩 시에는 visibleItemCount 만큼의 상품을 보여줍니다.
     this.activeThumbIndex = this.items.map(() => 0);
     this.activeColor = this.items.map((item, index) => (index === index ? 0 : null));
-  }
+  },
 };
 </script>
 
@@ -191,7 +352,7 @@ export default {
   <section class="display-prodlist">
     <div class="display-prod">
       <ul>
-        <li v-for="(item, index) in items" :key="index">
+        <li v-for="(item, index) in visibleItems" :key="index">
           <div class="item">
               <div class="thumb">
                 <img :src="item.images[activeThumbIndex[index]]" :alt="item.alt" ref="thumb" />
@@ -226,8 +387,8 @@ export default {
         </li>
       </ul>
     </div>
-    <div class="btn-box">
-        <a href="javascript:;" class="btn-all">더보기</a>
+    <div class="btn-box" v-if="hasMoreItems">
+        <a href="javascript:;" class="btn-all" @click="loadMoreItems">더보기</a>
     </div>
   </section>
   <!-- //display-prodlist -->

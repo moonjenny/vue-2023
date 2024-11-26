@@ -55,7 +55,7 @@ export default {
   padding: 24px 0 20px;
 
   ul {
-    z-index: 100;
+    z-index: 10;
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;

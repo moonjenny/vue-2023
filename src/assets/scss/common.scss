@@ -51,6 +51,7 @@ ul,
 pre {
   margin: 0;
   padding: 0;
+  font-family: 'Pretendard', system-ui,Apple SD Gothic Neo,Malgun Gothic,arial,sans-serif;
 }
 body,
 button,
@@ -147,6 +148,14 @@ svg {
   box-sizing: border-box;
 }
 
+input::placeholder,
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+input:-mos-input-placeholder {
+  color:#666;
+  opacity: 0.5;
+}
+
 // main
 .main-title {
 	padding:0 20px;
@@ -168,4 +177,85 @@ svg {
     color: #111;
     border: 1px solid #111;
   }
+}
+
+// checkbox
+.checkbox {
+  display:flex;
+  align-items: center;
+
+  input[type="checkbox"] {
+    width:18px;
+    height:18px;
+    &:before {
+      content:'';
+      display:block;
+      width:18px;
+      height:18px;
+      border:1px solid #ccc;
+      background:#fff;
+    }
+    &:checked{
+      &:before {
+        border:none;
+        background:#000 url(/src/assets/images/common/input-checkbox.svg) center center no-repeat;
+      }
+      & + label {
+        color:#000;
+      }
+    }
+    & + label {
+      margin-left:6px;
+      font-size:14px;
+      color:#666;
+    }
+  }
+}
+
+// radio
+.radio {
+  display:flex;
+  align-items: center;
+
+  input[type="radio"] {
+    width:18px;
+    height:18px;
+    border:1px solid #ccc;
+    border-radius:50%;
+    overflow:hidden;
+    &:before {
+      content:'';
+      display:block;
+      margin:3px;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background-color:#ccc;
+    }
+    &:checked{
+      border-color:#000;
+      background-color:#000;
+      &:before {
+        border:none;
+        background-color:#fff;
+      }
+    }
+    & + label {
+      margin-left:6px;
+      font-size:14px;
+      color:#666;
+    }
+  }
+}
+
+
+//공통 
+:root {
+  //color
+  --aaaaaa: #aaaaaa;
+  --bbbbbb: #bbbbbb;
+  --cccccc: #cccccc;
+  --dddddd: #dddddd;
+  --eeeeee: #eeeeee;
+  --ffffff: #ffffff;
 }

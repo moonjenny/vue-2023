@@ -59,7 +59,6 @@ export default {
       align-items: center;
       justify-content: flex-start;
       padding:4px 0;
-      height:24px;
       .rank {
         flex-shrink: 0;
         width:32px;

@@ -45,7 +45,7 @@ export default {
   top:0;
   display:flex;
   align-items:center;
-  height:50px;
+  height:52px;
   border-bottom:1px solid #eee;
   background-color:#fff;
   form {

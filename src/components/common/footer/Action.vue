@@ -30,11 +30,8 @@ const isActive = ref(false);
 const scrollClass = ref('');
 const prevScrollY = ref(window.scrollY);
 
-function goToLink(link) {
-  this.$router.push(link);
-  console.log(link);
-
-  //최상단 이동
+// 최상단 이동
+function goToLink(link) {  
   window.scrollTo({
     top: 0,
   });
@@ -87,7 +84,34 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
+// "더보기" 버튼 클릭 시 SVG 애니메이션을 추가하는 함수
+function addAnimation() {
+  const actionView1 = document.querySelector(".action-view1");
+  const actionView2 = document.querySelector(".action-view2");
+  const actionView3 = document.querySelector(".action-view3");
+
+  actionView1.classList.add("animate");
+  setTimeout(() => {
+    actionView2.classList.add("animate");
+  }, 300);
+  setTimeout(() => {
+    actionView3.classList.add("animate");
+  }, 600);
+
+  // 애니메이션이 끝난 후 클래스 제거
+  actionView1.addEventListener("animationend", () => {
+    actionView1.classList.remove("animate");
+  });
+  actionView2.addEventListener("animationend", () => {
+    actionView2.classList.remove("animate");
+  });
+  actionView3.addEventListener("animationend", () => {
+    actionView3.classList.remove("animate");
+  });
+}
+
 </script>
+
 <template>
   <section class="actionbar" :class="scrollClass">
     <ul class="actionbar-nav">
@@ -101,14 +125,18 @@ onUnmounted(() => {
       >
         <router-link 
           :to="nav.link"
-          :class="{ 'active': nav.link === '/vue-2023/like/' && hasLike, 'f-like': nav.link === '/vue-2023/like/' }"
+          @click="goToLink(nav.link)"
         >
-          <span :class="nav.iconClass">{{ nav.title }}</span>
+          <span 
+            :class="[nav.iconClass, { 'active': activeLink === nav.link }]"
+          >
+            {{ nav.title }}
+          </span>
         </router-link>
       </li>
 
       <li>
-        <button type="button">
+        <button type="button" @click="addAnimation">
           <span class="f-view">더보기
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle class="action-view1" cx="4.5" cy="12" r="2" fill="black"/>
@@ -120,10 +148,10 @@ onUnmounted(() => {
       </li>
     </ul>
     <div class="actionbar-floating">
-      <!-- <button type="button">
+      <button type="button">
         <span class="float-item">최근 본 상품</span>
         <img src="https://sui.ssgcdn.com/cmpt/banner/202211/2022111617073094621939279193_822.png" alt="아우터">
-      </button> -->
+      </button>
       <button type="button">
         <span class="float-chat">1:1채팅하기</span>
       </button>
@@ -150,7 +178,7 @@ body.active {
   height: 57px;
   border-top: 1px solid #eee;
   background: #fff;
-  z-index: 100;
+  z-index: 10;
   transition: transform .3s ease;
   &.show {
     transform:translateY(0);
@@ -190,9 +218,6 @@ body.active {
       }
       .f-like {
         background: url(@/assets/images/common/action-like.svg) center center no-repeat;
-        &.active {
-          background: url(@/assets/images/common/action-like-active.svg) center center no-repeat;
-        }
       }
       .f-home {
         background: url(@/assets/images/common/action-home.svg) center center no-repeat;
@@ -207,7 +232,7 @@ body.active {
         flex-wrap: wrap;
       }
     }
-    button.active {
+    .router-link-active {
       .f-like {
         background: url(@/assets/images/common/action-like-active.svg) center center no-repeat;
       }
@@ -215,10 +240,13 @@ body.active {
         background: url(@/assets/images/common/action-home-active.svg) center center no-repeat;
       }
       .f-my {
+        background: url(@/assets/images/common/action-my-active.svg) center center no-repeat;
+        background-size: 25px auto;
+        /*
         animation-name: actionMy;
         animation-duration: 2s;
         animation-iteration-count: 2;
-        animation-timing-function: ease;
+        animation-timing-function: ease; */
       }
       .f-view {
         .action-view1 {
@@ -284,5 +312,21 @@ body.active {
     }
   }
 }
+// SVG 애니메이션을 정의하는 CSS
+@keyframes actionView {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+// 애니메이션을 추가할 때 사용할 클래스
+.animate {
+  animation: actionView 1s ease;
+}
 </style>

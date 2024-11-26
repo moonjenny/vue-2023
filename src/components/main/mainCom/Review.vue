@@ -10,8 +10,8 @@ export default {
           link: "javascript:;",
           image: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/review-01.png",
           alt: '리뷰',
-          width: "width:50%",
-          number: "2.5",
+          width: "width:80%",
+          number: "4",
           text: "키 167에 평소 44반~55 사이즈 입습니다. 착장했을 때 이 자켓은 사진에는 차마 담겨있지 않은 엄청난 라인을 뽐낼 수 있게 합니다. 그냥 사진으로는 깔끔한 자켓 이정도로 생각했는데 실제 입으면 허리 라인, 어깨라인, 어깨에서 가슴으로 내려오는 라인 등등",
           prodimage: "https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/review-thumnail.png",
           prodalt: "상품이미지",
@@ -129,7 +129,7 @@ export default {
         display: block;
         width: 93px;
         height: 16px;
-        background: url(@/assets/images/common/star-gray.svg) no-repeat;
+        background: url(@/assets/images/common/star-white.svg) no-repeat;
         em {
           display: block;
           width: 93px;

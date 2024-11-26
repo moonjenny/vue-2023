@@ -1,16 +1,16 @@
 <template>
   <div class="my-point">
     <div class="point-total">
-      <a href="javascript:;">
+      <router-link to="/vue-2023/mypage/point/" @click="closeLayer">
         <strong>{{ numberWithCommas(point) }}</strong>
         <span>보유 적립금</span>
-      </a>
+      </router-link>
     </div>
     <div class="point-total">
-      <a href="javascript:;">
+      <router-link to="/vue-2023/mypage/point/" @click="closeLayer">
           <strong>{{ numberWithCommas(expoint) }}</strong>
           <span>당월 소멸예정 적립금</span>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
@@ -27,6 +27,14 @@ export default {
     numberWithCommas(x) {
       return x.toLocaleString();
     },
+    closeLayer() {
+      // .layer-wrap .close 클래스명 제거
+      document.querySelector(".layer-wrap").classList.remove("active");
+
+      // body에서 .active 클래스 제거
+			document.body.classList.remove("active");
+
+    }
   },
 }
 </script>
