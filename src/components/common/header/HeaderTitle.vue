@@ -52,7 +52,7 @@ const goBack = () => {
 </script>
 
 <template>
-  <header v-if="headerTitle === '상품상세'" :class="['header title', 'detail-header']">
+  <header v-if="['상품상세', '장바구니'].includes(headerTitle)" :class="['header title', headerTitle === '상품상세' ? 'detail-header' : '']">
     <button type="button" class="btn-back" @click="goBack">
       이전페이지 이동
     </button>
