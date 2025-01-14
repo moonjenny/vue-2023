@@ -1,19 +1,22 @@
 <script>
+export default {
+  props: ['shippingGroups', 'cartChecked'],
+}
 </script>
 
 <template>
   <section class="cart-filter">
     <div class="cart-filter-box">
-			<div class="cart-filter-checkbox">
-				<input type="checkbox" name="checkAll" id="checkAll">
-				<label for="checkAll">전체선택</label>
-			</div>
-			<div class="cart-filter-buttons">
-				<button type="button">선택삭제</button>
-				<button type="button">주문불가 삭제</button>
-				<button type="button" class="reset">초기화</button>
-			</div>
-		</div>
+      <div class="cart-filter-checkbox">
+        <input type="checkbox" name="checkAll" id="checkAll">
+        <label for="checkAll">전체선택</label>
+      </div>
+      <div class="cart-filter-buttons">
+        <button type="button">선택삭제</button>
+        <button type="button">주문불가 삭제</button>
+        <button type="button" class="reset">초기화</button>
+      </div>
+    </div>
   </section>
 </template>
 

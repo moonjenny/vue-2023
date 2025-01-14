@@ -1,100 +1,21 @@
 <script>
 export default {
-  data() {
-    return {
-      shippingGroups: [
-        {
-          label: '바이린 배송상품',
-          items: [
-            // 일반상품
-            {
-              brand: 'LYNN',
-              name: '클래식 크롭 테일러드 자켓',
-              options: '브라운 / 55',
-              currentPrice: 197100,
-              originalPrice: 219000,
-              image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
-              gifts: [
-                { name: '브랜드명 사은품명-1개', quantity: 2, soldOut: false },
-                { name: '브랜드명 사은품명-1개', quantity: 2, soldOut: true }
-              ],
-              showGift: false,
-              quantity: 1,
-              liked: true,
-              deliInfo: '배송비 (50,000원 이상 구매 시 무료)',
-              deliveryFee: 3000,
-              soldout: false,
-            },
-            // 일반상품 - 품절
-            {
-              brand: '브랜드',
-              name: '품절상품명 품절상품명 품절상품명 품절상품명 품절상품명 품절상품명',
-              options: '브라운 / 66',
-              currentPrice: 297100,
-              originalPrice: 319000,
-              image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
-              gifts: [
-                { name: '브랜드명 사은품명-1개', quantity: 2, soldOut: true }
-              ],
-              showGift: false,
-              quantity: 1,
-              liked: false,
-              deliInfo: '배송비 (100,000원 이상 구매 시 무료)',
-              deliveryFee: '무료배송',
-              soldout: true,
-            },
-          ]
-        },
-        {
-          label: '바이린 배송상품2',
-          items: [
-            // 옵션 - 일반
-            {
-              brand: 'LYNN',
-              name: '클래식 크롭 테일러드 자켓',
-              options: '브라운 / 55',
-              currentPrice: 197100,
-              originalPrice: 219000,
-              image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png',
-              gifts: [
-                { name: '브랜드명 사은품명-1개', quantity: 2, soldOut: true }
-              ],
-              showGift: false,
-              quantity: 1,
-              liked: false,
-              deliInfo: '배송비 (11월 무료배송 프로모션 : <br>2022.11.01 ~ 2022.11.30)',
-              deliveryFee: 3000,
-              soldout: false,
-
-              // 추가 옵션
-              addItems: [
-                { addItemName: '[추가] 추가옵션 일반상품 (총 2개)', addItemPrice: 10000, addItemQuantity: 2, addItemNotice: '* 해당 상품의 판매가능수량은 {0}개 입니다.' },
-                { addItemName: '[추가] 추가옵션 품절상품 (총 1개)', addItemPrice: 5000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemSold: true },
-                { addItemName: '[추가] 추가옵션 판매중지 (총 1개)', addItemPrice: 10000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemStop: true }
-              ]
-            },
-            // 옵션 - 일반
-            {
-              brand: 'LYNN',
-              name: '클래식 크롭 테일러드 자켓',
-              options: '브라운 / 55',
-              currentPrice: 197100,
-              originalPrice: 219000,
-              image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png',
-              gifts: [
-                { name: '브랜드명 사은품명-1개', quantity: 2, soldOut: true }
-              ],
-              showGift: false,
-              quantity: 1,
-              liked: false,
-              deliInfo: '배송비 (수량 1개당)',
-              deliveryFee: 3000,
-              soldout: false,
-            },
-          ]
-        }
-      ]
-    };
+  props: ['shippingGroups', 'cartChecked'],
+  watch: {
+    // item.quantity가 변경될 때마다 실행
+    shippingGroups: {
+      handler: function (newGroups) {
+        newGroups.forEach(group => {
+          group.items.forEach(item => {
+            // item.quantity가 3 이상이면 배송비를 0으로 설정
+            if (item.quantity >= 3) {
+              item.deliveryFee = 0;
+            }
+          });
+        });
+      },
+      deep: true
+    }
   },
   methods: {
     toggleLike(groupIndex, index) {
@@ -135,11 +56,13 @@ export default {
       </div>
       <ul class="shipping-item">
         <li v-for="(item, itemIndex) in shippingGroup.items" :key="itemIndex">
+          <div class="price-update" v-if="item.priceUpdate">
+            <span>가격 및 혜택 정보가 변경되었습니다.</span>
+            <button type="button">변경정보 새로고침</button>
+          </div>
           <div class="elements">
-            <input type="checkbox" :name="'checkItem' + groupIndex + '-' + itemIndex" :id="'checkItem' + groupIndex + '-' + itemIndex">
-            <button type="button" class="button-like" @click="toggleLike(groupIndex, itemIndex)" :class="{ active: item.liked }">
-              좋아요
-            </button>
+            <input type="checkbox" :name="'checkItem' + groupIndex + '-' + itemIndex" :id="'checkItem' + groupIndex + '-' + itemIndex" :disabled="item.soldout || item.priceUpdate">
+            <button type="button" class="button-like" @click="toggleLike(groupIndex, itemIndex)" :class="{ active: item.liked }">좋아요</button>
             <button type="button" class="button-delete" @click="confirmDelete(groupIndex, itemIndex)">삭제하기</button>
           </div>
           <div class="info">
@@ -154,22 +77,21 @@ export default {
               <span v-if="!item.soldout" class="price">
                 <strong>{{ formatPrice(item.currentPrice) }}</strong>
                 <em>{{ formatPrice(item.originalPrice) }}</em>
-                <button type="button" @click="toggleGift(groupIndex, itemIndex)" :class="{ active: item.showGift }">
-                  사은품 보기
-                </button>
+                <button type="button" @click="toggleGift(groupIndex, itemIndex)" :class="{ active: item.showGift }">사은품 보기</button>
               </span>
             </div>
           </div>
           <ul v-if="item.showGift" class="option-list active">
             <li v-for="(gift, idx) in item.gifts" :key="idx">
-              <strong>[사은품]</strong> {{ gift.name }} ({{ gift.quantity }})
-              <em v-if="gift.soldOut">* 소진</em>
+              <strong>[{{ gift.title }}]</strong> {{ gift.name }} ({{ gift.quantity }})<em v-if="gift.soldOut">* 소진</em>
             </li>
           </ul>
+          <div class="quantity" v-if="item.orderThreshold">* 해당 상품의 최소가능수량은 {{ item.orderThreshold }} 개 입니다.</div>
           <div class="count">
             <select v-model="item.quantity" :disabled="item.soldout">
               <option v-for="n in 4" :key="n" :value="n">{{ n }}</option>
             </select>
+            <span class="soldout" v-if="item.soldout">* 주문할 수 없습니다.</span>
             <strong v-if="!item.soldout">{{ formatPrice(item.currentPrice) }}</strong>
           </div>
           <div class="count-add" v-for="(addItem, idx) in item.addItems" :key="idx">
@@ -190,9 +112,9 @@ export default {
               <strong v-if="!item.soldout && !addItem.addItemSold && !addItem.addItemStop">{{ formatPrice(addTotalPrice(groupIndex, itemIndex, addItem)) }}</strong>
             </div>
           </div>
-          <div class="delivery" v-if="!item.soldout">
+          <div class="delivery" v-if="!item.soldout && !item.priceUpdate">
             <span v-html="item.deliInfo"></span>
-            <span>{{ formatPrice(item.deliveryFee) }}</span>
+            <span>{{ formatPrice(item.quantity >= 3 ? 0 : item.deliveryFee) }}</span>
           </div>
         </li>
       </ul>
@@ -247,8 +169,43 @@ export default {
     .shipping-item {
       border-top: 1px solid #ccc;
       > li {
+        position: relative;
         padding-top: 24px;
         border-bottom: 1px solid #ccc;
+        .price-update {
+          position: absolute;
+          top: -1px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: 0 -20px;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: center;
+          background-color: rgba(17, 17, 17, 0.6);
+          z-index: 1;
+          span {
+            width:100%;
+            text-align: center;
+            font-size: 14px;
+            line-height: 16px;
+            color: #fff;
+          }
+          button {
+            margin-top: 12px;
+            padding: 5px 12px 5px 40px;
+            border: 1px solid #666666;
+            color: #666;
+            font-size: 13px;
+            line-height: 20px;
+            text-align: center;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: 12px center;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.5 8L15.5 12H18.5C18.5 15.31 15.81 18 12.5 18C11.49 18 10.53 17.75 9.7 17.3L8.24 18.76C9.47 19.54 10.93 20 12.5 20C16.92 20 20.5 16.42 20.5 12H23.5L19.5 8ZM6.5 12C6.5 8.69 9.19 6 12.5 6C13.51 6 14.47 6.25 15.3 6.7L16.76 5.24C15.53 4.46 14.07 4 12.5 4C8.08 4 4.5 7.58 4.5 12H1.5L5.5 16L9.5 12H6.5Z' fill='%23666666'/%3E%3C/svg%3E%0A");
+          }
+        }
         .elements {
           display: grid;
           grid-template-columns: 4fr 24px 24px;
@@ -387,6 +344,11 @@ export default {
             }
           }
         }
+        .quantity {
+          margin-bottom: 24px;
+          font-size: 12px;
+          color: #D9320B;
+        }
         .count {
           display: flex;
           flex-wrap: wrap;
@@ -398,13 +360,24 @@ export default {
             min-width: 74px;
             height: 48px;
             border: 1px solid #ccc;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-repeat: no-repeat;
+            background-size: 12px 7px;
+            background-position: right 16px center;
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L7 7L2 2' stroke='%23111111' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E%0A");
             &:disabled {
-              color: #999;
+              opacity: 0.4;
               background-color: #eee;
             }
           }
           strong {
             font-size: 16px;
+          }
+          .soldout {
+            color: #D9320B;
+            font-size: 13px;
           }
         }
         .count-add {

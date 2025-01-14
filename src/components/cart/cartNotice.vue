@@ -13,6 +13,7 @@
 
 <style lang="scss"> 
   .cart-notice {
+    margin: 40px 0;
     .notice-list {
       li {
         position: relative;
