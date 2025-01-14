@@ -28,6 +28,7 @@ const titles = {
   '/vue-2023/mypage/': '마이페이지',
   '/vue-2023/mypage/point/': '포인트',
   '/vue-2023/detail/': '상품상세',
+  '/vue-2023/order/': '주문서 작성',
 };
 
 // 현재 라우트에 따른 헤더 제목을 계산된 속성으로 정의
@@ -52,7 +53,7 @@ const goBack = () => {
 </script>
 
 <template>
-  <header v-if="['상품상세', '장바구니'].includes(headerTitle)" :class="['header title', headerTitle === '상품상세' ? 'detail-header' : '']">
+  <header v-if="['상품상세', '장바구니', '주문서 작성'].includes(headerTitle)" :class="['header title', headerTitle === '상품상세' ? 'detail-header' : '']">
     <button type="button" class="btn-back" @click="goBack">
       이전페이지 이동
     </button>
