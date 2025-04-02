@@ -11,7 +11,7 @@ export default {
 
 <style lang="scss"> 
   .order-filter {
-    padding: 60px 0;
+    padding: 60px 0 0;
     h3 {
       padding-bottom: 24px;
       font-size: 18px;
