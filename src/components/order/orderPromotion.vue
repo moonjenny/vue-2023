@@ -5,7 +5,7 @@ export default {
 
 <template>
   <section class="order-filter">
-    <h3>주문 증정 프로모션</h3>
+    <h3>주문 증정 프로모션 s</h3>
   </section>
 </template>
 
