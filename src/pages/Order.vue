@@ -17,7 +17,7 @@
   const shippingGroups = ref([
     // shippingGroups 데이터
     {
-      label: '바이린 배송상품',
+      label: '바이린1 배송상품',
       items: [
         // 일반상품
         {
@@ -54,12 +54,12 @@
           liked: false,
           deliInfo: '배송비 (100,000원 이상 구매 시 무료)',
           deliveryFee: '무료배송',
-          soldout: true,
+          soldout: false,
         },
       ]
     },
     {
-      label: '바이린 배송상품2',
+      label: '바이린2 배송상품',
       items: [
         // 옵션 - 일반1
         {
@@ -102,25 +102,6 @@
           deliveryFee: 3000,
           soldout: false,
         },
-        // 옵션 - 가격정보 변경
-        {
-          brand: 'LYNN',
-          name: '클래식 크롭 테일러드 자켓',
-          options: '브라운 / 55',
-          currentPrice: 18000,
-          originalPrice: 20000,
-          image: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png',
-          gifts: [
-            { title: '사은품', name: '브랜드명 사은품명-1개', quantity: 2, soldOut: true }
-          ],
-          showGift: false,
-          quantity: 1,
-          liked: false,
-          deliInfo: '배송비 (수량 1개당)',
-          deliveryFee: 3000,
-          soldout: false,
-          priceUpdate: true,
-        },
         // 옵션 - 일반3
         {
           brand: 'LYNN',
@@ -142,9 +123,9 @@
 
           // 추가 옵션
           addItems: [
-            { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 2, addItemNotice: '* 해당 상품의 판매가능수량은 {0}개 입니다.' },
-            { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemSold: true },
-            { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemStop: true }
+            { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 2, addItemNotice: '' },
+            // { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemSold: true },
+            // { addItemName: '[추가] 맨투맨티셔츠 빨강/L-1개 (총 2개)', addItemPrice: 5000, addItemQuantity: 1, addItemNotice: '* 주문할 수 없습니다.', addItemStop: true }
           ]
         },
         // 옵션 - 최소 주문 수량
@@ -164,7 +145,7 @@
           deliInfo: '배송비 (수량 1개당)',
           deliveryFee: 3000,
           soldout: false,
-          orderThreshold: '4',
+          // orderThreshold: '4',
         },
       ]
     }

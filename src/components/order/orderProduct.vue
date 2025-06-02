@@ -43,9 +43,8 @@ export default {
 </script>
 
 <template>
-  <section class="cart-product">
-    <!-- <h3>배송상품</h3> -->
-    <div class="cart-product-list" v-for="(shippingGroup, groupIndex) in shippingGroups" :key="groupIndex">
+  <section class="order-product">
+    <div class="order-product-list" v-for="(shippingGroup, groupIndex) in shippingGroups" :key="groupIndex">
       <div class="shipping-type">
         <div class="shipping-checkbox">
           <input type="checkbox" :name="'checkProduct' + groupIndex" :id="'checkProduct' + groupIndex">
@@ -61,11 +60,6 @@ export default {
             <span>가격 및 혜택 정보가 변경되었습니다.</span>
             <button type="button">변경정보 새로고침</button>
           </div>
-          <div class="elements">
-            <input type="checkbox" :name="'checkItem' + groupIndex + '-' + itemIndex" :id="'checkItem' + groupIndex + '-' + itemIndex" :disabled="item.soldout || item.priceUpdate">
-            <button type="button" class="button-like" @click="toggleLike(groupIndex, itemIndex)" :class="{ active: item.liked }">좋아요</button>
-            <button type="button" class="button-delete" @click="confirmDelete(groupIndex, itemIndex)">삭제하기</button>
-          </div>
           <div class="info">
             <div class="thumb">
               <span class="sold" v-if="item.soldout">품절</span>
@@ -74,43 +68,42 @@ export default {
             <div class="details">
               <span class="brand">{{ item.brand }}</span>
               <span class="name">{{ item.name }}</span>
-              <span class="options">{{ item.options }} <a href="" v-if="!item.soldout">옵션변경</a></span>
+              <span class="options">{{ item.options }}</span>
               <span v-if="!item.soldout" class="price">
                 <strong>{{ formatPrice(item.currentPrice) }}</strong>
                 <em>{{ formatPrice(item.originalPrice) }}</em>
-                <button type="button" @click="toggleGift(groupIndex, itemIndex)" :class="{ active: item.showGift }">사은품 보기</button>
               </span>
             </div>
           </div>
-          <ul v-if="item.showGift" class="option-list active">
+          <ul class="option-list active">
             <li v-for="(gift, idx) in item.gifts" :key="idx">
-              <strong>[{{ gift.title }}]</strong> {{ gift.name }} ({{ gift.quantity }})<em v-if="gift.soldOut">* 소진</em>
+              <strong>[{{ gift.title }}]</strong> {{ gift.name }} ({{ gift.quantity }})
             </li>
           </ul>
           <div class="quantity" v-if="item.orderThreshold">* 해당 상품의 최소가능수량은 {{ item.orderThreshold }} 개 입니다.</div>
           <div class="count">
-            <select v-model="item.quantity" :disabled="item.soldout">
-              <option v-for="n in 4" :key="n" :value="n">{{ n }}</option>
-            </select>
+            <span class="select-count" :class="{ 'opacity-50': item.soldout }">
+              수량 {{ item.quantity }}개
+            </span>
             <span class="soldout" v-if="item.soldout">* 주문할 수 없습니다.</span>
             <strong v-if="!item.soldout">{{ formatPrice(item.currentPrice) }}</strong>
           </div>
           <div class="count-add" v-for="(addItem, idx) in item.addItems" :key="idx">
             <div class="add-item">
               <span>
-                {{ addItem.addItemName }}
-                <strong v-if="!addItem.addItemSold && !addItem.addItemStop">{{ formatPrice(addItem.addItemPrice) }}</strong>
+                {{ addItem.addItemName }}                
                 <span class="soldout" v-if="addItem.addItemSold">* 품절</span>
                 <span class="stop" v-if="addItem.addItemStop">* 판매중지</span>
               </span>
-              <button type="button" class="button-delete">삭제하기</button>
               <span class="add-notice">{{ addItem.addItemNotice }}</span>
             </div>
             <div class="add-select">
-              <select v-model="addItem.addItemQuantity" :disabled="item.soldout || addItem.addItemSold || addItem.addItemStop">
-                <option v-for="n in 4" :key="n" :value="n">{{ n }}</option>
-              </select>
-              <strong v-if="!item.soldout && !addItem.addItemSold && !addItem.addItemStop">{{ formatPrice(addTotalPrice(groupIndex, itemIndex, addItem)) }}</strong>
+              <span class="select-count" :class="{ 'opacity-50': item.soldout || addItem.addItemSold || addItem.addItemStop }">
+                수량 {{ addItem.addItemQuantity }}개
+              </span>
+              <strong v-if="!item.soldout && !addItem.addItemSold && !addItem.addItemStop">
+                {{ formatPrice(addTotalPrice(groupIndex, itemIndex, addItem)) }}
+              </strong>
             </div>
           </div>
           <div class="delivery" v-if="!item.soldout && !item.priceUpdate">
@@ -124,8 +117,8 @@ export default {
 </template>
 
 <style lang="scss"> 
-  .cart-product {
-    padding: 60px 0 0;
+  .order-product {
+    margin: 60px 0 0;
     h3 {
       padding-bottom: 24px;
       font-size: 18px;
@@ -134,7 +127,7 @@ export default {
       border-bottom: 1px solid #333;
     }
   }
-  .cart-product {
+  .order-product {
     &-list{
       margin-bottom: 60px;
       border-top: 1px solid #333;
@@ -383,6 +376,10 @@ export default {
               background-color: #eee;
             }
           }
+          .select-count {
+            font-size: 13px;
+            line-height:17px;
+          }
           strong {
             font-size: 16px;
           }
@@ -448,6 +445,10 @@ export default {
                 color: #999;
                 background-color: #eee;
               }
+            }
+            .select-count {
+              font-size:13px;
+              line-height:17px;
             }
           }
           strong {
