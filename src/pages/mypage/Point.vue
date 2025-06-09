@@ -6,7 +6,7 @@
         <li>
           <router-link to="/vue-2023/mypage/point/" class="item">
             <span class="tit">보유 포인트</span>
-            <strong>5,000P</strong>
+            <strong>2,000P</strong>
           </router-link>  
         </li>
         <li>

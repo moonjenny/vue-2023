@@ -6,14 +6,14 @@ import About from './../pages/About.vue';
 import Cart from './../pages/Cart.vue';
 import Order from './../pages/Order.vue';
 import Like from './../pages/Like.vue';
-import Mypage from './../pages/Mypage.vue';
 import Notice from './../pages/Notice.vue';
 import Store from './../pages/Store.vue';
 import Login from './../pages/Login.vue';
 // 상품상세
 import Detail from './../pages/Detail.vue';
 // 마이페이지
-import Point from './../pages/mypage/Point.vue';
+import Mypage from './../pages/Mypage.vue'; // 메인
+import Point from './../pages/mypage/Point.vue'; // 포인트
 
 const routes = [
   { 

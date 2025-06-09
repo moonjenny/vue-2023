@@ -1,35 +1,81 @@
+<script>
+//마이페이지 메인
+export default {
+  data() {
+    return {
+      // 사용자 기본 정보
+      myName: "홍길동",
+      memberGrade: "브론즈",
+
+      // 마이페이지 요약 정보
+      currentPoints: "500,000",
+      totalCoupons: 3,
+      wishlistItemCount: 0,
+
+      // 라우터 링크 경로
+      benefitGuideLink: "/vue-2023/popup-member-benefit",
+      pointsLink: "/vue-2023/mypage/point/",
+      totalCouponLink: "/vue-2023/mypage/coupon/",
+      onlineCouponLink: "/vue-2023/mypage/coupon/",
+      wishlistLink: "/vue-2023/like/",
+
+      shoppingInfoLinks: {
+        orderDelivery: "/vue-2023/my1",
+        returnsExchanges: "/vue-2023/my2",
+        offlineOrderDelivery: "/vue-2023/my3",
+        previousOrders: "/vue-2023/my4",
+      },
+      benefitInfoLinks: {
+        points: "/vue-2023/my11",
+        coupons: "/vue-2023/my12",
+        depositsRefunds: "/vue-2023/my13",
+      },
+      activityInfoLinks: {
+        productReviews: "/vue-2023/my21",
+        wishlist: "/vue-2023/my22",
+        restockAlerts: "/vue-2023/my23",
+      },
+      inquiryInfoLinks: { // 문의정보 링크
+        directInquiry: "/vue-2023/my41",
+        askProduct: "/vue-2023/my42",
+      },
+      memberInfoLinks: {
+        editProfile: "/vue-2023/my31",
+        changePassword: "/vue-2023/my32",
+        manageShipping: "/vue-2023/my33",
+        withdrawAccount: "/vue-2023/my34",
+      },
+    };
+  },
+};
+</script>
+
 <template>
   <section class="mypage">
     <div class="my-title">안녕하세요, {{ myName }}님</div>
     <div class="my-benefit">
-      <strong>브론즈</strong>
-      <router-link to="/vue-2023/popup-member-benefit">등급별 혜택안내</router-link>
+      <strong>{{ memberGrade }}</strong>
+      <router-link :to="benefitGuideLink">등급별 혜택안내</router-link>
     </div>
 
     <div class="my-summary">
       <ul>
         <li>
-          <router-link to="/vue-2023/mypage/point/" class="item">
+          <router-link :to="pointsLink" class="item">
             <span class="tit">보유 포인트</span>
-            <strong>5,000P</strong>
-          </router-link>  
-        </li>
-        <li>
-          <router-link to="/vue-2023/mypage/coupon/" class="item">
-            <span class="tit">총 보유쿠폰</span>
-            <strong>2개</strong>
+            <strong>{{ currentPoints }}P</strong>
           </router-link>
         </li>
         <li>
-          <router-link to="/vue-2023/mypage/coupon/" class="item">
-            <span class="tit">온라인 쿠폰</span>
-            <strong>1개</strong>
+          <router-link :to="totalCouponLink" class="item">
+            <span class="tit">쿠폰</span>
+            <strong>{{ totalCoupons }}개</strong>
           </router-link>
         </li>
         <li>
-          <router-link to="/vue-2023/like/" class="item">
+          <router-link :to="wishlistLink" class="item">
             <span class="tit">관심상품</span>
-            <strong>0개</strong>
+            <strong>{{ wishlistItemCount }}개</strong>
           </router-link>
         </li>
       </ul>
@@ -37,37 +83,44 @@
 
     <nav class="my-aside">
       <dl>
-        <dt>쇼핑정보</dt>
+        <dt>나의 쇼핑정보</dt>
         <dd>
-          <router-link to="/vue-2023/my1">주문/배송조회</router-link>
-          <router-link to="/vue-2023/my2">반품/교환조회</router-link>
-          <router-link to="/vue-2023/my3">오프라인 주문/배송조회</router-link>
-          <router-link to="/vue-2023/my4">이전 주문조회</router-link>
+          <router-link :to="shoppingInfoLinks.orderDelivery">주문배송조회</router-link>
+          <router-link :to="shoppingInfoLinks.returnsExchanges">반품/교환조회</router-link>
+          <router-link :to="shoppingInfoLinks.offlineOrderDelivery">오프라인 주문배송조회</router-link>
+          <router-link :to="shoppingInfoLinks.previousOrders">이전 주문 조회</router-link>
         </dd>
       </dl>
       <dl>
         <dt>혜택정보</dt>
         <dd>
-          <router-link to="/vue-2023/my11">포인트</router-link>
-          <router-link to="/vue-2023/my12">쿠폰</router-link>
-          <router-link to="/vue-2023/my13">예치금/환불계좌</router-link>
+          <router-link :to="benefitInfoLinks.points">적립금</router-link>
+          <router-link :to="benefitInfoLinks.coupons">쿠폰</router-link>
+          <router-link :to="benefitInfoLinks.depositsRefunds">예치금/환불계좌</router-link>
         </dd>
       </dl>
       <dl>
         <dt>활동정보</dt>
         <dd>
-          <router-link to="/vue-2023/my21">상품리뷰</router-link>
-          <router-link to="/vue-2023/my22">관심상품</router-link>
-          <router-link to="/vue-2023/my23">재입고알림</router-link>
+          <router-link :to="activityInfoLinks.productReviews">상품리뷰</router-link>
+          <router-link :to="activityInfoLinks.wishlist">관심상품</router-link>
+          <router-link :to="activityInfoLinks.restockAlerts">재입고알림</router-link>
+        </dd>
+      </dl>
+      <dl>
+        <dt>문의정보</dt>
+        <dd>
+          <router-link :to="inquiryInfoLinks.directInquiry">1:1문의</router-link>
+          <router-link :to="inquiryInfoLinks.askProduct">상품문의</router-link>
         </dd>
       </dl>
       <dl>
         <dt>회원정보</dt>
         <dd>
-          <router-link to="/vue-2023/my31">회원정보 수정</router-link>
-          <router-link to="/vue-2023/my32">배송지 관리</router-link>
-          <router-link to="/vue-2023/my33">마케팅정보 수신 설정</router-link>
-          <router-link to="/vue-2023/my33">회원탈퇴</router-link>
+          <router-link :to="memberInfoLinks.editProfile">회원정보 수정</router-link>
+          <router-link :to="memberInfoLinks.changePassword">비밀번호변경</router-link>
+          <router-link :to="memberInfoLinks.manageShipping">배송지관리</router-link>
+          <router-link :to="memberInfoLinks.withdrawAccount">회원탈퇴</router-link>
         </dd>
       </dl>
     </nav>
@@ -78,19 +131,7 @@
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      //이름
-      myName: "홍길동",
-    };
-  },
-};
-</script>
-
 <style lang="scss">
-/* 컴포넌트 스타일 */
 .mypage {
   padding:0 20px;
   .my-title {
@@ -141,6 +182,7 @@ export default {
       dt {
         margin: 0 0 24px;
         font-size:18px;
+        font-weight: 600;
       }
       dd {
         a {
@@ -148,7 +190,7 @@ export default {
           display:block;
           font-size:14px;
           line-height:21px;
-          color:#999;
+          color:#111111;
         }
       }
     }
