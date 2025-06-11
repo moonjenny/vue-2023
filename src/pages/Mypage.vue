@@ -177,7 +177,6 @@ export default {
 
     </div>
 
-
     <nav class="my-aside">
       <dl>
         <dt>나의 쇼핑정보</dt>
@@ -409,6 +408,7 @@ export default {
         display: flex;
         border-bottom: 1px solid #eeeeee;
         .status {
+          padding-top: 7px;
           width: 90px;
           text-align: left;
           font-size: 14px;
