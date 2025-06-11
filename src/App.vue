@@ -21,8 +21,6 @@
     switch (route.path) {
       case '/vue-2023/':
         return Header
-      case '/vue-2023/mypage/':
-      case '/vue-2023/mypage/point/':
       case '/vue-2023/notice/':
       case '/vue-2023/store/':
       case '/vue-2023/like/':
@@ -30,6 +28,9 @@
       case '/vue-2023/search/':
       case '/vue-2023/login/':
       case '/vue-2023/detail/':
+      case '/vue-2023/mypage/':
+      case '/vue-2023/mypage/point/':
+      case '/vue-2023/mypage/orderdelivery/':
         return HeaderTitle
       case '/vue-2023/display/':
       case '/vue-2023/category/':
