@@ -14,6 +14,7 @@ import Detail from './../pages/Detail.vue';
 // 마이페이지
 import Mypage from './../pages/Mypage.vue'; // 메인
 import Point from './../pages/mypage/Point.vue'; // 포인트
+import OrderDelivery from './../pages/mypage/OrderDelivery.vue'; // 주문배송조회
 
 const routes = [
   { 
@@ -77,6 +78,13 @@ const routes = [
     component: Point,
     meta: {
       title: '마이페이지 | 포인트'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/orderdelivery/', 
+    component: OrderDelivery,
+    meta: {
+      title: '마이페이지 | 주문배송조회'
     }
   },
   { 
