@@ -15,6 +15,8 @@ import Detail from './../pages/Detail.vue';
 import Mypage from './../pages/Mypage.vue'; // 메인
 import Point from './../pages/mypage/Point.vue'; // 포인트
 import OrderDelivery from './../pages/mypage/OrderDelivery.vue'; // 주문배송조회
+import OrderDetail from './../pages/mypage/OrderDetail.vue'; // 주문배송조회
+import DirectInquiry from './../pages/mypage/DirectInquiry.vue'; // 1:1문의
 
 const routes = [
   { 
@@ -85,6 +87,20 @@ const routes = [
     component: OrderDelivery,
     meta: {
       title: '마이페이지 | 주문배송조회'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/orderdetail/', 
+    component: OrderDetail,
+    meta: {
+      title: '마이페이지 | 주문배송상세'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/directinquiry/', 
+    component: DirectInquiry,
+    meta: {
+      title: '마이페이지 | 1:1문의'
     }
   },
   { 
