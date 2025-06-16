@@ -42,6 +42,7 @@ export default {
       },
       // 문의정보
       inquiryInfoLinks: {
+        faq: "/vue-2023/mypage/faq/",  // 1:1문의
         directInquiry: "/vue-2023/mypage/directinquiry/",  // 1:1문의
         askProduct: "/vue-2023/mypage/askproduct/",        // 상품문의
       },
@@ -206,6 +207,7 @@ export default {
       <dl>
         <dt>문의정보</dt>
         <dd>
+          <router-link :to="inquiryInfoLinks.faq">자주묻는 질문</router-link>
           <router-link :to="inquiryInfoLinks.directInquiry">1:1문의</router-link>
           <router-link :to="inquiryInfoLinks.askProduct">상품문의</router-link>
         </dd>
