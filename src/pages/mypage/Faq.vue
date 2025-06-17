@@ -226,11 +226,11 @@ watch(searchQuery, (newQuery) => {
       <div v-if="filteredFaqs.length === 0" class="no-results-message">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="warning-icon">
           <path d="M45.5859 1L55 10.4141V63H9V1H45.5859Z" stroke="#333333" stroke-width="2"/>
-          <rect x="29" y="43" width="6" height="6" rx="3" fill="#333333"/>
-          <path d="M29.1362 17.9969C29.062 16.3642 30.3657 15 32 15C33.6343 15 34.938 16.3642 34.8638 17.9969L34.0908 35.0021C34.04 36.1199 33.119 37 32 37C30.881 37 29.96 36.1199 29.9092 35.0021L29.1362 17.9969Z" fill="#333333"/>
+          <rect x="30" y="45" width="4" height="4" rx="2" fill="#333333"/>
+          <path d="M30.0606 18.9991C30.0274 17.905 30.9054 17 32 17C33.0946 17 33.9726 17.905 33.9394 18.9991L33.3737 37.6673C33.3512 38.4098 32.7428 39 32 39C31.2572 39 30.6488 38.4098 30.6263 37.6673L30.0606 18.9991Z" fill="#333333"/>
         </svg>
         <p>등록된 자주 묻는 질문이 없습니다.</p>
-        <p v-if="searchQuery">"{{ searchQuery }}"로 자주 묻는 질문이 없습니다.</p>
+        <p v-if="searchQuery"><em>{{ searchQuery }}</em>(으)로 자주 묻는 질문이 없습니다.</p>
       </div>
     </div>
 
@@ -484,6 +484,9 @@ watch(searchQuery, (newQuery) => {
         font-size: 14px;
         color: #111;
         margin-bottom: 4px;
+        em {
+          color: #FF2A00;
+        }
       }
     }
   }
