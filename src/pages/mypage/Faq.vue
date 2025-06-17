@@ -241,8 +241,6 @@ watch(searchQuery, (newQuery) => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/common.scss"; // scss import 경로 확인
-
 .faq-page {
 
   .search-faq-section {
