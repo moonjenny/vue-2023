@@ -34,6 +34,7 @@ const titles = {
   '/vue-2023/mypage/orderdetail/': '주문배송상세',
   '/vue-2023/mypage/directinquiry/': '1:1문의',
   '/vue-2023/mypage/faq/': '자주묻는 질문',
+  '/vue-2023/mypage/coupon/': '쿠폰',
 };
 
 // 현재 라우트에 따른 헤더 제목을 계산된 속성으로 정의

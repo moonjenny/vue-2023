@@ -18,6 +18,7 @@ import OrderDelivery from './../pages/mypage/OrderDelivery.vue'; // 주문배송
 import OrderDetail from './../pages/mypage/OrderDetail.vue'; // 주문배송조회
 import DirectInquiry from './../pages/mypage/DirectInquiry.vue'; // 1:1문의
 import Faq from './../pages/mypage/Faq.vue'; // 자주묻는 질문
+import Coupon from './../pages/mypage/Coupon.vue'; // 쿠폰
 
 const routes = [
   { 
@@ -109,6 +110,13 @@ const routes = [
     component: Faq,
     meta: {
       title: '마이페이지 | 자주묻는 질문'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/coupon/', 
+    component: Coupon,
+    meta: {
+      title: '마이페이지 | 쿠폰'
     }
   },
   { 
