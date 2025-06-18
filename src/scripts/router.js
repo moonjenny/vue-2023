@@ -19,6 +19,7 @@ import OrderDetail from './../pages/mypage/OrderDetail.vue'; // 주문배송조�
 import DirectInquiry from './../pages/mypage/DirectInquiry.vue'; // 1:1문의
 import Faq from './../pages/mypage/Faq.vue'; // 자주묻는 질문
 import Coupon from './../pages/mypage/Coupon.vue'; // 쿠폰
+import Depositsrefunds from './../pages/mypage/Depositsrefunds.vue'; // 예치금/환불계좌
 
 const routes = [
   { 
@@ -117,6 +118,13 @@ const routes = [
     component: Coupon,
     meta: {
       title: '마이페이지 | 쿠폰'
+    }
+  },
+  { 
+    path: '/vue-2023/mypage/depositsrefunds/', 
+    component: Depositsrefunds,
+    meta: {
+      title: '마이페이지 | 예치금/환불계좌'
     }
   },
   { 

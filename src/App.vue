@@ -39,6 +39,7 @@
       case '/vue-2023/mypage/refund/':
       case '/vue-2023/mypage/faq/':
       case '/vue-2023/mypage/coupon/':
+      case '/vue-2023/mypage/depositsrefunds/':
         return HeaderTitle
       case '/vue-2023/display/':
       case '/vue-2023/category/':
