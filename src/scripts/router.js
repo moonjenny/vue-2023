@@ -4,6 +4,7 @@ import Category from './../pages/Category.vue'; // 카테고리 레이어
 import Display from './../pages/Display.vue'; //리스트
 import About from './../pages/About.vue';
 import Cart from './../pages/Cart.vue';
+import Brand from './../pages/Brand.vue'; // 브랜드
 import Order from './../pages/Order.vue';
 import Like from './../pages/Like.vue';
 import Notice from './../pages/Notice.vue';
@@ -55,6 +56,13 @@ const routes = [
     component: Cart,
     meta: {
       title: '장바구니'
+    }
+  },
+  { 
+    path: '/vue-2023/brand/', 
+    component: Brand,
+    meta: {
+      title: '브랜드'
     }
   },
   { 

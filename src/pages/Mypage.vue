@@ -31,7 +31,7 @@ export default {
       // 혜택정보
       benefitInfoLinks: {
         points: "/vue-2023/mypage/points/",                    // 적립금
-        coupons: "/vue-2023/mypage/coupons/",                  // 쿠폰
+        coupon: "/vue-2023/mypage/coupon/",                  // 쿠폰
         depositsRefunds: "/vue-2023/mypage/depositsrefunds/",  // 예치금/환불계좌
       },
       // 활동정보
@@ -192,7 +192,7 @@ export default {
         <dt>혜택정보</dt>
         <dd>
           <router-link :to="benefitInfoLinks.points">적립금</router-link>
-          <router-link :to="benefitInfoLinks.coupons">쿠폰</router-link>
+          <router-link :to="benefitInfoLinks.coupon">쿠폰</router-link>
           <router-link :to="benefitInfoLinks.depositsRefunds">예치금/환불계좌</router-link>
         </dd>
       </dl>

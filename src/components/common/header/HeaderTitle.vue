@@ -24,6 +24,7 @@ const titles = {
   '/vue-2023/like/': '관심상품',
   '/vue-2023/cart/': '장바구니',
   '/vue-2023/search/': '검색결과',
+  '/vue-2023/brand/': '브랜드',
   '/vue-2023/login/': '로그인',
   '/vue-2023/detail/': '상품상세',
   '/vue-2023/order/': '주문서 작성',
