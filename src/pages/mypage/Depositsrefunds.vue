@@ -233,7 +233,11 @@ const deleteRefundAccount = () => {
         </div>
       </div>
       <div v-else class="no-history-message">
-        <img src="/src/assets/icon_no_history.svg" alt="내역 없음 아이콘" class="no-history-icon">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="no-history-icon">
+          <path d="M45.5859 1L55 10.4141V63H9V1H45.5859Z" stroke="#333333" stroke-width="2"/>
+          <rect x="30" y="45" width="4" height="4" rx="2" fill="#333333"/>
+          <path d="M30.0606 18.9991C30.0274 17.905 30.9054 17 32 17C33.0946 17 33.9726 17.905 33.9394 18.9991L33.3737 37.6673C33.3512 38.4098 32.7428 39 32 39C31.2572 39 30.6488 38.4098 30.6263 37.6673L30.0606 18.9991Z" fill="#333333"/>
+        </svg>
         <p>기간 내 예치금 내역이 없습니다.</p>
       </div>
     </div>
@@ -342,9 +346,6 @@ const deleteRefundAccount = () => {
         background-color: #fff;
         color: #666;
         cursor: pointer;
-        &:hover {
-          background-color: #f5f5f5;
-        }
         &.btn-delete {
           border-color: #666;
           color: #666;
@@ -536,13 +537,12 @@ const deleteRefundAccount = () => {
 
     .deposit-item {
       padding: 24px 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #ccc;
       .item-header {
         display: flex;
         align-items: flex-start; /* 상단 정렬 */
         justify-content: space-between; /* 양 끝 정렬 */
         gap: 12px;
-        margin-bottom: 6px;
 
         .detail {
           font-size: 14px;
@@ -570,7 +570,7 @@ const deleteRefundAccount = () => {
           flex-direction: column;
           align-items: flex-end;
           gap: 4px;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 500;
           white-space: nowrap; /* 금액 줄바꿈 방지 */
           &.positive {
@@ -581,7 +581,7 @@ const deleteRefundAccount = () => {
           }
         }
         .type {
-          font-size: 12px;
+          font-size: 14px;
           white-space: nowrap; /* 유형 줄바꿈 방지 */
           &.positive-type {
             color: #FF2A00;
@@ -624,9 +624,6 @@ const deleteRefundAccount = () => {
       border: 1px solid #333333;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      &:hover {
-        background-color: #f5f5f5;
-      }
     }
   }
 }
