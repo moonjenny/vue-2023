@@ -2,14 +2,16 @@
 //공통 헤더
 import layerBrand from '/src/components/display/displayLayer/layerBrand.vue'
 import layerColors from '/src/components/display/displayLayer/layerColors.vue'
+import layerSize from '/src/components/display/displayLayer/layerSize.vue'
 import layerBenefit from '/src/components/display/displayLayer/layerBenefit.vue'
 import layerPrice from '/src/components/display/displayLayer/layerPrice.vue'
+import layerPurpose from '/src/components/display/displayLayer/layerPurpose.vue'
 
 // 상태와 관련된 리액티브 변수들을 가져옴
 import { ref } from 'vue';
 
 // 필터 버튼들의 텍스트 배열
-const buttons = ['브랜드', '색상', '혜택', '가격'];
+const buttons = ['브랜드', '색상', '사이즈', '혜택', '가격', '쇼핑의 목적'];
 
 // 선택된 버튼의 인덱스를 관리하기 위한 ref 변수
 const activeButtonIndex = ref(0); // 초기값으로 0번째 버튼 선택
@@ -55,9 +57,11 @@ const closeLayer = () => {
         <div class="filter-lists">
           <!-- 필터 버튼에 따라 해당하는 컨텐츠를 노출할 영역 -->
           <layerBrand v-if="activeButtonIndex === 0" />
-          <layerColors  v-if="activeButtonIndex === 1" />
-          <layerBenefit v-if="activeButtonIndex === 2" />
-          <layerPrice v-if="activeButtonIndex === 3" />
+          <layerColors v-if="activeButtonIndex === 1" />
+          <layerSize v-if="activeButtonIndex === 2" />
+          <layerBenefit v-if="activeButtonIndex === 3" />
+          <layerPrice v-if="activeButtonIndex === 4" />
+          <layerPurpose v-if="activeButtonIndex === 5" />
         </div>
       </div>
     </div>

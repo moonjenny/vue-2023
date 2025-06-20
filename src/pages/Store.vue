@@ -51,7 +51,8 @@
 
     <div v-if="currentView === 'list'" class="store-list">
       <div v-for="store in filteredStores" :key="store.id" class="store-item">
-        <div class="name-brand-wrapper"> <span class="store-name">{{ store.name }}</span>
+        <div class="name-brand-wrapper">
+          <span class="store-name">{{ store.name }}</span>
           <span class="store-brand">{{ store.brand }}</span>
         </div>
         <address class="store-address">{{ store.address }}</address>
@@ -68,7 +69,8 @@
     </div>
 
     <div v-if="currentView === 'map'" class="store-map-container">
-      <div id="naver-map" class="naver-map"></div> <div v-if="selectedStoreOnMap" class="map-overlay-card">
+      <div id="kakao-map" class="kakao-map"></div>
+      <div v-if="selectedStoreOnMap" class="map-overlay-card">
         <span class="store-name">{{ selectedStoreOnMap.name }}</span>
         <span class="store-brand">{{ selectedStoreOnMap.brand }}</span>
         <address class="store-address">{{ selectedStoreOnMap.address }}</address>
@@ -89,18 +91,18 @@ import { ref, computed, onMounted, watch } from 'vue';
 const searchQuery = ref('');
 const selectedBrand = ref('');
 const selectedRegion = ref('');
-const currentView = ref('map'); // 'map' 또는 'list'
-const selectedStoreOnMap = ref(null); // 지도에 표시될 매장 정보
+const currentView = ref('map'); // 'map' or 'list'
+const selectedStoreOnMap = ref(null); // Store info to be displayed on the map overlay
 
-// 더미 데이터 (실제 서비스에서는 API 호출로 가져옴)
+// Dummy data (in a real service, this would be fetched via API)
 const allStores = ref([
-  { id: 1, name: '매장명', brand: '브랜드', address: '서울특별시 강남구 테헤란로20길 9 동궁빌딩 6층', phone: '1234-5678-9123', region: '서울', lat: 37.50096, lng: 127.03713 },
-  { id: 2, name: '강남점', brand: '브랜드', address: '서울특별시 강남구 테헤란로20길 9 동궁빌딩 6층', phone: '02-1234-5678', region: '서울', lat: 37.50096, lng: 127.03713 },
-  { id: 3, name: '부산점', brand: '다른브랜드', address: '부산광역시 중구 중앙대로 123 롯데백화점', phone: '051-123-4567', region: '부산', lat: 35.17981, lng: 129.0750 },
-  { id: 4, name: '종로점', brand: '브랜드', address: '서울특별시 종로구 종로 100', phone: '02-9876-5432', region: '서울', lat: 37.5700, lng: 126.9768 },
+  { id: 1, name: '매장명1', brand: '브랜드A', address: '서울특별시 강남구 테헤란로20길 9 동궁빌딩 6층', phone: '02-1234-5678', region: '서울', lat: 37.50096, lng: 127.03713 },
+  { id: 2, name: '매장명2', brand: '브랜드A', address: '서울특별시 서초구 강남대로 400', phone: '02-9876-5432', region: '서울', lat: 37.4981, lng: 127.0276 },
+  { id: 3, name: '매장명3', brand: '브랜드B', address: '부산광역시 중구 중앙대로 123', phone: '051-123-4567', region: '부산', lat: 35.17981, lng: 129.0750 },
+  { id: 4, name: '매장명4', brand: '브랜드C', address: '대구광역시 중구 동성로 100', phone: '053-456-7890', region: '대구', lat: 35.8698, lng: 128.6015 },
 ]);
 
-// 중복 없는 브랜드 및 지역 목록 생성
+// Compute unique brand and region lists for dropdowns
 const brands = computed(() => [...new Set(allStores.value.map(store => store.brand))]);
 const regions = computed(() => [...new Set(allStores.value.map(store => store.region))]);
 
@@ -126,31 +128,50 @@ const filteredStores = computed(() => {
   return tempStores;
 });
 
-let map = null; // Google Map 객체
-let markers = []; // 마커 배열
+let map = null; // Kakao Map object
+let markers = []; // Array to store Kakao Map markers
 
-// 지도 초기화 함수
-const initMap = () => {
-  // window.google.maps가 로드되었는지 확인
-  if (typeof window.google === 'object' && typeof window.google.maps === 'object' && document.getElementById('google-map')) {
-    const mapOptions = {
-      center: { lat: 37.5665, lng: 126.9780 }, // 서울 시청 기준
-      zoom: 12,
-      mapId: 'YOUR_MAP_ID' // Google Cloud Console에서 생성한 맵 ID (선택 사항)
+// Function to load Kakao Maps API script dynamically
+const loadKakaoMapsScript = () => {
+  return new Promise((resolve, reject) => {
+    // Check if Kakao Maps API is already loaded
+    if (typeof window.kakao !== 'undefined' && typeof window.kakao.maps !== 'undefined') {
+      resolve();
+      return;
+    }
+
+    const script = document.createElement('script');
+    // Replace YOUR_KAKAO_MAPS_APP_KEY with your actual Kakao Maps JavaScript API Key
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=e4a1592180cdc1c35ed4cc7f7ec5eaa2&libraries=services,clusterer,drawing`;
+    script.async = true;
+    script.onload = () => {
+      console.log("Kakao Maps API script loaded.");
+      kakao.maps.load(() => { // Ensure kakao.maps is ready
+        resolve();
+      });
     };
-    map = new window.google.maps.Map(document.getElementById('google-map'), mapOptions);
-    displayMarkers(filteredStores.value);
-  } else {
-    // Google Maps API가 로드될 때까지 기다림
-    // 또는 오류 메시지 표시
-    console.warn("Google Maps API not yet loaded or map container not found. Retrying in 100ms...");
-    setTimeout(initMap, 100); // 100ms 후 재시도
-  }
+    script.onerror = () => {
+      console.error("Failed to load Kakao Maps API script.");
+      reject(new Error("Kakao Maps API script load failed."));
+    };
+    document.head.appendChild(script);
+  });
 };
 
-// 마커 표시 함수
+// Map initialization function
+const initMap = () => {
+  const container = document.getElementById('kakao-map'); // Map container ID
+  const options = {
+    center: new kakao.maps.LatLng(37.5665, 126.9780), // Default center: Seoul City Hall
+    level: 7 // Zoom level
+  };
+  map = new kakao.maps.Map(container, options);
+  displayMarkers(filteredStores.value);
+};
+
+// Function to display markers on the map
 const displayMarkers = (storesToDisplay) => {
-  // 기존 마커 제거
+  // Clear existing markers
   markers.forEach(marker => marker.setMap(null));
   markers = [];
 
@@ -159,77 +180,82 @@ const displayMarkers = (storesToDisplay) => {
     return;
   }
 
-  const bounds = new window.google.maps.LatLngBounds();
+  const bounds = new kakao.maps.LatLngBounds();
 
   storesToDisplay.forEach(store => {
-    const position = { lat: store.lat, lng: store.lng };
-    const marker = new window.google.maps.Marker({
-      position: position,
+    const position = new kakao.maps.LatLng(store.lat, store.lng);
+    const marker = new kakao.maps.Marker({
       map: map,
+      position: position,
       title: store.name,
+      // You can customize marker icons here if needed
+      // image: new kakao.maps.MarkerImage(
+      //   'path/to/your/marker-icon.png',
+      //   new kakao.maps.Size(32, 32),
+      //   { offset: new kakao.maps.Point(16, 32) }
+      // )
     });
 
     markers.push(marker);
     bounds.extend(position);
 
-    // 마커 클릭 시 정보 표시
-    marker.addListener('click', () => {
+    // Add click listener to marker
+    kakao.maps.event.addListener(marker, 'click', () => {
       selectedStoreOnMap.value = store;
-      map.setCenter(position); // 클릭한 마커를 지도의 중심으로
-      map.setZoom(15); // 확대 (선택 사항)
+      map.setCenter(position); // Center map on clicked marker
+      map.setLevel(3); // Zoom in (optional)
     });
   });
 
-  if (map && !bounds.isEmpty()) { // bounds가 비어있지 않은 경우에만 이동
-    map.fitBounds(bounds);
+  if (map) {
+    map.setBounds(bounds); // Adjust map view to fit all markers
 
-    // 단일 매장일 경우 확대 레벨 고정 (fitBounds가 너무 확대할 수 있으므로)
+    // If only one store, set a specific zoom level as setBounds might zoom in too much
     if (storesToDisplay.length === 1) {
-      map.setZoom(15);
+      map.setLevel(3); // Adjust zoom level for a single marker
     }
   }
 
-  // 매장이 하나일 경우 해당 매장 정보 즉시 표시
+  // If there's only one store, display its info immediately
   if (storesToDisplay.length === 1) {
     selectedStoreOnMap.value = storesToDisplay[0];
   } else {
-    selectedStoreOnMap.value = null; // 여러 개일 때는 기본적으로 카드 안 보임
+    selectedStoreOnMap.value = null; // Hide overlay card if multiple or no stores
   }
 };
 
-// 검색 버튼 클릭 또는 Enter 시 검색 수행
+// Perform search on button click or Enter key
 const performSearch = () => {
-  // filteredStores computed 속성이 자동으로 업데이트되므로, 마커만 다시 그립니다.
+  // filteredStores computed property automatically updates, just redraw markers
   if (currentView.value === 'map' && map) {
     displayMarkers(filteredStores.value);
   }
 };
 
-onMounted(() => {
-  // Google Maps API가 로드될 때까지 기다립니다.
-  // window.google이 존재하고 window.google.maps가 존재하는지 확인합니다.
-  const checkGoogleMapsLoaded = setInterval(() => {
-    if (typeof window.google === 'object' && typeof window.google.maps === 'object') {
-      clearInterval(checkGoogleMapsLoaded);
-      initMap();
-    }
-  }, 100);
+onMounted(async () => {
+  try {
+    await loadKakaoMapsScript();
+    initMap();
+  } catch (error) {
+    console.error("카카오맵 로드 오류:", error);
+    // 사용자에게 오류 메시지를 표시하거나 대체 UI를 제공합니다.
+  }
 });
 
-// 검색 조건 변경 시 마커 업데이트 (지도가 활성화된 경우)
+// Watch for changes in filtered stores or view, and update map/markers accordingly
 watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
   if (newView === 'map' && map) {
     displayMarkers(newFilteredStores);
   }
-}, { immediate: true }); // 컴포넌트 마운트 시 즉시 실행
+}, { immediate: true }); // Run immediately on component mount
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/common.scss"; // scss import 경로 확인
+/* @import "@/assets/scss/common.scss"; */ // 공통 SCSS 파일 경로 확인 필요
 
 .store-guide-page {
   padding: 20px;
-  max-width: 768px; // 모바일 뷰포트 고려 (조정 가능)
+  max-width: 768px; /* 모바일 뷰포트 고려 (조정 가능) */
   margin: 0 auto;
   font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
 
@@ -367,11 +393,11 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
       }
 
       .name-brand-wrapper {
-        grid-column: 1 / 2; /* 첫 번째 컬럼 차지 */
-        grid-row: 1 / 2; /* 첫 번째 로우 차지 */
-        display: flex; /* Flexbox 적용 */
-        align-items: baseline; /* 텍스트 베이스라인 정렬 */
-        gap: 12px; /* 매장명과 브랜드 사이 간격 */
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: baseline;
+        gap: 12px; // 매장명과 브랜드 사이 간격
         flex-wrap: wrap; // 공간 부족 시 줄바꿈
         margin-bottom: 12px; // 다음 요소와의 간격 조정
       }
@@ -381,17 +407,11 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
         font-weight: 500;
         line-height: 20px;
         color: #111;
-        // grid 속성은 name-brand-wrapper가 관리하므로 여기서 제거
-        // grid-column: 1 / 2;
-        // grid-row: 1 / 2;
       }
 
       .store-brand {
         font-size: 14px;
         color: #555;
-        // grid 속성은 name-brand-wrapper가 관리하므로 여기서 제거
-        // grid-column: 1 / 2;
-        // grid-row: 2 / 3;
       }
 
       .store-address {
@@ -399,14 +419,14 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
         color: #666;
         font-style: normal;
         grid-column: 1 / 2;
-        grid-row: 2 / 3; /* 이제 2번째 로우 차지 (이전에는 3번째) */
+        grid-row: 2 / 3;
       }
 
       .store-phone {
         font-size: 14px;
         color: #666;
         grid-column: 1 / 2;
-        grid-row: 3 / 4; /* 이제 3번째 로우 차지 (이전에는 4번째) */
+        grid-row: 3 / 4;
       }
 
       .arrow-button {
@@ -445,7 +465,7 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
     align-items: center;
     overflow: hidden;
 
-    .google-map {
+    .kakao-map { // 클래스명 변경
       width: 100%;
       height: 100%;
       background-color: #ccc; // 맵 로딩 전 배경
