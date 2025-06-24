@@ -80,9 +80,11 @@ const closeLayer = () => {
 .layer-filter {
   position:fixed;
   top:0;
-  right:-100%;
+  right:-50%;
   width:100%;
+  max-width: 860px;
   height:100%;
+  transform: translateX(50%);
   z-index:999;
   transition: right 0.5s ease;
   overflow:auto;
@@ -91,7 +93,7 @@ const closeLayer = () => {
   background: #fff;
 
   &.active {
-    right:0;
+    right:50%;
   }
 }
 

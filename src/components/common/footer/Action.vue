@@ -172,19 +172,21 @@ body.active {
 .actionbar {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
   right: 0;
+  transform: translate(-50%, 0);
   width: 100%;
+  max-width: 860px;
   height: 57px;
   border-top: 1px solid #eee;
   background: #fff;
   z-index: 10;
   transition: transform .3s ease;
   &.show {
-    transform:translateY(0);
+    transform: translate(-50%, 0);
   }
   &.hide {
-    transform:translateY(100%);
+    transform: translate(-50%, 100%);
   }
   
 }

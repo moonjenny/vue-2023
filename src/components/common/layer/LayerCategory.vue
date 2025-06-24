@@ -47,14 +47,16 @@ export default {
 .layer-wrap {
   position: fixed;
   top: 0;
-  left: -100%;
+  left: -50%;
   bottom: 0;
   width: 100%;
+  max-width: 860px;
+  transform: translateX(-50%);
   z-index: 9999;
   transition: left 0.5s ease;
 
   &.active {
-    left: 0;
+    left: 50%;
   }
 }
 

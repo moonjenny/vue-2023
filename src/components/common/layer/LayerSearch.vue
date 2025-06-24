@@ -44,14 +44,16 @@ export default {
 .layer-search {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: -50%;
   bottom: 0;
   width: 100%;
+  max-width: 860px;
+  transform: translateX(50%);
   z-index: 9999;
   transition: right 0.5s ease;
 
   &.active {
-    right: 0;
+    right: 50%;
     .layer-overlay {
       display:block;
     }
