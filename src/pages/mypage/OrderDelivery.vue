@@ -49,7 +49,7 @@ const cancelOrderLink = ref("/vue-2023/mypage/cancelOrder/"); // 주문전체취
 // --- 주문 상품 데이터 정의 ---
 const orders = ref([
   {
-    orderDate: '2022-12-23',
+    orderDate: '2025-05-23',
     orderNumber: 'YYMMDDHHMI0000_1', // 고유한 주문번호로 변경
     hasCancelButton: true, // 첫 번째 주문은 주문 전체 취소 버튼이 있도록
     products: [
@@ -60,7 +60,7 @@ const orders = ref([
         option: '브라운 / 55',
         gifts: [
           { text: '[사은품]브랜드명 사은품명-1개 (2개)', soldOut: true },
-          { text: '[사은품]브랜드명 사은품명-1개 (2개)', soldOut: false }
+          { text: '[사은품]브랜드명 사은품명-개 (2개)', soldOut: false }
         ],
         quantity: 2,
         price: '9,000원',
@@ -110,10 +110,9 @@ const orders = ref([
         thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
-        option: '브라운 / 55',
-        gifts: [
-          { text: '[사은품]브랜드명 사은품명-1개 (2개)', soldOut: true },
-          { text: '[사은품]브랜드명 사은품명-1개 (2개)', soldOut: false }
+        productName: [
+          { text: '구성상품명-1개 (총 2개)' },
+          { text: '구성상품명-2개 (총 4개)' }
         ],
         quantity: 2,
         price: '9,000원',
@@ -124,25 +123,25 @@ const orders = ref([
           { text: '반품신청', active: false },
           { text: '교환신청', active: false }
         ]
-      },
+      }
+    ]
+  },
+  {
+    orderDate: '2022-12-07',
+    orderNumber: 'YYMMDDHHMI0000_3', // 고유한 주문번호로 변경
+    hasCancelButton: false, // 두 번째 주문은 주문 전체 취소 버튼이 없도록
+    products: [
       {
-        gifts: [
-          { text: '[추가]맨투맨티셔츠 빨강/L-1개 (총 2개)', soldOut: false }
-        ],
-        quantity: 1,
-        price: '9,000원',
-        status: '주문완료',
-        buttons: [
-          { text: '배송조회', active: false }
-        ]
-      },
-      {
-        thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png',
+        thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
-        option: '브라운 / 55',
-        gifts: [],
-        quantity: 1,
+        buttonOption: '옵션변경',
+        productName: [
+          { text: '구성상품명 | 옵션값/옵션값/옵션값/옵션값 (총 2개)' },
+          { text: '구성상품명 | 옵션값/옵션값/옵션값/옵션값 (총 2개)' },
+          { text: '구성상품명 | 옵션값/옵션값/옵션값/옵션값 (총 2개)' }
+        ],
+        quantity: 2,
         price: '9,000원',
         status: '주문완료',
         buttons: [
@@ -207,7 +206,13 @@ const orders = ref([
           <div class="my-order-product-thumb-info">
             <span class="brand">{{ product.brand }}</span>
             <span class="name">{{ product.name }}</span>
+            <button type="button" class="btn-option">{{ product.buttonOption }}</button>
             <span class="option">{{ product.option }}</span>
+            <div v-if="product.productName && product.productName.length > 0">
+              <span v-for="(p, idx) in product.productName" :key="idx" class="productname">
+                {{ p.text }}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -340,14 +345,34 @@ const orders = ref([
           color: #999999;
         }
         .name {
+          display: inline-block;
           margin-top: 8px;
           font-size: 13px;
           color: #111111;
+        }
+        .btn-option {
+          display: inline-block;
+          margin-top: 8px;
+          margin-left: 12px;
+          font-size: 13px;
+          color: #999999;
+          text-decoration: underline;
         }
         .option {
           margin-top: 12px;
           font-size: 13px;
           color: #666666;
+        }
+        .productname {
+          position: relative;
+          font-size: 13px;
+          color: #666666;
+          line-height: 16px;
+          display: flex;
+          gap: 2px;
+          &::before {
+            content: 'ㄴ';
+          }
         }
       }
     }
