@@ -90,7 +90,7 @@ const routes = [
     path: '/vue-2023/mypage/point/', 
     component: Point,
     meta: {
-      title: '마이페이지 | 포인트'
+      title: '마이페이지 | 적립금'
     }
   },
   { 
