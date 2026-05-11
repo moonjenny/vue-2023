@@ -39,6 +39,7 @@ const inquiries = ref([
     answerStatus: '답변대기', // 답변 상태를 별도로 관리
     questionDate: '2022-11-01',
     productName: '상품 총 기장 알려주세요',
+    orderCancelDate: '2022-21-01',
     orderCancelNumber: '21123117282343',
     orderNumber: '21123117282343',
     products: [
@@ -199,6 +200,10 @@ const closeInquiryLayer = () => {
 
         <div v-if="inquiry.isExpanded" class="toggle-group">
           <div v-if="inquiry.orderCancelNumber" class="order-info">
+            <div class="info-row">
+              <span class="label">주문취소일</span>
+              <span class="value">{{ inquiry.orderCancelDate }}</span>
+            </div>
             <div class="info-row">
               <span class="label">주문취소번호</span>
               <span class="value">{{ inquiry.orderCancelNumber }}</span>
@@ -375,20 +380,19 @@ const closeInquiryLayer = () => {
       position: relative;
       display: flex;
       align-items: flex-start;
-      gap: 30px;
+      gap: 20px;
       cursor: pointer;
 
       .inquiry-header-row {
         display: flex;
         justify-content: space-between; /* 여전히 필요 */
         align-items: center;
-        margin-bottom: 10px;
-        width: 50px;
+        width: 60px;
 
         .inquiry-status {
           font-size: 14px;
-          color: #333;
-          font-weight: 500;
+          color: #111;
+          line-height: 20px;
         }
       }
 
@@ -420,13 +424,12 @@ const closeInquiryLayer = () => {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        margin-bottom: 10px;
+        gap: 12px;
 
         .product-name {
-          font-size: 15px;
-          color: #333;
-          font-weight: 400;
+          font-size: 14px;
+          color: #111;
+          line-height: 20px;
           &.secret-title {
             padding: 2px 24px;
             background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 10V21H5V10H19Z' stroke='black' stroke-width='2'/%3E%3Ccircle cx='12' cy='15' r='2' fill='black'/%3E%3Cpath d='M8 11V7C8 4.79086 9.79086 3 12 3V3C14.2091 3 16 4.79086 16 7V11' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
@@ -437,13 +440,15 @@ const closeInquiryLayer = () => {
         }
 
         .question-date {
-          font-size: 13px;
-          color: #777;
+          font-size: 14px;
+          color: #666;
+          line-height: 20px;
         }
       }
     }
 
     .toggle-group {
+      margin-top: 24px;
       .order-info {
         padding: 20px;
         margin-bottom: 24px;
@@ -461,6 +466,7 @@ const closeInquiryLayer = () => {
             color: #111;
             width: 90px;
             flex-shrink: 0;
+            font-weight: 500;
           }
 
           .value {
@@ -485,7 +491,6 @@ const closeInquiryLayer = () => {
           .product-image {
             width: 74px;
             height: 115px;
-            border-radius: 4px;
             margin-right: 16px;
             margin-bottom: 24px;
             object-fit: cover;
@@ -535,8 +540,9 @@ const closeInquiryLayer = () => {
 
       .inquiry-content-text {
         font-size: 14px;
-        color: #444;
-        padding: 24px 0;
+        color: #666;
+        line-height: 20px;
+        padding: 20px 0;
         border-top: 1px solid #eee;
       }
 
@@ -563,9 +569,9 @@ const closeInquiryLayer = () => {
         .btn-cancel {
           background-color: #fff;
           color: #FF2A00;
-          border: 1px solid #ddd;
-          padding: 8px 12px;
-          font-size: 13px;
+          padding: 7px 0;
+          font-size: 14px;
+          line-height: 18px;
           font-weight: 500;
           cursor: pointer;
 

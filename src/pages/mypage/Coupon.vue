@@ -51,7 +51,7 @@ const downloadableCoupons = ref([
     remainingDays: 'N일',
     type: '상품할인쿠폰',
     downloadInfo: '선착순N장 / 계정당 1일 N회 발급',
-    status: 'available', // 'available', 'downloaded'
+    status: 'soldout', // 'available', 'downloaded', 'soldout'
     note: '선착순 쿠폰은 발급여부와 상관없이 소진될 수 있습니다.', // 안내 문구 추가
   },
   {
@@ -86,6 +86,28 @@ const downloadableCoupons = ref([
     downloadInfo: '선착순N장 / 계정당 1일 N회 발급',
     status: 'available',
   },
+  {
+    id: 105,
+    value: '무료교환',
+    subtext: '',
+    name: '쿠폰명 전체 표시 쿠폰명 전체 표시 말줄임 없습니다. 말줄임 없습니다. 말줄임 없습니다.',
+    downloadPeriod: 'YYYY-MM-DD ~ YYYY-MM-DD',
+    remainingDays: 'N일',
+    type: '상품할인쿠폰',
+    downloadInfo: '선착순N장 / 계정당 1일 N회 발급',
+    status: 'available',
+  },
+  {
+    id: 106,
+    value: '사은품 증정',
+    subtext: '',
+    name: '쿠폰명 전체 표시',
+    downloadPeriod: 'YYYY-MM-DD ~ YYYY-MM-DD',
+    remainingDays: 'N일',
+    type: '상품할인쿠폰',
+    downloadInfo: '선착순N장 / 계정당 1일 N회 발급',
+    status: 'available',
+  }
 ]);
 
 // 시리얼 코드 등록 함수 (실제로는 API 호출 필요)
@@ -116,6 +138,22 @@ const downloadCoupon = (coupon) => {
     });
   }
 };
+
+// 더보기 기능을 위한 표시 개수 상태값
+const ownedVisibleCount = ref(4);
+const downloadVisibleCount = ref(4);
+
+// 실제 화면에 보여줄 쿠폰 리스트 (앞에서부터 visibleCount 만큼만)
+const visibleOwnedCoupons = computed(() => ownedCoupons.value.slice(0, ownedVisibleCount.value));
+const visibleDownloadableCoupons = computed(() => downloadableCoupons.value.slice(0, downloadVisibleCount.value));
+
+// 더보기 버튼 클릭 시 4개씩 추가
+const showMoreOwned = () => {
+  ownedVisibleCount.value += 4;
+};
+const showMoreDownload = () => {
+  downloadVisibleCount.value += 4;
+};
 </script>
 
 <template>
@@ -145,9 +183,10 @@ const downloadCoupon = (coupon) => {
       </button>
     </div>
 
+    <!-- 보유 쿠폰 탭 -->
     <div v-if="currentTab === 'owned'" class="coupon-list owned-coupons">
       <div v-if="ownedCoupons.length > 0">
-        <div v-for="coupon in ownedCoupons" :key="coupon.id" class="coupon-item owned-type">
+        <div v-for="coupon in visibleOwnedCoupons" :key="coupon.id" class="coupon-item owned-type">
           <div class="coupon-item-box">
             <div class="coupon-content">
               <p class="coupon-value">{{ coupon.value }}<span>{{ coupon.subtext }}</span></p>
@@ -164,27 +203,42 @@ const downloadCoupon = (coupon) => {
             <p class="detail-line"><span>다운안내 :</span> {{ coupon.downloadInfo }}</p>
           </div>
         </div>
+        <!-- 보유 쿠폰이 5개 이상이고 아직 다 안 보여줬을 때만 더보기 버튼 -->
+        <div class="btn-more" v-if="ownedCoupons.length > ownedVisibleCount">
+          <button type="button" @click="showMoreOwned">더보기</button>
+        </div>
       </div>
       <div v-else class="no-coupons-message">
         <p>보유하신 쿠폰이 없습니다.</p>
       </div>
     </div>
 
+    <!-- 다운로드 쿠폰 탭 -->
     <div v-if="currentTab === 'download'" class="coupon-list download-coupons">
       <div v-if="downloadableCoupons.length > 0">
-        <div v-for="coupon in downloadableCoupons" :key="coupon.id" class="coupon-item download-type">
+        <div v-for="coupon in visibleDownloadableCoupons" :key="coupon.id" class="coupon-item download-type">
           <div class="coupon-item-box">
             <div class="coupon-content">
-              <p class="coupon-value">{{ coupon.value }}<span>{{ coupon.subtext }}</span></p>
+              <p class="coupon-value">
+                {{ coupon.value }}
+                <span>{{ coupon.subtext }}</span>
+                <!-- soldout 상태일 때 문구 추가 -->
+                <span v-if="coupon.status === 'soldout'" class="soldout-text">*소진</span>
+              </p>
               <p class="coupon-name">{{ coupon.name }}</p>
             </div>
-            <button class="download-coupon-button" :disabled="coupon.status === 'downloaded'" @click="downloadCoupon(coupon)">
+            <button
+              class="download-coupon-button"
+              :disabled="coupon.status === 'downloaded' || coupon.status === 'soldout'"
+              @click="downloadCoupon(coupon)"
+            >
               <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10" y="12.5" width="12" height="1" transform="rotate(-90 10 12.5)" fill="white" stroke="white"/>
                 <rect x="1" y="18.5" width="19" height="1" fill="white" stroke="white"/>
                 <path d="M17.5 7L10.5 13.5L3.5 7" stroke="white" stroke-width="2"/>
               </svg>
-              {{ coupon.status === 'downloaded' ? '받기완료' : '쿠폰받기' }}
+              <!-- 버튼 문구도 soldout 상태일 때 변경 -->
+              {{ coupon.status === 'downloaded' ? '받기완료' : coupon.status === 'soldout' ? '쿠폰소진' : '쿠폰받기' }}
             </button>
           </div>
           <div class="coupon-details"> <p class="detail-line">
@@ -196,14 +250,14 @@ const downloadCoupon = (coupon) => {
           <p v-if="coupon.note" class="note-text-individual"> {{ coupon.note }}
           </p>
         </div>
+        <!-- 다운로드 쿠폰이 5개 이상이고 아직 다 안 보여줬을 때만 더보기 버튼 -->
+        <div class="btn-more" v-if="downloadableCoupons.length > downloadVisibleCount">
+          <button type="button" @click="showMoreDownload">더보기</button>
+        </div>
       </div>
       <div v-else class="no-coupons-message">
         <p>현재 다운 가능한 쿠폰이 없습니다.</p>
       </div>
-    </div>
-
-    <div class="btn-more">
-      <button type="button">더보기</button>
     </div>
   </section>
 </template>
@@ -256,6 +310,7 @@ const downloadCoupon = (coupon) => {
     overflow: hidden;
 
     input {
+      flex: 1;
       flex-grow: 1;
       border: none;
       padding: 15px 12px;
@@ -326,7 +381,7 @@ const downloadCoupon = (coupon) => {
       &-box {
         display: flex;
         flex-wrap: wrap;
-        border: 1px solid #eee;
+        border: 1px solid #DBDBDB;
         border-radius: 12px;
         overflow: hidden;
       }
@@ -350,12 +405,12 @@ const downloadCoupon = (coupon) => {
           font-size: 14px;
           font-weight: 500;
           color: #fff;
-          background-color: #333333;
-          border: 1px solid #333333;
+          background-color: #FF2A0099;
+          border: 1px solid #FF2A0099;
           cursor: pointer;
           transition: background-color 0.2s ease;
           &:disabled {
-            background-color: #DBDBDB;
+            background-color: #ccc;
             color: #fff;
             border-color: #DBDBDB;
             cursor: default;
@@ -393,8 +448,8 @@ const downloadCoupon = (coupon) => {
             stroke: #333;
           }
           &:disabled {
-            background-color: #DBDBDB;
-            border: 1px solid #DBDBDB;
+            background-color: #ccc;
+            border: 1px solid #ccc;
             cursor: default;
           }
         }
@@ -405,10 +460,20 @@ const downloadCoupon = (coupon) => {
         font-weight: 600;
         color: #111;
         margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
         span {
           margin-left: 4px;
           font-size: 16px;
           font-weight: 500;
+          line-height: 26px;
+        }
+        .soldout-text {
+          margin-left: 8px;
+          font-size: 13px;
+          color: #FF2A00;
+          font-weight: 400;
         }
       }
       .coupon-name {
@@ -448,7 +513,6 @@ const downloadCoupon = (coupon) => {
   }
 
   .btn-more {
-    margin: 0 20px;
     button {
       width: 100%;
       padding: 15px;

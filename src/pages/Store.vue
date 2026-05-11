@@ -33,17 +33,17 @@
 
     <div class="view-toggle">
       <button :class="{ active: currentView === 'map' }" @click="currentView = 'map'">
-        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.5 3C16.4647 3 19.5 5.64193 19.5 9.5C19.5 12.1161 17.7188 15.0001 15.7354 17.3555C14.7673 18.505 13.7963 19.4768 13.0664 20.1611C12.8553 20.3591 12.6637 20.5315 12.5 20.6777C12.3363 20.5315 12.1447 20.3591 11.9336 20.1611C11.2037 19.4768 10.2327 18.505 9.26465 17.3555C7.28121 15.0001 5.5 12.1161 5.5 9.5C5.5 5.64193 8.5353 3 12.5 3Z" stroke="#111111" stroke-width="2"/>
-          <path d="M12.5 13C14.1569 13 15.5 11.6569 15.5 10C15.5 8.34315 14.1569 7 12.5 7C10.8431 7 9.5 8.34315 9.5 10C9.5 11.6569 10.8431 13 12.5 13Z" fill="#111111"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3C15.9647 3 19 5.64193 19 9.5C19 12.1161 17.2188 15.0001 15.2354 17.3555C14.2673 18.505 13.2963 19.4768 12.5664 20.1611C12.3553 20.3591 12.1637 20.5315 12 20.6777C11.8363 20.5315 11.6447 20.3591 11.4336 20.1611C10.7037 19.4768 9.7327 18.505 8.76465 17.3555C6.78121 15.0001 5 12.1161 5 9.5C5 5.64193 8.0353 3 12 3Z" stroke="#111111" stroke-width="2"/>
+          <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" fill="#111111"/>
         </svg>
         지도 보기
       </button>
       <button :class="{ active: currentView === 'list' }" @click="currentView = 'list'">
-        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2.5" y="4" width="20" height="2" fill="#111111"/>
-          <rect x="2.5" y="11" width="20" height="2" fill="#111111"/>
-          <rect x="2.5" y="18" width="20" height="2" fill="#111111"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="2" fill="#111111"/>
+          <rect x="2" y="11" width="20" height="2" fill="#111111"/>
+          <rect x="2" y="18" width="20" height="2" fill="#111111"/>
         </svg>
         목록 보기
       </button>
@@ -56,7 +56,7 @@
           <span class="store-brand">{{ store.brand }}</span>
         </div>
         <address class="store-address">{{ store.address }}</address>
-        <span class="store-phone">{{ store.phone }}</span>
+        <span class="store-phone">매장전화 {{ store.phone }}</span>
         <button class="arrow-button" aria-label="매장 상세 보기">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 5L16 12L9 19" stroke="#111" stroke-width="2" stroke-linecap="square"/>
@@ -69,12 +69,20 @@
     </div>
 
     <div v-if="currentView === 'map'" class="store-map-container">
-      <div id="kakao-map" class="kakao-map"></div>
+      <!-- 카카오맵 -->
+      <div class="kakao-map-wrapper">
+        <div v-if="mapLoaded" id="kakao-map"></div>
+        <!-- 대체 이미지 -->
+        <div v-else class="map-fallback">
+          <img src="/src/assets/images/temp/map_fallback.png" alt="지도 대체 이미지">
+          <p>지도를 불러올 수 없습니다.</p>
+        </div>
+      </div>
       <div v-if="selectedStoreOnMap" class="map-overlay-card">
         <span class="store-name">{{ selectedStoreOnMap.name }}</span>
         <span class="store-brand">{{ selectedStoreOnMap.brand }}</span>
         <address class="store-address">{{ selectedStoreOnMap.address }}</address>
-        <span class="store-phone">{{ selectedStoreOnMap.phone }}</span>
+        <span class="store-phone">매장전화 {{ selectedStoreOnMap.phone }}</span>
         <button class="arrow-button" aria-label="매장 상세 보기">
           <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 2L7 7L2 12" stroke="#111111" stroke-width="2" stroke-linecap="square"/>
@@ -134,19 +142,17 @@ let markers = []; // Array to store Kakao Map markers
 // Function to load Kakao Maps API script dynamically
 const loadKakaoMapsScript = () => {
   return new Promise((resolve, reject) => {
-    // Check if Kakao Maps API is already loaded
     if (typeof window.kakao !== 'undefined' && typeof window.kakao.maps !== 'undefined') {
       resolve();
       return;
     }
 
     const script = document.createElement('script');
-    // Replace YOUR_KAKAO_MAPS_APP_KEY with your actual Kakao Maps JavaScript API Key
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=e4a1592180cdc1c35ed4cc7f7ec5eaa2&libraries=services,clusterer,drawing`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&autoload=false&libraries=services,clusterer,drawing`;
     script.async = true;
     script.onload = () => {
       console.log("Kakao Maps API script loaded.");
-      kakao.maps.load(() => { // Ensure kakao.maps is ready
+      kakao.maps.load(() => {
         resolve();
       });
     };
@@ -357,21 +363,21 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
       gap: 8px;
 
       svg {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         stroke: #777;
       }
 
       & + button {
-        border-left: 1px solid #eee;
+        border-left: 1px solid #ccc;
       }
 
       &.active {
+        border-color: #111;
         background-color: #111;
         color: #fff;
         svg {
-          stroke: #fff;
-          fill: #fff;
+          filter: invert(1);
         }
 
       }
@@ -411,12 +417,14 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
 
       .store-brand {
         font-size: 14px;
-        color: #555;
+        color: #999;
+        font-weight: 500;
       }
 
       .store-address {
         font-size: 14px;
         color: #666;
+        line-height: 20px;
         font-style: normal;
         grid-column: 1 / 2;
         grid-row: 2 / 3;
@@ -425,6 +433,7 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
       .store-phone {
         font-size: 14px;
         color: #666;
+        line-height: 20px;
         grid-column: 1 / 2;
         grid-row: 3 / 4;
       }
@@ -458,17 +467,31 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
   .store-map-container {
     position: relative;
     width: 100%;
-    height: 600px; // 지도의 높이 설정
-    background-color: #f0f0f0;
+    min-height: 460px; // 지도의 높이 설정
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 
-    .kakao-map { // 클래스명 변경
+    .kakao-map-wrapper {
       width: 100%;
-      height: 100%;
-      background-color: #ccc; // 맵 로딩 전 배경
+      .kakao-map { // 클래스명 변경
+        width: 100%;
+        height: 100%;
+        background-color: #ccc; // 맵 로딩 전 배경
+      }
+      .map-fallback {
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        p {
+          text-align: center;
+          font-size: 12px;
+          padding: 6px;
+          background-color: #ceead6;
+        }
+      }
     }
 
     .map-overlay-card {
@@ -507,6 +530,7 @@ watch([filteredStores, currentView], ([newFilteredStores, newView]) => {
       .store-phone {
         font-size: 13px;
         color: #777;
+        line-height: 20px;
         margin-top: 5px;
       }
 

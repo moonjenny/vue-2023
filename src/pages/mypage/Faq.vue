@@ -217,7 +217,10 @@ watch(searchQuery, (newQuery) => {
             <span class="faq-tag answer-tag">A</span>
             <span class="faq-answer-title">
               {{ faq.answer }}
-              <p class="answer-meta">{{ faq.date }} 분류 {{ faq.category1Depth }} &gt; 분류 {{ faq.category2Depth }}</p>
+              <p class="answer-meta">
+                <span class="data">{{ faq.date }} </span>
+                <span class="depth">{{ faq.category1Depth }} &gt; {{ faq.category2Depth }}</span>
+              </p>
             </span>
           </div>
         </div>
@@ -254,6 +257,7 @@ watch(searchQuery, (newQuery) => {
       overflow: hidden;
 
       input {
+        flex: 1;
         flex-grow: 1;
         border: none;
         padding: 16px 12px;
@@ -452,10 +456,18 @@ watch(searchQuery, (newQuery) => {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 8px;
             .answer-meta {
-              font-size: 12px;
-              color: #999;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              span {
+                font-size: 12px;
+                color: #666;
+              }
+              .data {
+                color: #999;
+              }
             }
           }
         }
