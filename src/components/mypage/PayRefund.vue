@@ -3,17 +3,17 @@ import { ref, computed } from 'vue';
 
 // 환불 금액 정보 데이터
 const refundDetails = ref({
-  cancelBefore: {
+  cancelBefore: {                 //취소 전
     productOrderAmount: 30000,
     membershipDiscount: -2500,
     finalShippingCost: 2500,
   },
-  cancelAfter: {
+  cancelAfter: {                  // 취소 후
     productOrderAmount: 30000,
     membershipDiscount: -2500,
     finalShippingCost: 2500,
   },
-  refundAmount: {
+  refundAmount: {                 // 환불금액
     exclusivePoints: 2500,
     integratedPoints: 2500,
     deposit: 2500, // 이미지 상 환불 금액이 예치금으로 표시됨
@@ -21,26 +21,26 @@ const refundDetails = ref({
     easyPayment: 2500,
     safeAccount: 2500,
   },
-  refundTarget: {
+  refundTarget: {               // 환불대상
     productOrderAmount: 30000,
     membershipDiscount: -2500,
     finalShippingCost: 2500,
-  },
+  },                            // 차감대상
   deductionTarget: {
     claimShippingCost: 2500,
   },
   // 이미지에 있는 카드 정보 및 가상계좌 정보 추가
-  creditCardInfo: {
+  creditCardInfo: { // 신용카드
     cardNumber: '1234-****-1234-1234',
     type: '일시불',
     cancelApprovalDate: 'YYYY-MM-DD',
-  },
-  easyPaymentInfo: {
+  },            
+  easyPaymentInfo: { // 간편결제
     bank: '국민은행',
     accountNumber: '**_******_***_**',
     approvalCancelDate: 'YYYY-MM-DD',
   },
-  safeAccountInfo: {
+  safeAccountInfo: { // 환불계좌
     bank: '농협',
     accountNumber: '79004483982261',
     payee: 'G1몰',

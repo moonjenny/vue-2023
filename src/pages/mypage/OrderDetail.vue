@@ -14,6 +14,7 @@ import PayRefund from './../../components/mypage/PayRefund.vue';
 const changeAddressLink = ref("/vue-2023/mypage/changeaddress/"); // 배송지 변경
 const cancelOrderLink = ref("/vue-2023/mypage/cancelOrder/"); // 주문전체취소
 
+
 // --- 주문 상품 데이터 정의 ---
 const orders = ref([
   // 첫 번째 주문 데이터 (바이린1 배송상품)

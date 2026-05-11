@@ -16,7 +16,7 @@ import Detail from './../pages/Detail.vue';
 import Mypage from './../pages/Mypage.vue'; // 메인
 import Point from './../pages/mypage/Point.vue'; // 포인트
 import OrderDelivery from './../pages/mypage/OrderDelivery.vue'; // 주문배송조회
-import OrderDetail from './../pages/mypage/OrderDetail.vue'; // 주문배송조회
+import OrderDetail from './../pages/mypage/OrderDetail.vue'; // 주문배송상세
 import DirectInquiry from './../pages/mypage/DirectInquiry.vue'; // 1:1문의
 import Faq from './../pages/mypage/Faq.vue'; // 자주묻는 질문
 import Coupon from './../pages/mypage/Coupon.vue'; // 쿠폰

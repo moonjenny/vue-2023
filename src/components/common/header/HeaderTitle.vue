@@ -32,7 +32,7 @@ const titles = {
   '/vue-2023/mypage/': '마이페이지',
   '/vue-2023/mypage/point/': '포인트',
   '/vue-2023/mypage/orderdelivery/': '주문/배송조회',
-  '/vue-2023/mypage/orderdetail/': '주문배송상세',
+  '/vue-2023/mypage/orderdetail/': '주문/배송상세',
   '/vue-2023/mypage/directinquiry/': '1:1문의',
   '/vue-2023/mypage/faq/': '자주묻는 질문',
   '/vue-2023/mypage/coupon/': '쿠폰',

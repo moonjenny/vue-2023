@@ -2,37 +2,37 @@
 // 결제상세
 import { ref, computed } from 'vue';
 
-const paymentDetails = ref({
-  productOrderAmount: 30000,
-  membershipDiscount: -3000,
-  itemDiscountCoupon: 2500,
-  orderDiscountCoupon: 2500,
-  finalShippingCost: 3000,
+const paymentDetails = ref({      // 결제금액정보
+  productOrderAmount: 30000,      // 상품주문금액
+  membershipDiscount: -3000,      // 회원쿠폰할인금액
+  itemDiscountCoupon: 2500,       // 상품할인쿠폰
+  orderDiscountCoupon: 2500,      // 주문할인쿠폰
+  finalShippingCost: 3000,        // 최종배송비
   
-  earnedPoints: {
-    exclusive: 5000,
-    membershipTier: 2500,
-    itemAdditional: 2500,
-    integrated: 5000,
-    integratedMembershipTier: 2500,
-    integratedItemAdditional: 2500,
+  earnedPoints: {                 // 적립금
+    exclusive: 5000,              // 전용포인트
+    membershipTier: 2500,         // 회원등급별 적립
+    itemAdditional: 2500,         // 상품별 추가적립
+    integrated: 5000,             // 통합포인트
+    integratedMembership: 2500,   // 회원등급별 적립
+    integratedItemAdd: 2500,      // 상품별 추가적립
   },
   
-  usedPaymentMethods: {
-    exclusivePointsUsed: 3000,
-    integratedPointsUsed: 3000,
-    depositUsed: 3000,
-    creditCard: {
+  usedPaymentMethods: {           // 결제수단정보
+    exclusivePointsUsed: 3000,    // 전용포인트 사용금액
+    integratedPointsUsed: 3000,   // 통합포인트 사용금액
+    depositUsed: 3000,            // 예치금 사용금액
+    creditCard: {                 // 신용카드
       cardNumber: '1234-****-1234-1234',
       type: '일시불',
       approvalDate: 'YYYY-MM-DD',
     },
-    easyPayment: {
+    easyPayment: {                // 간편결제
       amount: 3000,
       bank: '국민은행',
       accountNumber: '**_******_***_**',
     },
-    safeAccount: {
+    safeAccount: {                // 안심가상계좌
       amount: 3000,
       bank: '농협',
       accountNumber: '79004483982261',
@@ -157,11 +157,11 @@ const toggleSubItems = (section) => {
         </li>
         <li class="sub-item" v-show="isIntegratedPointsExpanded">
           <span>회원등급별 적립</span>
-          <span>{{ formatNumberWithCommas(paymentDetails.earnedPoints.integratedMembershipTier) }}원</span>
+          <span>{{ formatNumberWithCommas(paymentDetails.earnedPoints.integratedMembership) }}원</span>
         </li>
         <li class="sub-item" v-show="isIntegratedPointsExpanded">
           <span>상품별 추가적립</span>
-          <span>{{ formatNumberWithCommas(paymentDetails.earnedPoints.integratedItemAdditional) }}원</span>
+          <span>{{ formatNumberWithCommas(paymentDetails.earnedPoints.integratedItemAdd) }}원</span>
         </li>
       </ul>
     </div>

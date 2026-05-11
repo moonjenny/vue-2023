@@ -118,14 +118,14 @@ export default {
 
       <div class="my-recent-product">
         <div class="my-recent-product-item">
-          <div class="my-recent-product-thumb">
+          <a href="/vue-2023/mypage/orderdetail/" class="my-recent-product-thumb">
             <picture><img src="https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png"></picture>
             <div class="my-recent-product-thumb-info">
               <span class="brand">LYNN</span>
               <span class="name">클래식 크롭 테일러드 자켓</span>
               <span class="option">브라운 / 55</span>
             </div>
-          </div>
+          </a>
           <div class="my-recent-product-gifts">
             <span class="gifts-item"><strong>[사은품]</strong>브랜드명 사은품명-1개 (2개) <em>* 소진</em></span>
             <span class="gifts-item"><strong>[사은품]</strong>브랜드명 사은품명-1개 (2개)</span>
