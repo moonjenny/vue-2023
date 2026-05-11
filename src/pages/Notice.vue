@@ -58,13 +58,15 @@
         </li>
       </ul>
 
-      <!-- 검색 결과가 없을 때 -->
-      <div class="nolist" v-if="filteredItems.length === 0 && searchKeyword">
-        <span>검색 결과가 없습니다.</span>
-      </div>
-
-      <div class="nolist" v-if="filteredItems.length === 0 && !searchKeyword">
-        <span>등록된 공지가 없습니다.</span>
+      <div class="nolist" v-if="filteredItems.length === 0">
+        <span>
+          <!-- 검색 결과가 없을 때 -->
+          <template v-if="searchKeyword">
+            <strong class="text-secondary">{{ searchKeyword }}</strong>(으)로 등록된 공지가 없습니다.
+          </template>
+          <!-- 등록된 공지 없을 때 -->
+          <template v-else>등록된 공지가 없습니다.</template>
+        </span>
       </div>
 
     </article>
@@ -178,35 +180,30 @@ export default {
   }
 
   .tab {
-    margin:40px 0;
+    margin:24px 0;
     padding:0 20px;
     ul {
       display: flex;
       flex-wrap: wrap;
       li {
-        display: initial;
-        flex-shrink: 1;
-        flex-grow: 0;
-        flex-basis: 33.3333%;
-        border: 1px solid #eeeeee;
-        margin-top: -1px;
-        margin-left: -1px;
+        flex-basis: calc(100% / 3);
         button {
           display:block;
           width:100%;
-          padding: 10px 10px 11px;
+          padding: 15px 10px;
           font-size:16px;
+          line-height: 20px;
           text-align: center;
-          color: #111;
+          color: #999;
+          border-bottom: 1px solid #eee;
           background-color: #fff;
         }
         &.active {
-          border-color:#111;
           z-index:1;
           button {
-            color:#fff;
-            background:#111;
-            font-weight: 600;
+            color:#000;
+            border-bottom: 2px solid #111;
+            font-weight: 500;
           }
         }
       }
@@ -234,21 +231,24 @@ export default {
           display:flex;
           justify-content: space-between;
           align-items: flex-start;
-          gap: 15px;
-          padding:16px 0;
+          gap: 8px;
+          padding:24px 0;
           cursor: pointer;
           .label {
-            width: 60px;
-            font-size:12px;
-            color:#999;
+            width: 64px;
+            font-size:14px;
+            line-height: 20px;
+            color:#111;
           }
           .title {
             flex: 3 1 auto;
             font-size:14px;
+            font-weight: 400;
+            line-height: 20px;
             .date {
-              margin:4px 0 0;
-              font-size:12px;
-              color:#999;
+              margin:12px 0 0;
+              font-size:14px;
+              color:#666;
             }
           }
           .btn-more {
@@ -263,12 +263,14 @@ export default {
           }
         }
         .subtext {
-          padding:16px;
+          padding:24px 20px;
           font-size:14px;
-          border-top:1px solid #ccc;
+          border-top:1px solid #eee;
           background-color:#f6f6f6;
           p{
-            margin:6px 0;
+            margin:4px 0;
+            color: #666;
+            font-size: 14px;
             line-height: 20px;
           }
         }
@@ -289,7 +291,7 @@ export default {
     }
   }
   .text-secondary {
-    color:#FF2A00;
+    color:#ff2a00;
   }
 }
 
