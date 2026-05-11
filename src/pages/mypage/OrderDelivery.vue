@@ -54,6 +54,7 @@ const orders = ref([
     hasCancelButton: true, // 첫 번째 주문은 주문 전체 취소 버튼이 있도록
     products: [
       {
+        link: '/vue-2023/mypage/orderdetail/',
         thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
@@ -84,6 +85,7 @@ const orders = ref([
         ]
       },
       {
+        link: '/vue-2023/mypage/orderdetail/',
         thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-01.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
@@ -107,6 +109,7 @@ const orders = ref([
     hasCancelButton: false, // 두 번째 주문은 주문 전체 취소 버튼이 없도록
     products: [
       {
+        link: '/vue-2023/mypage/orderdetail/',
         thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
@@ -132,6 +135,7 @@ const orders = ref([
     hasCancelButton: false, // 두 번째 주문은 주문 전체 취소 버튼이 없도록
     products: [
       {
+        link: '/vue-2023/mypage/orderdetail/',
         thumb: 'https://raw.githubusercontent.com/moonjenny/vue-2023/main/src/assets/images/main/thumb-02.png',
         brand: 'LYNN',
         name: '클래식 크롭 테일러드 자켓',
@@ -201,7 +205,7 @@ const orders = ref([
       </div>
 
       <div v-for="(product, productIndex) in order.products" :key="productIndex" class="my-order-product-item">
-        <div v-if="product.thumb" class="my-order-product-thumb">
+        <a :href="product.link" v-if="product.thumb" class="my-order-product-thumb">
           <picture><img :src="product.thumb"></picture>
           <div class="my-order-product-thumb-info">
             <span class="brand">{{ product.brand }}</span>
@@ -214,7 +218,7 @@ const orders = ref([
               </span>
             </div>
           </div>
-        </div>
+        </a>
 
         <div v-if="product.gifts && product.gifts.length > 0" class="my-order-product-gifts">
           <span v-for="(gift, giftIndex) in product.gifts" :key="giftIndex" class="gifts-item">
