@@ -1,7 +1,7 @@
 <script setup>
 // 적립금
 import { ref, watch, onMounted, computed } from 'vue'; // computed 임포트 추가
-import { format, subMonths, subYears } from 'date-fns';
+import { format, subMonths, subYears, addYears, subDays, differenceInDays } from 'date-fns'; // addYears, subDays,differenceInDays 추가
 import { ko } from 'date-fns/locale';
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
@@ -19,20 +19,21 @@ const selectedType = ref('전체');
 const searchQuery = ref('');
 
 // 더미 적립금 내역 데이터 (실제 데이터는 API 호출로 받아와야 합니다)
-// 현재 날짜(2025년 6월 18일)를 기준으로 날짜 데이터 조정
+// 현재 날짜(2026년 6월 18일)를 기준으로 날짜 데이터 조정
 const mileageHistory = ref([
-  { id: 1, date: '20250615', description: '상품 구매 적립', amount: 3000, type: '적립', detail: '주문 (주문번호)' },
-  { id: 2, date: '20250610', description: '자동혜택 (자동혜택지급명)', amount: -3000, type: '적립취소', detail: '자동혜택 (자동혜택지급명)' },
-  { id: 3, date: '20250605', description: '수동혜택 (수동혜택지급명)', amount: -10000, type: '사용', detail: '수동혜택 (수동혜택지급명)' },
-  { id: 4, date: '20250528', description: '쿠폰 (쿠폰명)', amount: 10000, type: '사용취소', detail: '쿠폰 (쿠폰명)' },
-  { id: 5, date: '20250520', description: '유효기간 종료 소멸', amount: -10000, type: '소멸', detail: '유효기간 종료 소멸' },
-  { id: 6, date: '20250515', description: '차감사유', amount: -10000, type: '차감', detail: '차감사유' },
-  { id: 7, date: '20250430', description: '상품 구매 적립', amount: 1500, type: '적립', detail: '상품 구매 적립' },
-  { id: 8, date: '20250425', description: '이벤트 참여 적립', amount: 2000, type: '적립', detail: '이벤트 참여 적립' },
-  { id: 9, date: '20250320', description: '기타 적립', amount: 500, type: '적립', detail: '관리자 수동 적립' },
-  { id: 10, date: '20250310', description: '적립금 사용', amount: -2000, type: '사용', detail: '온라인 결제' },
-  { id: 11, date: '20250228', description: '유효기간 종료 소멸', amount: -5000, type: '소멸', detail: '정책에 따른 소멸' },
-  { id: 12, date: '20250215', description: '환불 적립금', amount: 1000, type: '적립', detail: '환불 (주문번호)' },
+  { id: 1, date: '20260615', description: '상품 구매 적립', amount: 3000, type: '적립', detail: '주문 (주문번호)' },
+  { id: 2, date: '20260610', description: '자동혜택 (자동혜택지급명)', amount: -3000, type: '적립취소', detail: '자동혜택 (자동혜택지급명)' },
+  { id: 3, date: '20260605', description: '수동혜택 (수동혜택지급명)', amount: -10000, type: '사용', detail: '수동혜택 (수동혜택지급명)' },
+  { id: 4, date: '20260528', description: '쿠폰 (쿠폰명)', amount: 10000, type: '사용취소', detail: '쿠폰 (쿠폰명)' },
+  { id: 5, date: '20260520', description: '유효기간 종료 소멸', amount: -10000, type: '소멸', detail: '유효기간 종료 소멸' },
+  { id: 6, date: '20260515', description: '차감사유', amount: -10000, type: '차감', detail: '차감사유' },
+  { id: 7, date: '20260511', description: '주문', amount: 3000, type: '적립', detail: '주문' },
+  { id: 8, date: '20260430', description: '상품 구매 적립', amount: 1500, type: '적립', detail: '상품 구매 적립' },
+  { id: 9, date: '20260425', description: '이벤트 참여 적립', amount: 2000, type: '적립', detail: '이벤트 참여 적립' },
+  { id: 10, date: '20260320', description: '기타 적립', amount: 500, type: '적립', detail: '관리자 수동 적립' },
+  { id: 11, date: '20260310', description: '적립금 사용', amount: -2000, type: '사용', detail: '온라인 결제' },
+  { id: 12, date: '20260228', description: '유효기간 종료 소멸', amount: -5000, type: '소멸', detail: '정책에 따른 소멸' },
+  { id: 13, date: '20250515', description: '환불 적립금', amount: 1000, type: '적립', detail: '환불 (주문번호)' },
 ]);
 
 // 현재 보여줄 적립금 내역의 개수
@@ -128,6 +129,24 @@ onMounted(() => {
   selectPeriod('3개월');
 });
 
+// 소멸예정일 계산 함수
+const getExpireDate = (item) => {
+  const baseDate = new Date(
+    parseInt(item.date.substring(0, 4)),
+    parseInt(item.date.substring(4, 6)) - 1,
+    parseInt(item.date.substring(6, 8))
+  );
+  return subDays(addYears(baseDate, 1), 1); // 발생일 + 1년 - 1일
+};
+
+// 소멸예정일 강조 여부 판단 함수
+const isExpireSoon = (item) => {
+  const expireDate = getExpireDate(item);
+  const today = new Date();
+  const diff = differenceInDays(expireDate, today);
+  return diff <= 30 && diff >= 0; // 30일 이내 남았을 때 강조
+};
+
 </script>
 
 <template>
@@ -182,8 +201,32 @@ onMounted(() => {
         <div v-for="item in paginatedMileageHistory" :key="item.id" class="mileage-item">
           <div class="item-header">
             <p class="detail">
-              {{ item.detail }}
-              <span class="date"><span>발생일</span> {{ format(new Date(parseInt(item.date.substring(0, 4)), parseInt(item.date.substring(4, 6)) - 1, parseInt(item.date.substring(6, 8))), 'yyyy-MM-dd') }}</span>
+              <template v-if="item.detail === '주문'">
+                <span>{{ item.detail }}</span>
+                <a :href="`/mypage/orderdetail/${item.id}`" class="order-link">(<em>주문번호</em>)</a>
+              </template>
+              <template v-else>
+                <span>{{ item.detail }}</span>
+              </template>
+              <!-- 발생일 -->
+              <span class="date">
+                <span>발생일</span>
+                {{
+                  format(
+                    new Date(
+                      parseInt(item.date.substring(0, 4)),
+                      parseInt(item.date.substring(4, 6)) - 1,
+                      parseInt(item.date.substring(6, 8))
+                    ),
+                    'yyyy-MM-dd'
+                  )
+                }}
+              </span>
+              <!-- 소멸예정일: 발생일로부터 1년 후 - 1일 -->
+              <span class="date" :class="{ 'expire-soon': isExpireSoon(item) }">
+                <span>소멸예정일</span>
+                {{ format(getExpireDate(item), 'yyyy-MM-dd') }}
+              </span>
             </p>
             <p :class="['amount', { 'positive': item.amount > 0, 'negative': item.amount < 0 }]">
               {{ item.amount > 0 ? '+' : '' }}{{ item.amount.toLocaleString() }}
@@ -405,16 +448,31 @@ onMounted(() => {
 
         .detail {
           display: flex;
-          flex-direction: column;
-          gap: 12px;
+          flex-wrap: wrap;
+          gap: 12px 4px;
           font-size: 14px;
           color: #111;
           flex-grow: 1;
           .date {
+            width: 100%;
             font-size: 14px;
             color: #666;
             span {
               color: #111; /* "발생일" 텍스트 색상 */
+            }
+            &.expire-soon {
+              color: #111;
+              font-weight: 600;
+              span {
+                font-weight: 400;
+                color: #FF2A00;
+              }
+            }
+          }
+          .order-link {
+            em {
+
+              color: #5D76FF;
             }
           }
         }

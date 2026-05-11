@@ -30,16 +30,16 @@ const refundAccount = ref({
 
 // 예치금 내역 더미 데이터
 const depositHistory = ref([
-  { id: 1, date: '20250615', type: '예치금 적립', amount: 30000, detail: '주문 (주문번호)', classification: '적립' },
-  { id: 2, date: '20250610', type: '예치금 사용', amount: -10000, detail: '주문 (주문번호)', classification: '사용' },
-  { id: 3, date: '20250601', type: '환불 계좌로 출금', amount: -50000, detail: '출금 (환불계좌)', classification: '출금' },
-  { id: 4, date: '20250528', type: '상품 구매 환불', amount: 15000, detail: '환불 (주문번호)', classification: '환불' },
-  { id: 5, date: '20250520', type: '예치금 적립', amount: 20000, detail: '이벤트 참여', classification: '적립' },
-  { id: 6, date: '20250410', type: '환불 계좌로 출금', amount: -25000, detail: '출금 (환불계좌)', classification: '출금' },
-  { id: 7, date: '20250325', type: '상품 구매 환불', amount: 5000, detail: '환불 (주문번호)', classification: '환불' },
-  { id: 8, date: '20250301', type: '예치금 사용', amount: -3000, detail: '주문 (주문번호)', classification: '사용' },
-  { id: 9, date: '20250210', type: '예치금 적립', amount: 10000, detail: '관리자 수동 적립', classification: '적립' },
-  { id: 10, date: '20250101', type: '예치금 사용', amount: -1000, detail: '온라인 결제', classification: '사용' },
+  { id: 1, date: '20260615', type: '예치금 적립', amount: 30000, detail: '주문 (주문번호)', classification: '적립' },
+  { id: 2, date: '20260610', type: '예치금 사용', amount: -10000, detail: '주문 (주문번호)', classification: '사용' },
+  { id: 3, date: '20260601', type: '환불 계좌로 출금', amount: -50000, detail: '출금상세보기', classification: '출금' },
+  { id: 4, date: '20260528', type: '상품 구매 환불', amount: 15000, detail: '환불 (주문번호)', classification: '환불' },
+  { id: 5, date: '20260520', type: '예치금 적립', amount: 20000, detail: '이벤트 참여', classification: '적립' },
+  { id: 6, date: '20260410', type: '환불 계좌로 출금', amount: -25000, detail: '출금상세보기', classification: '출금' },
+  { id: 7, date: '20260325', type: '상품 구매 환불', amount: 5000, detail: '환불 (주문번호)', classification: '환불' },
+  { id: 8, date: '20260301', type: '예치금 사용', amount: -3000, detail: '주문 (주문번호)', classification: '사용' },
+  { id: 9, date: '20260210', type: '예치금 적립', amount: 10000, detail: '관리자 수동 적립', classification: '적립' },
+  { id: 10, date: '20260101', type: '예치금 사용', amount: -1000, detail: '온라인 결제', classification: '사용' },
 ]);
 
 // 현재 보여줄 내역의 개수
@@ -218,7 +218,23 @@ const deleteRefundAccount = () => {
         <div v-for="item in paginatedDepositHistory" :key="item.id" class="deposit-item">
           <div class="item-header">
             <div class="item-info">
-              <p class="detail">{{ item.detail }}</p>
+              <p class="detail">
+                <!-- detail에 '주문번호'가 포함된 경우 -->
+                <template v-if="item.detail.includes('주문번호')">
+                  {{ item.detail.replace('(주문번호)', '') }}
+                  <a :href="`/mypage/orderdetail/${item.id}`" class="order-link">(<em>주문번호</em>)</a>
+                </template>
+
+                <!-- detail이 '출금상세보기'인 경우 -->
+                <template v-else-if="item.detail === '출금상세보기'">
+                  <a :href="`/mypage/depositdetail/${item.id}`" class="withdraw-link"><em>출금상세보기</em></a>
+                </template>
+
+                <!-- 그 외 detail -->
+                <template v-else>
+                  {{ item.detail }}
+                </template>
+              </p>
               <p class="date"><span>발생일</span> {{ format(new Date(parseInt(item.date.substring(0, 4)), parseInt(item.date.substring(4, 6)) - 1, parseInt(item.date.substring(6, 8))), 'yyyy-MM-dd') }}</p>
             </div>
             <div class="item-point">
@@ -547,6 +563,12 @@ const deleteRefundAccount = () => {
         .detail {
           font-size: 14px;
           color: #111;
+          a {
+            em {
+              color: #5D76FF;
+              text-decoration: underline;
+            }
+          }
         }
         .date {
           display: flex;
